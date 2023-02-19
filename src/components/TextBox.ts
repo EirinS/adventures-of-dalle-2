@@ -15,12 +15,13 @@ export class TextBox extends Container {
   private boxHeight: number = 150;
   private boxWidth: number = Manager.width;
 
-  private static readonly defaultStyle: TextStyle = new TextStyle({
+  private defaultStyle: TextStyle = new TextStyle({
     fontFamily: "Arial",
     fontSize: 34,
     fill: 0x000000,
     align: "left",
     lineHeight: 50,
+    wordWrap: true,
   });
 
   constructor(text: string) {
@@ -33,7 +34,8 @@ export class TextBox extends Container {
     this.background.endFill();
     this.addChild(this.background);
 
-    this.text = new Text(text, TextBox.defaultStyle);
+    this.defaultStyle.wordWrapWidth = this.boxWidth - this.margin * 2;
+    this.text = new Text(text, this.defaultStyle);
     this.text.x = this.margin;
     this.text.y = Manager.height - this.boxHeight + this.margin;
     this.addChild(this.text);
