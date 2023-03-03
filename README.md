@@ -3,26 +3,28 @@
 ## Visual elements
 
 ### TODO
-1. Open book (blank)
-2. Open book (text)
-3. Garden (without key)
-4. Kitchen (combination - image editing)
-5. Flashlight icon
-6. Drawer in bedroom with color codes
+* [x] Open book (blank)
+* [x] Open book (text)
+* [ ] Garden (without key)
+* [ ] Kitchen (combination - image editing)
+* [ ] Flashlight icon
+* [x] Drawer in bedroom with color codes
 
 ## Backlog
-1. Crystal ball (hints)
-2. Open cupboard when getting flashlight
+* [ ] Something inside the safe 
+* [ ] Crystal ball (hints)
+* [ ] Generate flashlight in a room
+* [ ] 
 
 
 ## Game elements
 
 ### TODO
-1. Connect the dots game
-2. Inventory
-3. Use items from inventory
-3. Configure all hit-boxes 
-4. Create all text in textboxes
+* [ ] Connect the dots game
+* [ ] Inventory
+* [ ] Use items from inventory
+* [ ] Configure all hit-boxes 
+* [ ] Create all text in textboxes
 
 ### Backlog
 
