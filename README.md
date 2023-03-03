@@ -9,12 +9,12 @@
 * [ ] Kitchen (combination - image editing)
 * [ ] Flashlight icon
 * [x] Drawer in bedroom with color codes
+* [ ] Bedroom (combination - image editing)
 
 ## Backlog
 * [ ] Something inside the safe 
 * [ ] Crystal ball (hints)
 * [ ] Generate flashlight in a room
-* [ ] 
 
 
 ## Game elements
