@@ -5,8 +5,7 @@ export const manifest: ResolverManifest = {
     {
       name: "office",
       assets: {
-        "panda-office": "./office/office.png",
-        livingroom: "./livingroom/livingroom.png",
+        office: "./office/office.png",
       },
     },
   ],

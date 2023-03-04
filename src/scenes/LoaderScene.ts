@@ -1,7 +1,7 @@
 import { Container, Graphics, Assets } from "pixi.js";
 import { manifest } from "../assets";
-import { LivingroomScene } from "./LivingroomScene";
 import { IScene, Manager } from "./Manager";
+import { OfficeScene } from "./OfficeScene";
 
 export class LoaderScene extends Container implements IScene {
   private loaderBar: Container;
@@ -47,6 +47,6 @@ export class LoaderScene extends Container implements IScene {
   }
 
   private gameLoaded(): void {
-    Manager.changeScene(new LivingroomScene());
+    Manager.changeScene(new OfficeScene());
   }
 }

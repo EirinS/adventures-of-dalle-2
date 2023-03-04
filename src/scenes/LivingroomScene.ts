@@ -1,16 +1,8 @@
-import { Container, Sprite, Point } from "pixi.js";
-import { IScene, Manager } from "./Manager";
+import { Sprite } from "pixi.js";
+import { BaseScene } from "./BaseScene";
 
-export class LivingroomScene extends Container implements IScene {
-  private livingroom: Sprite;
+export class LivingroomScene extends BaseScene {
   constructor() {
-    super();
-
-    this.livingroom = Sprite.from("livingroom");
-    this.livingroom.scale.set(Math.min(Manager.width / this.livingroom.texture.width, 1));
-    this.livingroom.anchor.set(0, 0);
-    this.livingroom.position = new Point(0, 0);
-    this.addChild(this.livingroom);
-
+    super(Sprite.from("livingroom"));
   }
 }

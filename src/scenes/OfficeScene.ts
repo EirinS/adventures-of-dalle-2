@@ -1,70 +1,59 @@
-import { Container, Sprite, Point } from "pixi.js";
+import { Container, Sprite } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { NavigationArrow } from "../components/NavigationArrow";
-import { TextBox } from "../components/TextBox";
-import { LivingroomScene } from "./LivingroomScene";
-import { IScene, Manager } from "./Manager";
+import { BaseScene } from "./BaseScene";
+import { KitchenScene } from "./KitchenScene";
 
-export class OfficeScene extends Container implements IScene {
-  private office: Sprite;
+export class OfficeScene extends BaseScene {
   private hitBoxes: Container[] = [];
-  private textBox: TextBox;
   constructor() {
-    super();
+    super(Sprite.from("office"));
 
-    this.office = Sprite.from("panda-office");
-    this.office.scale.set(Math.min(Manager.width / this.office.texture.width, 1));
-    this.office.anchor.set(0, 0);
-    this.office.position = new Point(0, 0);
-    this.addChild(this.office);
-
-    const clock = new HitBox(1612, 102, 50, undefined);
+    const clock = new HitBox(1612, 102, 50);
     clock.on("pointertap", this.showTime);
     this.hitBoxes.push(clock);
 
-    const computer = new HitBox(680, 300, 190, 160);
-    computer.on("pointertap", this.clickComputer);
-    this.hitBoxes.push(computer);
+    const diploma = new HitBox(1280, 50, 190, 240);
+    diploma.on("pointertap", this.clickDiploma);
+    this.hitBoxes.push(diploma);
 
-    const firstCabinet = new HitBox(1660, 300, 130, 180);
+    const firstCabinet = new HitBox(1665, 400, 120, 110, 1);
     firstCabinet.on("pointertap", this.clickFirstCabinet);
     this.hitBoxes.push(firstCabinet);
 
-    const secondCabinet = new HitBox(1640, 480, 150, 140);
+    const secondCabinet = new HitBox(1665, 540, 120, 115, 1);
     secondCabinet.on("pointertap", this.clickSecondCabinet);
     this.hitBoxes.push(secondCabinet);
 
-    const thirdCabinet = new HitBox(1640, 620, 150, 140, 0);
+    const thirdCabinet = new HitBox(1665, 670, 120, 115, 1);
     thirdCabinet.on("pointertap", this.clickThirdCabinet);
     this.hitBoxes.push(thirdCabinet);
 
-    const fourthCabinet = new HitBox(1640, 760, 150, 140, 0);
+    const fourthCabinet = new HitBox(1665, 820, 120, 125, 2);
     fourthCabinet.on("pointertap", this.clickFourthCabinet);
     this.hitBoxes.push(fourthCabinet);
 
-    const noteBook = new HitBox(370, 600, 60, 100, 70);
+    // Add notebook in sections because of perspective
+    const noteBook = new HitBox(780, 640, 40, 180, 70);
+    const noteBook1 = new HitBox(860, 650, 40, 180, 70);
+    const noteBook2 = new HitBox(920, 660, 40, 180, 70);
     noteBook.on("pointertap", this.clickNotebook);
+    noteBook1.on("pointertap", this.clickNotebook);
     this.hitBoxes.push(noteBook);
+    this.hitBoxes.push(noteBook1);
+    this.hitBoxes.push(noteBook2);
 
-    const navigation = new NavigationArrow(1750, 950, new LivingroomScene());
+    const iPad = new HitBox(480, 720, 250, 70, 0);
+    iPad.on("pointertap", this.clickIPad);
+    this.hitBoxes.push(iPad);
+
+    const navigation = new NavigationArrow(1750, 950, new KitchenScene());
     this.addChild(navigation);
 
     this.hitBoxes.forEach((hitBox) => {
       this.addChild(hitBox);
     });
-
-    this.textBox = new TextBox("");
-    this.textBox.interactive = true;
   }
-
-  public addText = (text: string) => {
-    this.textBox.setText(text);
-    this.addChild(this.textBox);
-
-    this.textBox.on("pointertap", () => {
-      this.removeChild(this.textBox);
-    });
-  };
 
   public clickNotebook = () => {
     this.addText(
@@ -96,7 +85,11 @@ export class OfficeScene extends Container implements IScene {
     );
   };
 
-  public clickComputer = () => {
+  public clickDiploma = () => {
+    this.addText("Diploma of Private Investigation");
+  };
+
+  public clickIPad = () => {
     this.addText("That one is broken. Leave it alone.");
   };
 
