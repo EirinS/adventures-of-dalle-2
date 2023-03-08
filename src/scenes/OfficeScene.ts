@@ -1,8 +1,8 @@
 import { Container, Sprite } from "pixi.js";
 import { HitBox } from "../components/HitBox";
-import { NavigationArrow } from "../components/NavigationArrow";
+import { Direction, NavigationArrow } from "../components/NavigationArrow";
+import { livingroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
-import { KitchenScene } from "./KitchenScene";
 
 export class OfficeScene extends BaseScene {
   private hitBoxes: Container[] = [];
@@ -47,12 +47,19 @@ export class OfficeScene extends BaseScene {
     iPad.on("pointertap", this.clickIPad);
     this.hitBoxes.push(iPad);
 
-    const navigation = new NavigationArrow(1750, 950, new KitchenScene());
-    this.addChild(navigation);
-
     this.hitBoxes.forEach((hitBox) => {
       this.addChild(hitBox);
     });
+  }
+
+  public loadNavigation() {
+    const navigation = new NavigationArrow(
+      1750,
+      950,
+      livingroom,
+      Direction.Right
+    );
+    this.addChild(navigation);
   }
 
   public clickNotebook = () => {
@@ -95,6 +102,8 @@ export class OfficeScene extends BaseScene {
 
   public showTime = () => {
     const date = new Date();
-    this.addText(`The time is ${date.toTimeString().split(" ")[0].slice(0, -3)}`);
+    this.addText(
+      `The time is ${date.toTimeString().split(" ")[0].slice(0, -3)}`
+    );
   };
 }

@@ -16,7 +16,11 @@ export class Manager {
     return Manager._height;
   }
 
-  public static initialize(width: number, height: number, background: number): void {
+  public static initialize(
+    width: number,
+    height: number,
+    background: number
+  ): void {
     Manager._width = width;
     Manager._height = height;
 
@@ -38,11 +42,20 @@ export class Manager {
 
   public static resize(): void {
     // current screen size
-    const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    const screenWidth = Math.max(
+      document.documentElement.clientWidth,
+      window.innerWidth || 0
+    );
+    const screenHeight = Math.max(
+      document.documentElement.clientHeight,
+      window.innerHeight || 0
+    );
 
     // uniform scale for our game
-    const scale = Math.min(screenWidth / Manager.width, screenHeight / Manager.height);
+    const scale = Math.min(
+      screenWidth / Manager.width,
+      screenHeight / Manager.height
+    );
 
     // the "uniformly englarged" size for our game
     const enlargedWidth = Math.floor(scale * Manager.width);
@@ -58,8 +71,10 @@ export class Manager {
     if (Manager.app.view.style) {
       Manager.app.view.style.width = `${enlargedWidth}px`;
       Manager.app.view.style.height = `${enlargedHeight}px`;
-      viewWrapper.style.marginLeft = viewWrapper.style.marginRight = `${horizontalMargin}px`;
-      viewWrapper.style.marginTop = viewWrapper.style.marginBottom = `${verticalMargin}px`;
+      viewWrapper.style.marginLeft =
+        viewWrapper.style.marginRight = `${horizontalMargin}px`;
+      viewWrapper.style.marginTop =
+        viewWrapper.style.marginBottom = `${verticalMargin}px`;
     }
   }
 
@@ -68,7 +83,7 @@ export class Manager {
     // Remove and destroy old scene... if we had one..
     if (Manager.currentScene) {
       Manager.app.stage.removeChild(Manager.currentScene);
-      Manager.currentScene.destroy();
+      // Manager.currentScene.destroy();
     }
 
     // Add the new one
@@ -79,5 +94,4 @@ export class Manager {
 
 // This could have a lot more generic functions that you force all your scenes to have. Update is just an example.
 // Also, this could be in its own file...
-export interface IScene extends DisplayObject {
-}
+export interface IScene extends DisplayObject {}

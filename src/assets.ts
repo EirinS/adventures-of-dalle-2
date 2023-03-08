@@ -13,6 +13,34 @@ export const manifest: ResolverManifest = {
       },
     },
     {
+      name: "livingroom",
+      assets: {
+        livingroom: "./livingroom/livingroom.png",
+        showSafe: "./livingroom/safe.png",
+      },
+    },
+    {
+      name: "garden",
+      assets: {
+        garden: "./garden/garden.png",
+        removeKey: "./garden/no_key.png",
+      },
+    },
+    {
+      name: "library",
+      assets: {
+        library: "./library/library.png",
+      },
+    },
+    {
+      name: "bedroom",
+      assets: {
+        bedroom: "./bedroom/bedroom.png",
+        openDrawer: "./bedroom/open_drawer.png",
+        openPumpkin: "./bedroom/open_pumpkin.png",
+      },
+    },
+    {
       name: "office",
       assets: {
         office: "./office/office.png",

@@ -1,7 +1,7 @@
 import { Container, Graphics, Assets } from "pixi.js";
 import { manifest } from "../assets";
+import { loadRooms, office } from "../state/rooms";
 import { IScene, Manager } from "./Manager";
-import { OfficeScene } from "./OfficeScene";
 
 export class LoaderScene extends Container implements IScene {
   private loaderBar: Container;
@@ -28,7 +28,6 @@ export class LoaderScene extends Container implements IScene {
     this.loaderBar.position.x = (Manager.width - this.loaderBar.width) / 2;
     this.loaderBar.position.y = (Manager.height - this.loaderBar.height) / 2;
     this.addChild(this.loaderBar);
-
     this.initializeLoader().then(() => {
       this.gameLoaded();
     });
@@ -47,6 +46,7 @@ export class LoaderScene extends Container implements IScene {
   }
 
   private gameLoaded(): void {
-    Manager.changeScene(new OfficeScene());
+    loadRooms();
+    Manager.changeScene(office);
   }
 }
