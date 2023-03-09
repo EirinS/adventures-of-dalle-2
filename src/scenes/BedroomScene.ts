@@ -1,24 +1,30 @@
 import { Sprite } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { library, livingroom } from "../state/rooms";
+import { book, library, livingroom, pumpkin } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
+import { Manager } from "./Manager";
 
 export class BedroomScene extends BaseScene {
-  private unOpenedPumpkin: any;
-  private lockedDrawer: any;
+  private unOpenedPumpkinHitbox: any;
+  private lockedDrawerHitbox: any;
   constructor() {
     super(Sprite.from("bedroom"));
 
     const pumpkin = new HitBox(65, 485, 150, 170, 0, false);
     this.openPumpkin = this.openPumpkin.bind(this);
     pumpkin.on("pointertap", this.openPumpkin);
-    this.unOpenedPumpkin = this.addChild(pumpkin);
+    this.unOpenedPumpkinHitbox = this.addChild(pumpkin);
 
     const drawer = new HitBox(-30, 845, 410, 90, -25, false);
     this.openDrawer = this.openDrawer.bind(this);
     drawer.on("pointertap", this.openDrawer);
-    this.lockedDrawer = this.addChild(drawer);
+    this.lockedDrawerHitbox = this.addChild(drawer);
+
+    const book = new HitBox(1368, 385, 80, 125, 0, false);
+    this.openBook = this.openBook.bind(this);
+    book.on("pointertap", this.openBook);
+    this.addChild(book);
   }
 
   public loadNavigation() {
@@ -28,7 +34,7 @@ export class BedroomScene extends BaseScene {
 
   private openPumpkin() {
     this.addCutout("openPumpkin", 25, 448);
-    this.removeChild(this.unOpenedPumpkin);
+    this.removeChild(this.unOpenedPumpkinHitbox);
     const pumpkin = new HitBox(65, 550, 150, 120, 0, false);
     this.lookIntoPumpkin = this.lookIntoPumpkin.bind(this);
     pumpkin.on("pointertap", this.lookIntoPumpkin);
@@ -36,11 +42,15 @@ export class BedroomScene extends BaseScene {
   }
 
   private lookIntoPumpkin() {
-    console.log("look into pumpkin");
+    Manager.changeScene(pumpkin);
   }
 
   private openDrawer() {
-    this.removeChild(this.lockedDrawer);
+    this.removeChild(this.lockedDrawerHitbox);
     this.addCutout("openDrawer", 0, 640);
+  }
+
+  private openBook() {
+    Manager.changeScene(book);
   }
 }

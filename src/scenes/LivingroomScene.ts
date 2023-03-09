@@ -1,8 +1,9 @@
 import { Sprite } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { bedroom, kitchen } from "../state/rooms";
+import { bedroom, kitchen, safe } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
+import { Manager } from "./Manager";
 
 export class LivingroomScene extends BaseScene {
   private paintingHitbox: any;
@@ -23,5 +24,13 @@ export class LivingroomScene extends BaseScene {
   private removePainting() {
     this.removeChild(this.paintingHitbox);
     this.addCutout("showSafe", 913, 317);
+    const safe = new HitBox(930, 340, 155, 110, 0);
+    this.goToSafe = this.goToSafe.bind(this);
+    safe.on("pointertap", this.goToSafe);
+    this.paintingHitbox = this.addChild(safe);
+  }
+
+  private goToSafe() {
+    Manager.changeScene(safe);
   }
 }

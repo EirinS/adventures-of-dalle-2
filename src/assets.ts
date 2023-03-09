@@ -46,5 +46,31 @@ export const manifest: ResolverManifest = {
         office: "./office/office.png",
       },
     },
+    {
+      name: "computer",
+      assets: {
+        computer: "./computer/computer.png",
+      },
+    },
+    {
+      name: "pumpkin",
+      assets: {
+        pumpkin: "./pumpkin/empty.png",
+        filled: "./pumpkin/filled.png",
+      },
+    },
+    {
+      name: "safe",
+      assets: {
+        safe: "./safe/safe.png",
+      },
+    },
+    {
+      name: "book",
+      assets: {
+        book: "./book/book.png",
+        riddle: "./book/riddle.png",
+      },
+    },
   ],
 };
