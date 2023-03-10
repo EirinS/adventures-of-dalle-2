@@ -12,7 +12,7 @@ export class GardenScene extends BaseScene {
 
     const key = new HitBox(270, 930, 40, 50, 0, false);
     this.takeKey = this.takeKey.bind(this);
-    key.on("pointertap", this.takeKey);
+    key.addClickAction(this.takeKey);
     this.keyHitbox = this.addChild(key);
   }
 

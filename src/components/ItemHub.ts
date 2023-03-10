@@ -37,7 +37,7 @@ export class ItemHub extends Container {
     }
   }
 
-  private deselectItem(item: string) {
+  public deselectItem(item: string) {
     if (item) {
       if (this.selectedItem === item) this.selectedItem = "";
       this.sprites[item].texture = Texture.from(item);

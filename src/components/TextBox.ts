@@ -30,7 +30,13 @@ export class TextBox extends Container {
     this.background = new Graphics();
     this.background.beginFill(0xfbe07f);
     this.background.lineStyle(this.border, 0xebc961, 1, 0);
-    this.background.drawRoundedRect(0, Manager.height - this.boxHeight, this.boxWidth, this.boxHeight, 20);
+    this.background.drawRoundedRect(
+      0,
+      Manager.height - this.boxHeight,
+      this.boxWidth,
+      this.boxHeight,
+      20
+    );
     this.background.endFill();
     this.addChild(this.background);
 

@@ -1,7 +1,9 @@
 import { Graphics, Container, Circle, Rectangle, Point } from "pixi.js";
+import { itemHub } from "../state/rooms";
 
 export class HitBox extends Container {
   private graphics: Graphics;
+  private actions: { [item: string]: () => void };
 
   constructor(
     x: number,
@@ -17,6 +19,7 @@ export class HitBox extends Container {
     this.graphics.angle = angle;
     this.graphics.position = new Point(x, y);
     this.graphics.beginFill(0xff000);
+    this.actions = {};
 
     // This is a circle
     if (!height) {
@@ -35,5 +38,18 @@ export class HitBox extends Container {
 
     this.graphics.endFill();
     this.addChild(this.graphics);
+  }
+
+  // add action function to be called on click.
+  // specify which item is needed to trigger the action (defaults to no item selected needed)
+  // possible to add different actions for different items
+  public addClickAction(action: () => void, item: string = "") {
+    this.on("pointertap", this.doAction);
+    this.actions[item] = action;
+  }
+
+  private doAction() {
+    this.actions?.[itemHub.selectedItem]?.();
+    itemHub.deselectItem(itemHub.selectedItem);
   }
 }

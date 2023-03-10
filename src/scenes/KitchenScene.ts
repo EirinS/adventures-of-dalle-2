@@ -16,18 +16,18 @@ export class KitchenScene extends BaseScene {
 
     const painting = new HitBox(1200, 45, 290, 250, -3);
     this.revealPainting = this.revealPainting.bind(this);
-    painting.on("pointertap", this.revealPainting);
+    painting.addClickAction(this.revealPainting, "flashlight");
     this.paintingHitbox = this.addChild(painting);
 
     const juice = new HitBox(580, 406, 65, 155, 0);
     this.takeJuice = this.takeJuice.bind(this);
-    juice.on("pointertap", this.takeJuice);
+    juice.addClickAction(this.takeJuice);
     this.juiceHitbox = this.addChild(juice);
 
     const cupboard = new HitBox(495, 580, 160, 325, 2);
     this.openCupboard = this.openCupboard.bind(this);
     this.removeFlashlight = this.removeFlashlight.bind(this);
-    cupboard.on("pointertap", this.openCupboard);
+    cupboard.addClickAction(this.openCupboard);
     this.cupboardHitbox = this.addChild(cupboard);
   }
 
@@ -40,7 +40,7 @@ export class KitchenScene extends BaseScene {
     this.removeChild(this.cupboardHitbox);
     super.addCutout("openCupboard", 411, 565);
     const flashlight = new HitBox(530, 625, 105, 40, 8);
-    flashlight.on("pointertap", this.removeFlashlight);
+    flashlight.addClickAction(this.removeFlashlight);
     this.flashlightHitbox = this.addChild(flashlight);
   }
 

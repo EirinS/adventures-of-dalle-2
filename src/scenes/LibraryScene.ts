@@ -11,7 +11,7 @@ export class LibraryScene extends BaseScene {
 
     const computer = new HitBox(1325, 645, 75, 75, 10, false);
     this.viewComputer = this.viewComputer.bind(this);
-    computer.on("pointertap", this.viewComputer);
+    computer.addClickAction(this.viewComputer);
     this.addChild(computer);
   }
 

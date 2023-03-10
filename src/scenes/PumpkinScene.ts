@@ -11,7 +11,7 @@ export class PumpkinScene extends BaseScene {
 
     const bowl = new HitBox(500, 100, 900, 900, 0, false);
     this.fillBowl = this.fillBowl.bind(this);
-    bowl.on("pointertap", this.fillBowl);
+    bowl.addClickAction(this.fillBowl, "carton");
     this.bowlHitbox = this.addChild(bowl);
   }
 

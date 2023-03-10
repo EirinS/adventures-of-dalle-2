@@ -10,41 +10,41 @@ export class OfficeScene extends BaseScene {
     super(Sprite.from("office"));
 
     const clock = new HitBox(1612, 102, 50);
-    clock.on("pointertap", this.showTime);
+    clock.addClickAction(this.showTime);
     this.hitBoxes.push(clock);
 
     const diploma = new HitBox(1280, 50, 190, 240);
-    diploma.on("pointertap", this.clickDiploma);
+    diploma.addClickAction(this.clickDiploma);
     this.hitBoxes.push(diploma);
 
     const firstCabinet = new HitBox(1665, 400, 120, 110, 1);
-    firstCabinet.on("pointertap", this.clickFirstCabinet);
+    firstCabinet.addClickAction(this.clickFirstCabinet);
     this.hitBoxes.push(firstCabinet);
 
     const secondCabinet = new HitBox(1665, 540, 120, 115, 1);
-    secondCabinet.on("pointertap", this.clickSecondCabinet);
+    secondCabinet.addClickAction(this.clickSecondCabinet);
     this.hitBoxes.push(secondCabinet);
 
     const thirdCabinet = new HitBox(1665, 670, 120, 115, 1);
-    thirdCabinet.on("pointertap", this.clickThirdCabinet);
+    thirdCabinet.addClickAction(this.clickThirdCabinet);
     this.hitBoxes.push(thirdCabinet);
 
     const fourthCabinet = new HitBox(1665, 820, 120, 125, 2);
-    fourthCabinet.on("pointertap", this.clickFourthCabinet);
+    fourthCabinet.addClickAction(this.clickFourthCabinet);
     this.hitBoxes.push(fourthCabinet);
 
     // Add notebook in sections because of perspective
     const noteBook = new HitBox(780, 640, 40, 180, 70);
     const noteBook1 = new HitBox(860, 650, 40, 180, 70);
     const noteBook2 = new HitBox(920, 660, 40, 180, 70);
-    noteBook.on("pointertap", this.clickNotebook);
-    noteBook1.on("pointertap", this.clickNotebook);
+    noteBook.addClickAction(this.clickNotebook);
+    noteBook1.addClickAction(this.clickNotebook);
     this.hitBoxes.push(noteBook);
     this.hitBoxes.push(noteBook1);
     this.hitBoxes.push(noteBook2);
 
     const iPad = new HitBox(480, 720, 250, 70, 0);
-    iPad.on("pointertap", this.clickIPad);
+    iPad.addClickAction(this.clickIPad);
     this.hitBoxes.push(iPad);
 
     this.hitBoxes.forEach((hitBox) => {

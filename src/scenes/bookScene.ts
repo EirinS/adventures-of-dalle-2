@@ -11,7 +11,7 @@ export class BookScene extends BaseScene {
 
     const page = new HitBox(180, 30, 1500, 1000, -2, false);
     this.revealRiddle = this.revealRiddle.bind(this);
-    page.on("pointertap", this.revealRiddle);
+    page.addClickAction(this.revealRiddle, "flashlight");
     this.pageHitbox = this.addChild(page);
   }
 

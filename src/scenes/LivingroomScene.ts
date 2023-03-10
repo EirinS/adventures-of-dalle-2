@@ -12,7 +12,7 @@ export class LivingroomScene extends BaseScene {
 
     const painting = new HitBox(930, 340, 155, 110, 0);
     this.removePainting = this.removePainting.bind(this);
-    painting.on("pointertap", this.removePainting);
+    painting.addClickAction(this.removePainting);
     this.paintingHitbox = this.addChild(painting);
   }
 
@@ -26,7 +26,7 @@ export class LivingroomScene extends BaseScene {
     this.addCutout("showSafe", 913, 317);
     const safe = new HitBox(930, 340, 155, 110, 0);
     this.goToSafe = this.goToSafe.bind(this);
-    safe.on("pointertap", this.goToSafe);
+    safe.addClickAction(this.goToSafe);
     this.paintingHitbox = this.addChild(safe);
   }
 
