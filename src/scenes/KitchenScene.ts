@@ -57,7 +57,7 @@ export class KitchenScene extends BaseScene {
 
   private takeJuice() {
     this.removeChild(this.juiceHitbox);
-    collectCarton;
+    collectCarton();
     this.addCutout("removeJuice", 563, 391);
   }
 }
