@@ -49,7 +49,12 @@ export class HitBox extends Container {
   }
 
   private doAction() {
-    this.actions?.[itemHub.selectedItem]?.();
+    if (this.actions?.[itemHub.selectedItem]) {
+      this.actions[itemHub.selectedItem]();
+    } else {
+      if (itemHub.selectedItem !== "") {
+      }
+    }
     itemHub.deselectItem(itemHub.selectedItem);
   }
 }
