@@ -48,5 +48,6 @@ export class LoaderScene extends Container implements IScene {
   private gameLoaded(): void {
     loadRooms();
     Manager.changeScene(office);
+    Manager.showItemhub();
   }
 }

@@ -8,6 +8,9 @@ import { GardenScene } from "../scenes/GardenScene";
 import { BookScene } from "../scenes/bookScene";
 import { PumpkinScene } from "../scenes/pumpkinScene";
 import { ComputerScene } from "../scenes/ComputerScene";
+import { ItemHub } from "../components/ItemHub";
+
+export let itemHub: ItemHub;
 
 export let kitchen: KitchenScene;
 export let livingroom: LivingroomScene;
@@ -22,6 +25,8 @@ export let pumpkin: PumpkinScene;
 export let computer: ComputerScene;
 
 export function loadRooms() {
+  itemHub = new ItemHub();
+  itemHub.interactive = true;
   kitchen = new KitchenScene();
   livingroom = new LivingroomScene();
   office = new OfficeScene();

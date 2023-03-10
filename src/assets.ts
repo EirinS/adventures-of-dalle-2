@@ -72,5 +72,16 @@ export const manifest: ResolverManifest = {
         riddle: "./book/riddle.png",
       },
     },
+    {
+      name: "items",
+      assets: {
+        key: "./items/key.png",
+        carton: "./items/carton.png",
+        flashlight: "./items/flashlight.png",
+        keyHighlighted: "./items/key-highlighted.png",
+        cartonHighlighted: "./items/carton-highlighted.png",
+        flashlightHighlighted: "./items/flashlight-highlighted.png",
+      },
+    },
   ],
 };

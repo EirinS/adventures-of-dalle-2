@@ -3,7 +3,14 @@ import { Graphics, Container, Circle, Rectangle, Point } from "pixi.js";
 export class HitBox extends Container {
   private graphics: Graphics;
 
-  constructor(x: number, y: number, width: number, height?: number, angle = 0, show: boolean = false) {
+  constructor(
+    x: number,
+    y: number,
+    width: number,
+    height?: number,
+    angle = 0,
+    show: boolean = false
+  ) {
     super();
     this.graphics = new Graphics();
     this.graphics.interactive = true;

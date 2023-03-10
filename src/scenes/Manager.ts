@@ -1,4 +1,5 @@
 import { Application, DisplayObject } from "pixi.js";
+import { itemHub } from "../state/rooms";
 
 export class Manager {
   private constructor() {}
@@ -89,6 +90,11 @@ export class Manager {
     // Add the new one
     Manager.currentScene = newScene;
     Manager.app.stage.addChild(Manager.currentScene);
+  }
+
+  public static showItemhub() {
+    Manager.app.stage.sortableChildren = true;
+    Manager.app.stage.addChild(itemHub);
   }
 }
 
