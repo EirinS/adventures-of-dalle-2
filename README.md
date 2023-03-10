@@ -34,6 +34,7 @@
 - [ ] remove textbox on click on screen
 - [ ] remove textbox when navigating
 - [ ] default text when using wrong item?
+- [ ] deselect item on click anywhere maybe?
 
 ### Backlog
 
