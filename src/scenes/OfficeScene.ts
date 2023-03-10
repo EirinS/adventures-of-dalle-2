@@ -9,41 +9,42 @@ export class OfficeScene extends BaseScene {
   constructor() {
     super(Sprite.from("office"));
 
-    const clock = new HitBox(1612, 102, 50);
+    const clock = new HitBox(1614, 85, 55);
     clock.addClickAction(this.showTime);
     this.hitBoxes.push(clock);
 
-    const diploma = new HitBox(1280, 50, 190, 240);
+    const diploma = new HitBox(1275, 35, 200, 240);
     diploma.addClickAction(this.clickDiploma);
     this.hitBoxes.push(diploma);
 
-    const firstCabinet = new HitBox(1665, 400, 120, 110, 1);
+    const firstCabinet = new HitBox(1675, 380, 120, 110, 1);
     firstCabinet.addClickAction(this.clickFirstCabinet);
     this.hitBoxes.push(firstCabinet);
 
-    const secondCabinet = new HitBox(1665, 540, 120, 115, 1);
+    const secondCabinet = new HitBox(1675, 520, 120, 115, 1);
     secondCabinet.addClickAction(this.clickSecondCabinet);
     this.hitBoxes.push(secondCabinet);
 
-    const thirdCabinet = new HitBox(1665, 670, 120, 115, 1);
+    const thirdCabinet = new HitBox(1675, 650, 120, 115, 1);
     thirdCabinet.addClickAction(this.clickThirdCabinet);
     this.hitBoxes.push(thirdCabinet);
 
-    const fourthCabinet = new HitBox(1665, 820, 120, 125, 2);
+    const fourthCabinet = new HitBox(1675, 800, 120, 130, 2);
     fourthCabinet.addClickAction(this.clickFourthCabinet);
     this.hitBoxes.push(fourthCabinet);
 
     // Add notebook in sections because of perspective
-    const noteBook = new HitBox(780, 640, 40, 180, 70);
-    const noteBook1 = new HitBox(860, 650, 40, 180, 70);
-    const noteBook2 = new HitBox(920, 660, 40, 180, 70);
+    const noteBook = new HitBox(780, 625, 40, 200, 70);
+    const noteBook1 = new HitBox(840, 635, 40, 200, 70);
+    const noteBook2 = new HitBox(900, 640, 40, 200, 70);
     noteBook.addClickAction(this.clickNotebook);
     noteBook1.addClickAction(this.clickNotebook);
+    noteBook2.addClickAction(this.clickNotebook);
     this.hitBoxes.push(noteBook);
     this.hitBoxes.push(noteBook1);
     this.hitBoxes.push(noteBook2);
 
-    const iPad = new HitBox(480, 720, 250, 70, 0);
+    const iPad = new HitBox(470, 710, 260, 70, 0);
     iPad.addClickAction(this.clickIPad);
     this.hitBoxes.push(iPad);
 

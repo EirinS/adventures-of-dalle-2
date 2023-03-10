@@ -9,7 +9,7 @@ export class BookScene extends BaseScene {
   constructor() {
     super(Sprite.from("book"));
 
-    const page = new HitBox(180, 30, 1500, 1000, -2, false);
+    const page = new HitBox(180, 30, 1500, 1000, -2);
     this.revealRiddle = this.revealRiddle.bind(this);
     page.addClickAction(this.revealRiddle, "flashlight");
     this.pageHitbox = this.addChild(page);

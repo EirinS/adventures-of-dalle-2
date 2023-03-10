@@ -10,7 +10,7 @@ export class GardenScene extends BaseScene {
   constructor() {
     super(Sprite.from("garden"));
 
-    const key = new HitBox(270, 930, 40, 50, 0, false);
+    const key = new HitBox(270, 930, 40, 50, 0);
     this.takeKey = this.takeKey.bind(this);
     key.addClickAction(this.takeKey);
     this.keyHitbox = this.addChild(key);

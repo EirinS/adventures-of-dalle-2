@@ -9,7 +9,7 @@ export class LibraryScene extends BaseScene {
   constructor() {
     super(Sprite.from("library"));
 
-    const computer = new HitBox(1325, 645, 75, 75, 10, false);
+    const computer = new HitBox(1325, 645, 75, 75, 10);
     this.viewComputer = this.viewComputer.bind(this);
     computer.addClickAction(this.viewComputer);
     this.addChild(computer);

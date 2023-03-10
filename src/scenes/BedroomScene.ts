@@ -11,17 +11,17 @@ export class BedroomScene extends BaseScene {
   constructor() {
     super(Sprite.from("bedroom"));
 
-    const pumpkin = new HitBox(65, 485, 150, 170, 0, false);
+    const pumpkin = new HitBox(65, 485, 150, 170, 0);
     this.openPumpkin = this.openPumpkin.bind(this);
     pumpkin.addClickAction(this.openPumpkin);
     this.unOpenedPumpkinHitbox = this.addChild(pumpkin);
 
-    const drawer = new HitBox(-30, 845, 410, 90, -25, false);
+    const drawer = new HitBox(-30, 845, 410, 90, -25);
     this.openDrawer = this.openDrawer.bind(this);
     drawer.addClickAction(this.openDrawer, "key");
     this.lockedDrawerHitbox = this.addChild(drawer);
 
-    const book = new HitBox(1368, 385, 80, 125, 0, false);
+    const book = new HitBox(1368, 385, 80, 125, 0);
     this.openBook = this.openBook.bind(this);
     book.addClickAction(this.openBook);
     this.addChild(book);
@@ -35,7 +35,7 @@ export class BedroomScene extends BaseScene {
   private openPumpkin() {
     this.addCutout("openPumpkin", 25, 448);
     this.removeChild(this.unOpenedPumpkinHitbox);
-    const pumpkin = new HitBox(65, 550, 150, 120, 0, false);
+    const pumpkin = new HitBox(65, 550, 150, 120, 0);
     this.lookIntoPumpkin = this.lookIntoPumpkin.bind(this);
     pumpkin.addClickAction(this.lookIntoPumpkin);
     this.addChild(pumpkin);
