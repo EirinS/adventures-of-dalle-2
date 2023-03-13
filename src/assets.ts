@@ -50,6 +50,18 @@ export const manifest: ResolverManifest = {
       name: "computer",
       assets: {
         computer: "./computer/computer.png",
+        red: "./computer/red.png",
+        redPressed: "./computer/red-dark.png",
+        yellow: "./computer/yellow.png",
+        yellowPressed: "./computer/yellow-dark.png",
+        blue: "./computer/blue.png",
+        bluePressed: "./computer/blue-dark.png",
+        green: "./computer/green.png",
+        greenPressed: "./computer/green-dark.png",
+        orange: "./computer/orange.png",
+        orangePressed: "./computer/orange-dark.png",
+        purple: "./computer/purple.png",
+        purplePressed: "./computer/purple-dark.png",
       },
     },
     {
