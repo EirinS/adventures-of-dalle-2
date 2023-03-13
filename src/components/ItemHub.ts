@@ -1,10 +1,5 @@
 import { Container, Sprite, Point, Texture } from "pixi.js";
 
-/**
- * Text box that can contain up to two lines of text
- * The box is not interactive by default.
- * Interaction must be handled where it is used.
- */
 export class ItemHub extends Container {
   private numberOfItems: number;
   public selectedItem: string;

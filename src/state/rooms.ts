@@ -5,7 +5,7 @@ import { LibraryScene } from "../scenes/LibraryScene";
 import { LivingroomScene } from "../scenes/LivingroomScene";
 import { OfficeScene } from "../scenes/OfficeScene";
 import { GardenScene } from "../scenes/GardenScene";
-import { BookScene } from "../scenes/bookScene";
+import { BookScene } from "../scenes/BookScene";
 import { PumpkinScene } from "../scenes/pumpkinScene";
 import { ComputerScene } from "../scenes/ComputerScene";
 import { ItemHub } from "../components/ItemHub";
