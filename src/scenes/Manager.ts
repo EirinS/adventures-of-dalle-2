@@ -1,5 +1,6 @@
-import { Application, DisplayObject } from "pixi.js";
+import { Application } from "pixi.js";
 import { itemHub } from "../state/rooms";
+import { IScene } from "./IScene";
 
 export class Manager {
   private constructor() {}
@@ -97,10 +98,4 @@ export class Manager {
     Manager.app.stage.sortableChildren = true;
     Manager.app.stage.addChild(itemHub);
   }
-}
-
-// This could have a lot more generic functions that you force all your scenes to have. Update is just an example.
-// Also, this could be in its own file...
-export interface IScene extends DisplayObject {
-  clearText(): void;
 }

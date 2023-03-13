@@ -1,7 +1,8 @@
-import { Container, Graphics, Assets } from "pixi.js";
+import { Container, Graphics, Assets, Sprite } from "pixi.js";
 import { manifest } from "../assets";
 import { loadRooms, office } from "../state/rooms";
-import { IScene, Manager } from "./Manager";
+import { IScene } from "./IScene";
+import { Manager } from "./Manager";
 
 export class LoaderScene extends Container implements IScene {
   private loaderBar: Container;
@@ -45,8 +46,11 @@ export class LoaderScene extends Container implements IScene {
     this.loaderBarFill.scale.x = progressRatio;
   }
 
-  public clearText(): void {
+  public getBackground(): Sprite {
+    return new Sprite();
   }
+
+  public clearText(): void {}
 
   private gameLoaded(): void {
     loadRooms();

@@ -1,6 +1,7 @@
-import { IScene, Manager } from "./Manager";
+import { Manager } from "./Manager";
 import { Container, Sprite, Point } from "pixi.js";
 import { TextBox } from "../components/TextBox";
+import { IScene } from "./IScene";
 
 export class BaseScene extends Container implements IScene {
   protected background: Sprite;
@@ -11,10 +12,7 @@ export class BaseScene extends Container implements IScene {
     super();
     // Set scene background
     this.background = background;
-    this.backgroundScale = Math.min(
-      Manager.width / this.background.texture.width,
-      1
-    );
+    this.backgroundScale = Math.min(Manager.width / this.background.texture.width, 1);
     this.background.scale.set(this.backgroundScale);
     this.background.anchor.set(0, 0);
     this.background.position = new Point(0, 0);
@@ -37,6 +35,10 @@ export class BaseScene extends Container implements IScene {
 
   public clearText(): void {
     this.textBox.removeChild(this.textBox);
+  }
+
+  public getBackground(): Sprite {
+    return Sprite.from(this.background.texture);
   }
 
   protected addCutout(spriteName: string, x: number, y: number): void {
