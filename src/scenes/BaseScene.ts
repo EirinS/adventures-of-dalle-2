@@ -22,17 +22,22 @@ export class BaseScene extends Container implements IScene {
 
     // Set textBox
     this.textBox = new TextBox("");
-    this.textBox.interactive = true;
   }
 
   protected addText = (text: string) => {
     this.textBox.setText(text);
     this.addChild(this.textBox);
+    this.textBox.interactive = true;
 
     this.textBox.on("pointertap", () => {
       this.removeChild(this.textBox);
+      this.textBox.interactive = false;
     });
   };
+
+  public clearText(): void {
+    this.textBox.removeChild(this.textBox);
+  }
 
   protected addCutout(spriteName: string, x: number, y: number): void {
     const cutout = Sprite.from(spriteName);

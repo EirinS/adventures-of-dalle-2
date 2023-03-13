@@ -1,4 +1,4 @@
-import { Container, TextStyle, Text, Graphics } from "pixi.js";
+import { Container, TextStyle, Text, Graphics, Rectangle } from "pixi.js";
 import { Manager } from "../scenes/Manager";
 
 /**
@@ -45,6 +45,8 @@ export class TextBox extends Container {
     this.text.x = this.margin;
     this.text.y = Manager.height - this.boxHeight + this.margin;
     this.addChild(this.text);
+
+    this.hitArea = new Rectangle(0, 0, Manager.width, Manager.height);
   }
 
   public setText(text: string) {

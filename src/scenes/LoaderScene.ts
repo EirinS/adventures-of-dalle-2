@@ -45,6 +45,9 @@ export class LoaderScene extends Container implements IScene {
     this.loaderBarFill.scale.x = progressRatio;
   }
 
+  public clearText(): void {
+  }
+
   private gameLoaded(): void {
     loadRooms();
     Manager.changeScene(office);
