@@ -4,6 +4,7 @@
 
 ### TODO
 
+- [x] Start screen
 - [x] Open book (blank)
 - [x] Open book (text)
 - [x] Garden (without key)
@@ -22,18 +23,18 @@
 
 ### TODO
 
-- [ ] Connect the dots game
+- [x] Connect the dots game
 - [x] Inventory
 - [x] Use items from inventory
 - [x] Configure all hit-boxes
 - [ ] Create all text in textboxes
-- [ ] Safe combination
+- [x] Safe combination
 
 ### Bugs/misc
 
-- [ ] remove textbox on click on screen
-- [ ] remove textbox when navigating
-- [ ] default text when using wrong item?
+- [x] remove textbox on click on screen
+- [x] remove textbox when navigating
+- [x] default text when using wrong item?
 - [ ] deselect item on click anywhere maybe?
 
 ### Backlog
@@ -46,3 +47,7 @@
 - (Garden) Statue -> S
 - (Kitchen) Flashlight -> diary -> painting -> B
 - (SAFE) -> REBUS
+
+## Future ideas
+- Have papers/documents inside the safe that reveals the location of the treasure that the original owner of the mansion (a sea captain/pirate) buried.
+- AI sound
