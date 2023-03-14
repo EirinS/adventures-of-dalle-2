@@ -3,6 +3,12 @@ import type { ResolverManifest } from "pixi.js";
 export const manifest: ResolverManifest = {
   bundles: [
     {
+      name: "start",
+      assets: {
+        startScreen: "./start_screen.png",
+      },
+    },
+    {
       name: "kitchen",
       assets: {
         kitchen: "./kitchen/kitchen_base.png",
