@@ -58,45 +58,45 @@ export class OfficeScene extends BaseScene {
     this.addChild(navigation);
   }
 
-  public clickNotebook = () => {
+  private clickNotebook = () => {
     this.addText([
       "My notebook is my weapon in the fight against crime, like bamboo is a panda's weapon in the fight for survival!",
     ]);
   };
 
-  public clickFirstCabinet = () => {
+  private clickFirstCabinet = () => {
     this.addText([
       "That is the case files for the missing bamboo case. I was called in to investigate a local bamboo grove that was stripped bare overnight. Everyone thought it was the monkeys, but I knew something was not right.",
     ]);
   };
 
-  public clickSecondCabinet = () => {
+  private clickSecondCabinet = () => {
     this.addText([
       "That is the case files for when Mr. Wu disappeared. He was a very wealthy businessman. When he disappeared, there was a trail of cryptic clues left behind and it became my job to uncover the truth.",
     ]);
   };
 
-  public clickThirdCabinet = () => {
+  private clickThirdCabinet = () => {
     this.addText([
       "That is the case files for the art forger ring. A group of art forgers produced high-quality fake paintings and sold them for millions! I went undercover as a wealthy art collector to infiltrate the group and bring them to justice.",
     ]);
   };
 
-  public clickFourthCabinet = () => {
+  private clickFourthCabinet = () => {
     this.addText([
       "That is the case files for the case of the great dumpling heist. A notorious gang of thieves were stealing dumplings from all the best restuarants in town, leaving the chefs in panic. I went undercover as a chef to catch the culprits.",
     ]);
   };
 
-  public clickDiploma = () => {
+  private clickDiploma = () => {
     this.addText(["Diploma of Private Investigation"]);
   };
 
-  public clickIPad = () => {
+  private clickIPad = () => {
     this.addText(["That one is broken. Leave it alone."]);
   };
 
-  public showTime = () => {
+  private showTime = () => {
     const date = new Date();
     this.addText([`The time is ${date.toTimeString().split(" ")[0].slice(0, -3)}`]);
   };
