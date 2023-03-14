@@ -20,6 +20,7 @@ export class HitBox extends Container {
     this.graphics.position = new Point(x, y);
     this.graphics.beginFill(0xff000);
     this.actions = {};
+    this.zIndex = zIndex;
 
     // This is a circle
     if (!height) {
