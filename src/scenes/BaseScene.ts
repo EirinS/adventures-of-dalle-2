@@ -45,4 +45,13 @@ export class BaseScene extends Container implements IScene {
     cutout.position = new Point(x, y);
     this.addChild(cutout);
   }
+
+  protected addCutoutToEdge(spriteName: string, left: boolean = true, top: boolean = true): void {
+    const cutout = Sprite.from(spriteName);
+    cutout.scale.set(this.backgroundScale);
+    const x = left ? 0 : Manager.width - cutout.width;
+    const y = top ? 0 : Manager.height - cutout.height;
+    cutout.position = new Point(x, y);
+    this.addChild(cutout);
+  }
 }

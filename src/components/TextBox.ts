@@ -30,7 +30,7 @@ export class TextBox extends Container {
   constructor(text: string[]) {
     super();
 
-    this.zIndex = 1;
+    this.zIndex = 2;
     this.background = new Graphics();
     this.background.beginFill(0xfbe07f);
     this.background.lineStyle(this.border, 0xebc961, 1, 0);

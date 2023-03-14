@@ -30,6 +30,8 @@ export const manifest: ResolverManifest = {
       name: "library",
       assets: {
         library: "./library/library.png",
+        openPlank: "./library/open_plank.png",
+        removedBlueprint: "./library/removed_blueprint.png",
       },
     },
     {
