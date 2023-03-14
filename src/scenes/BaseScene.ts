@@ -10,6 +10,10 @@ export class BaseScene extends Container implements IScene {
 
   constructor(background: Sprite) {
     super();
+
+    // Allow z-index
+    this.sortableChildren = true;
+
     // Set scene background
     this.background = background;
     this.backgroundScale = Math.min(Manager.width / this.background.texture.width, 1);

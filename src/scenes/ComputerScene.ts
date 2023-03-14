@@ -15,7 +15,6 @@ export class ComputerScene extends BaseScene {
 
   constructor() {
     super(Sprite.from("computer"));
-    this.sortableChildren = true;
     this.red = Sprite.from("red");
     this.red.name = "red";
     this.red.scale.set(this.backgroundScale);
