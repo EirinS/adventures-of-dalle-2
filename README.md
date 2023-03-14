@@ -29,6 +29,7 @@
 - [x] Configure all hit-boxes
 - [ ] Create all text in textboxes
 - [x] Safe combination
+- [ ] Allow to throw items in the fireplace
 
 ### Bugs/misc
 
