@@ -23,18 +23,12 @@ export class BaseScene extends Container implements IScene {
     this.addChild(this.background);
 
     // Set textBox
-    this.textBox = new TextBox("");
+    this.textBox = new TextBox([""]);
+    this.addChild(this.textBox);
   }
 
-  protected addText = (text: string) => {
+  protected addText = (text: string[]) => {
     this.textBox.setText(text);
-    this.addChild(this.textBox);
-    this.textBox.interactive = true;
-
-    this.textBox.on("pointertap", () => {
-      this.removeChild(this.textBox);
-      this.textBox.interactive = false;
-    });
   };
 
   public clearText(): void {
