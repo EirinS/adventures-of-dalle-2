@@ -1,4 +1,5 @@
 import { Graphics, Container, Circle, Rectangle, Point } from "pixi.js";
+import { Manager } from "../scenes/Manager";
 import { itemHub } from "../state/rooms";
 
 export class HitBox extends Container {
@@ -47,6 +48,7 @@ export class HitBox extends Container {
       this.actions[itemHub.selectedItem]();
     } else {
       if (itemHub.selectedItem !== "") {
+        Manager.currentScene.addText("You can not use this item here");
       }
     }
     itemHub.deselectItem(itemHub.selectedItem);
