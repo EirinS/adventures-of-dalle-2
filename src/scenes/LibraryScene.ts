@@ -14,7 +14,7 @@ export class LibraryScene extends BaseScene {
     const plank = new HitBox(962, 906, 110, 136);
     this.plankHitBox = plank;
     this.revealSecretRoom = this.revealSecretRoom.bind(this);
-    plank.addClickAction(this.revealSecretRoom);
+    plank.addClickAction(this.revealSecretRoom, "crowbar");
     this.addChild(plank);
 
     const blueprint = new HitBox(1022, 934, 50, 45, 45);
@@ -31,7 +31,8 @@ export class LibraryScene extends BaseScene {
     bookCase.addClickAction(bookCaseText);
     rightBookCase.addClickAction(bookCaseText);
 
-    const cabinetText = () => this.addText(["A cabinet, but nothing interesting inside"]);
+    const cabinetText = () =>
+      this.addText(["A cabinet, but nothing interesting inside"]);
     const cabinet = new HitBox(1752, 538, 165, 184);
     const cabinetBottom = new HitBox(1752, 699, 34, 100);
     cabinetBottom.addClickAction(cabinetText);
@@ -39,13 +40,16 @@ export class LibraryScene extends BaseScene {
     this.addChild(cabinetBottom);
     this.addChild(cabinet);
 
-    const bookstackText = () => this.addText(["A stack of books. Nothing particularly interesting"]);
+    const bookstackText = () =>
+      this.addText(["A stack of books. Nothing particularly interesting"]);
     const bookStack = new HitBox(0, 700, 76, 96);
     bookStack.addClickAction(bookstackText);
     this.addChild(bookStack);
 
     const tableBookText = () =>
-      this.addText(["A messy collection of open books. Looks like someone was studying rare artifacts"]);
+      this.addText([
+        "A messy collection of open books. Looks like someone was studying rare artifacts",
+      ]);
     const tableOfBooks = new HitBox(540, 656, 280, 70);
     tableOfBooks.addClickAction(tableBookText);
     this.addChild(tableOfBooks);

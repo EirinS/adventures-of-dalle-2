@@ -11,3 +11,7 @@ export function collectCarton() {
 export function collectFlashlight() {
   itemHub.addItem("flashlight");
 }
+
+export function collectCrowbar() {
+  itemHub.addItem("crowbar");
+}

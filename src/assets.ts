@@ -30,6 +30,7 @@ export const manifest: ResolverManifest = {
       assets: {
         garden: "./garden/garden.png",
         removeKey: "./garden/no_key.png",
+        removeCrowbar: "./garden/headless-flamingo.png",
       },
     },
     {
@@ -101,6 +102,8 @@ export const manifest: ResolverManifest = {
         keyHighlighted: "./items/key-highlighted.png",
         cartonHighlighted: "./items/carton-highlighted.png",
         flashlightHighlighted: "./items/flashlight-highlighted.png",
+        crowbar: "./items/crowbar.png",
+        crowbarHighlighted: "./items/crowbar-highlighted.png",
       },
     },
   ],
