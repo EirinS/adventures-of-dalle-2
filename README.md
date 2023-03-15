@@ -1,8 +1,6 @@
 # Adventures of DALLE-2
 
-## Visual elements
-
-### TODO
+## TODO
 
 - [x] Start screen
 - [x] Open book (blank)
@@ -12,6 +10,16 @@
 - [x] Flashlight icon
 - [x] Drawer in bedroom with color codes
 - [x] Bedroom (combination - image editing)
+- [x] Connect the dots game
+- [x] Inventory
+- [x] Use items from inventory
+- [ ] Configure all hit-boxes
+- [ ] Create all text in textboxes
+- [x] Safe combination
+- [ ] Allow to throw items in the fireplace
+- [ ] Create blueprint
+- [ ] Create crowbar
+- [ ] Connect crowbar logic to library
 
 ## Backlog
 
@@ -19,28 +27,14 @@
 - [ ] Crystal ball (hints)
 - [x] Generate flashlight in a room
 
-## Game elements
-
-### TODO
-
-- [x] Connect the dots game
-- [x] Inventory
-- [x] Use items from inventory
-- [x] Configure all hit-boxes
-- [ ] Create all text in textboxes
-- [x] Safe combination
-- [ ] Allow to throw items in the fireplace
-
-### Bugs/misc
+## Bugs/misc
 
 - [x] remove textbox on click on screen
 - [x] remove textbox when navigating
 - [x] default text when using wrong item?
-- [ ] deselect item on click anywhere maybe?
+- [ ] ~~deselect item on click anywhere maybe?~~
 
-### Backlog
-
-### Riddles
+## Riddles
 
 - (Bedroom) Pumkin bowl -> open lid -> pumpkin juice -> pour into bowl -> U
 - (Library) Key -> drawer -> color codes -> computer game -> R
