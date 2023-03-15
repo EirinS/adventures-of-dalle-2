@@ -32,6 +32,8 @@
 - [x] remove textbox on click on screen
 - [x] remove textbox when navigating
 - [x] default text when using wrong item?
+- [ ] lilla flashlight
+
 - [ ] ~~deselect item on click anywhere maybe?~~
 
 ## Riddles
@@ -44,5 +46,6 @@
 - (SAFE) -> REBUS
 
 ## Future ideas
+
 - Have papers/documents inside the safe that reveals the location of the treasure that the original owner of the mansion (a sea captain/pirate) buried.
 - AI sound
