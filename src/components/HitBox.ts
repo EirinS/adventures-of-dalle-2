@@ -6,7 +6,15 @@ export class HitBox extends Container {
   private graphics: Graphics;
   private actions: { [item: string]: () => void };
 
-  constructor(x: number, y: number, width: number, height?: number, angle = 0, zIndex = 0, show: boolean = false) {
+  constructor(
+    x: number,
+    y: number,
+    width: number,
+    height?: number,
+    angle = 0,
+    zIndex = 0,
+    show: boolean = false
+  ) {
     super();
     this.graphics = new Graphics();
     this.graphics.interactive = true;
@@ -48,7 +56,7 @@ export class HitBox extends Container {
       this.actions[itemHub.selectedItem]();
     } else {
       if (itemHub.selectedItem !== "") {
-        Manager.currentScene.addText("You can not use this item here");
+        Manager.currentScene.addText(["You can not use this item here"]);
       }
     }
     itemHub.deselectItem(itemHub.selectedItem);

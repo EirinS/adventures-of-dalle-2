@@ -33,7 +33,7 @@ export class LoaderScene extends Container implements IScene {
       this.gameLoaded();
     });
   }
-  addText(text: string): void {
+  addText(text: string[]): void {
     throw new Error("Method not implemented." + " (" + text) + ")";
   }
 
