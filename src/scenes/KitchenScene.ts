@@ -14,6 +14,17 @@ export class KitchenScene extends BaseScene {
   constructor() {
     super(Sprite.from("kitchen"));
 
+    const baobaoText = () => this.addText(["The kitchen"]);
+    const baobaoHead = new HitBox(266, 200, 105);
+    const baobaoBody = new HitBox(120, 280, 300, 770);
+    const baobaoArms = new HitBox(66, 340, 390, 250);
+    baobaoHead.addClickAction(baobaoText);
+    baobaoBody.addClickAction(baobaoText);
+    baobaoArms.addClickAction(baobaoText);
+    this.addChild(baobaoArms);
+    this.addChild(baobaoBody);
+    this.addChild(baobaoHead);
+
     const painting = new HitBox(1200, 45, 290, 250, -3);
     this.revealPainting = this.revealPainting.bind(this);
     painting.addClickAction(this.revealPainting, "flashlight");

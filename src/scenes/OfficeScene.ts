@@ -33,6 +33,17 @@ export class OfficeScene extends BaseScene {
     fourthCabinet.addClickAction(this.clickFourthCabinet);
     this.hitBoxes.push(fourthCabinet);
 
+    const baobaoText = () => this.addText(["Welcome to my office"]);
+    const baobaoHead = new HitBox(1030, 290, 130);
+    const baobaoBody = new HitBox(800, 350, 380, 200, 0);
+    const baobaoLowerBody = new HitBox(634, 470, 580, 180);
+    baobaoHead.addClickAction(baobaoText);
+    baobaoBody.addClickAction(baobaoText);
+    baobaoLowerBody.addClickAction(baobaoText);
+    this.addChild(baobaoHead);
+    this.addChild(baobaoBody);
+    this.addChild(baobaoLowerBody);
+
     // Add notebook in sections because of perspective
     const noteBook = new HitBox(780, 625, 40, 200, 70);
     const noteBook1 = new HitBox(840, 635, 40, 200, 70);

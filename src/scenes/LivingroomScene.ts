@@ -10,6 +10,20 @@ export class LivingroomScene extends BaseScene {
   constructor() {
     super(Sprite.from("livingroom"));
 
+    const baobaoText = () => this.addText(["The living room"]);
+    const baobaoHead = new HitBox(1220, 330, 90);
+    const baobaoHorizontal = new HitBox(1050, 470, 360, 260);
+    const baobaoUpperBody = new HitBox(1090, 400, 280, 500);
+    const baobaoLegs = new HitBox(1130, 900, 200, 130);
+    baobaoHead.addClickAction(baobaoText);
+    baobaoHorizontal.addClickAction(baobaoText);
+    baobaoUpperBody.addClickAction(baobaoText);
+    baobaoLegs.addClickAction(baobaoText);
+    this.addChild(baobaoHead);
+    this.addChild(baobaoUpperBody);
+    this.addChild(baobaoLegs);
+    this.addChild(baobaoHorizontal);
+
     const painting = new HitBox(930, 340, 155, 110, 0);
     this.removePainting = this.removePainting.bind(this);
     painting.addClickAction(this.removePainting);
@@ -49,17 +63,23 @@ export class LivingroomScene extends BaseScene {
     lamp.addClickAction(this.clickLamp);
     this.addChild(lamp);
 
+    const chairText = () => this.addText(["Nothing here. Not even under the pillow of the chair"]);
+    const chair = new HitBox(1600, 670, 320, 230);
+    const upperChair = new HitBox(1780, 556, 140, 140);
+    chair.addClickAction(chairText);
+    upperChair.addClickAction(chairText);
+    this.addChild(upperChair);
+    this.addChild(chair);
+
     this.clickChandelier = this.clickChandelier.bind(this);
     const chandelierTop = new HitBox(1060, 0, 120, 100);
-    chandelierTop.addClickAction(this.clickChandelier);
-    this.addChild(chandelierTop);
-
     const chandelierMiddle = new HitBox(1000, 40, 238, 120);
-    chandelierMiddle.addClickAction(this.clickChandelier);
-    this.addChild(chandelierMiddle);
-
     const chandelierBottom = new HitBox(1040, 140, 166, 60);
+    chandelierTop.addClickAction(this.clickChandelier);
+    chandelierMiddle.addClickAction(this.clickChandelier);
     chandelierBottom.addClickAction(this.clickChandelier);
+    this.addChild(chandelierTop);
+    this.addChild(chandelierMiddle);
     this.addChild(chandelierBottom);
   }
 
