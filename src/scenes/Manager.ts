@@ -73,19 +73,14 @@ export class Manager {
     if (Manager.app.view.style) {
       Manager.app.view.style.width = `${enlargedWidth}px`;
       Manager.app.view.style.height = `${enlargedHeight}px`;
-      viewWrapper.style.marginLeft =
-        viewWrapper.style.marginRight = `${horizontalMargin}px`;
-      viewWrapper.style.marginTop =
-        viewWrapper.style.marginBottom = `${verticalMargin}px`;
+      viewWrapper.style.marginLeft = viewWrapper.style.marginRight = `${horizontalMargin}px`;
+      viewWrapper.style.marginTop = viewWrapper.style.marginBottom = `${verticalMargin}px`;
     }
   }
 
-  // Call this function when you want to go to a new scene
   public static changeScene(newScene: IScene): void {
-    // Remove and destroy old scene... if we had one..
     if (Manager.currentScene) {
       Manager.app.stage.removeChild(Manager.currentScene);
-      // Manager.currentScene.destroy();
     }
 
     // Add the new one
