@@ -45,11 +45,13 @@ export class NavigationArrow extends Graphics {
     this.onpointertap = this.goToNextScene;
     this.direction = direction;
     this.onmouseover = () => {
+      this.clear();
       this.drawArrow(this.hoverColor, direction);
       this.drawMiniature(direction);
     };
     this.onmouseout = () => {
       this.removeChild(this.nextSceneBackground);
+      this.clear();
       this.drawArrow(this.color, direction);
     };
     this.drawArrow(this.color, direction);
@@ -87,7 +89,7 @@ export class NavigationArrow extends Graphics {
 
   private drawArrow(color: number, direction: Direction) {
     this.lineStyle(4, this.outlineColor, 1);
-    this.beginFill(color);
+    this.beginFill(color, 0.7);
     switch (direction) {
       case Direction.Up:
         this.drawPolygon(this.upArrowCoords);
