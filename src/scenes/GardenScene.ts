@@ -90,7 +90,7 @@ export class GardenScene extends BaseScene {
 
   private takeCrowbar() {
     this.removeChild(this.crowbarHitbox);
-    this.addCutout("removeCrowbar", 1279, 588);
+    this.addCutoutToEdge("removeCrowbar", false, true);
     collectCrowbar();
   }
 }
