@@ -1,6 +1,6 @@
 import { Container, Graphics, Assets, Sprite } from "pixi.js";
 import { manifest } from "../assets";
-import { garden, loadRooms } from "../state/rooms";
+import { loadRooms, startScreen } from "../state/rooms";
 import { IScene } from "./IScene";
 import { Manager } from "./Manager";
 
@@ -57,7 +57,7 @@ export class LoaderScene extends Container implements IScene {
 
   private gameLoaded(): void {
     loadRooms();
-    Manager.changeScene(garden);
+    Manager.changeScene(startScreen);
     Manager.showItemhub();
   }
 }
