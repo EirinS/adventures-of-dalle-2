@@ -57,7 +57,7 @@ export class HitBox extends Container {
     } else {
       if (itemHub.selectedItem !== "") {
         Manager.currentScene.addText([`You can not use the ${itemHub.selectedItem} here.`]);
-      } else if (noItemText !== "" && itemHub.selectedItem !== "") {
+      } else if (noItemText !== "" && itemHub.selectedItem === "") {
         Manager.currentScene.addText([noItemText]);
       }
     }
