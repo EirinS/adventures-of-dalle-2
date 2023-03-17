@@ -28,7 +28,7 @@ export class GardenScene extends BaseScene {
     flamingoBody.addClickAction(() => this.addText(["A decorative garden flamingo"]));
     this.addChild(flamingoBody);
 
-    const chair = new HitBox(1654, 860, 166, 120, 0, 0, true);
+    const chair = new HitBox(1654, 860, 166, 120, 0, 0);
     chair.addClickAction(() => this.addText(["No time to rest now..."]));
     this.addChild(chair);
 
@@ -59,7 +59,7 @@ export class GardenScene extends BaseScene {
 
     const baobaoText = () => this.addText(["This is the garden"]);
 
-    const baobao = new HitBox(510, 662, 340, 220, 0, 0, true);
+    const baobao = new HitBox(510, 662, 340, 220);
     baobao.addClickAction(baobaoText);
     this.addChild(baobao);
 
