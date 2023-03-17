@@ -46,17 +46,19 @@ export class HitBox extends Container {
   // add action function to be called on click.
   // specify which item is needed to trigger the action (defaults to no item selected needed)
   // possible to add different actions for different items
-  public addClickAction(action: () => void, item: string = "") {
-    this.on("pointertap", this.doAction);
+  public addClickAction(action: () => void, item: string = "", noItemText: string = "") {
+    this.on("pointertap", () => this.doAction(noItemText));
     this.actions[item] = action;
   }
 
-  private doAction() {
+  private doAction(noItemText: string = "") {
     if (this.actions?.[itemHub.selectedItem]) {
       this.actions[itemHub.selectedItem]();
     } else {
       if (itemHub.selectedItem !== "") {
-        Manager.currentScene.addText(["You can not use this item here"]);
+        Manager.currentScene.addText([`You can not use the ${itemHub.selectedItem} here.`]);
+      } else if (noItemText !== "" && itemHub.selectedItem !== "") {
+        Manager.currentScene.addText([noItemText]);
       }
     }
     itemHub.deselectItem(itemHub.selectedItem);
