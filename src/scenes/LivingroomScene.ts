@@ -42,7 +42,9 @@ export class LivingroomScene extends BaseScene {
     this.addChild(fireplace);
 
     const lantern = new HitBox(722, 540, 88, 110);
-    lantern.addClickAction(() => this.addText(["A lantern of some sort"]));
+    lantern.addClickAction(() =>
+      this.addText(["This lantern lamp looks like it belongs in a museum, a testament to a bygone era of lighting."])
+    );
     this.addChild(lantern);
 
     this.clickCrystalBall = this.clickCrystalBall.bind(this);
@@ -63,7 +65,10 @@ export class LivingroomScene extends BaseScene {
     lamp.addClickAction(this.clickLamp);
     this.addChild(lamp);
 
-    const chairText = () => this.addText(["Nothing here. Not even under the pillow of the chair"]);
+    const chairText = () =>
+      this.addText([
+        "Well, that's a bit of a letdown. I was hoping for a clue hidden under the pillow, but it looks like this chair is just a place to rest your tush.",
+      ]);
     const chair = new HitBox(1600, 670, 320, 230);
     const upperChair = new HitBox(1780, 556, 140, 140);
     chair.addClickAction(chairText);
@@ -93,11 +98,15 @@ export class LivingroomScene extends BaseScene {
   }
 
   private clickChandelier() {
-    this.addText(["A chandelier"]);
+    this.addText(["Wonder how many gems had to be mined and polished to make this chandelier shine so brightly."]);
   }
 
   private clickLamp() {
-    this.addText(["A lamp"]);
+    this.addText([
+      "I'm pretty sure this lamp could double as a genie's lamp - it's definitely got that kind of magic to it.",
+    ]);
+  }
+
   }
 
   private removePainting() {

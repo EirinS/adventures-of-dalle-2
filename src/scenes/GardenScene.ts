@@ -23,7 +23,7 @@ export class GardenScene extends BaseScene {
     const snakeStatue = new HitBox(1100, 440, 84, 160);
     snakeStatue.addClickAction(() =>
       this.addText([
-        "A carved snake statue. It is not particularly lifelike, but it stands out in the mids of the other decorations.",
+        "The fact that the statue is still intact and in relatively good condition after all these years speaks to its value and importance to the people who once possessed it.",
       ])
     );
     this.addChild(snakeStatue);
@@ -31,7 +31,7 @@ export class GardenScene extends BaseScene {
     const flamingoBody = new HitBox(1310, 698, 118, 50);
     flamingoBody.addClickAction(() =>
       this.addText([
-        "A statue resembling a flamingo. Its head appears peculiarly shaped. A closer examination may be warranted.",
+        "The body of this flamingo statue is impeccably sculpted, but the head looks like it was an afterthought.", // alternatively the more obvious "looks like it was taken from a completely different bird."
       ])
     );
     this.addChild(flamingoBody);
@@ -46,28 +46,28 @@ export class GardenScene extends BaseScene {
 
     const blinds = new HitBox(248, 210, 142, 400, 0);
     blinds.addClickAction(() =>
-      this.addText(["These covers seem to be stuck in place. Perhaps they're meant to be left open for a reason."])
+      this.addText([
+        "Not saying these covers are clingy, but it's definitely stuck on the idea of staying open. Best leave it that way.",
+      ])
     );
     this.addChild(blinds);
 
     const largeWindow = new HitBox(0, 200, 260, 400, 2);
     largeWindow.addClickAction(() =>
-      this.addText(["The window is massive. There is a room on the other side, most likely the library."])
+      this.addText([
+        "Wonder how many literary masterpieces have been penned in the quiet solitude of the library behind the window.",
+      ])
     );
     this.addChild(largeWindow);
 
     const smallWindow = new HitBox(520, 284, 50, 190);
-    smallWindow.addClickAction(() =>
-      this.addText([
-        "The small window offers a glimpse inside the building. It's hard to make out any details from this angle, but it's clear that the space beyond is well-lit.",
-      ])
-    );
+    smallWindow.addClickAction(() => this.addText(["This window is pane-fully small."]));
     this.addChild(smallWindow);
 
     const treeTop = new HitBox(1630, 450, 250, undefined);
     treeTop.addClickAction(() =>
       this.addText([
-        "This tree is very pretty with its white leaves and delicate branches. It's a charming addition to the garden.",
+        "Judging by the unique shape of its leaves, this tree is likely a rare and valuable species. Someone with a keen eye for botanical beauty clearly selected it for this garden.",
       ])
     );
     this.addChild(treeTop);
@@ -86,7 +86,7 @@ export class GardenScene extends BaseScene {
 
     const baobaoText = () =>
       this.addText([
-        "Hmm, it seems like there's more to this garden than meets the eye. I need to keep my wits about me if I'm going to solve this case.",
+        "Ah, the garden. This reminds me of the time we solved the case of the missing gnome hidden in the rose bushes.",
       ]);
 
     const baobao = new HitBox(510, 662, 340, 220);
@@ -122,7 +122,7 @@ export class GardenScene extends BaseScene {
 
   private takeCrowbar() {
     this.addText([
-      "Wow, who would have thought that the head of this flamingo could be hiding a crowbar? Brilliant! The crowbar is now in the inventory and ready to aid in uncovering the mansion's secrets.",
+      "The creativity of this flamingo head design is impressive. It's not every day you see a garden decoration that can also be used as a crowbar. Let's put it in the inventory.",
     ]);
     this.removeChild(this.crowbarHitbox);
     this.addCutoutToEdge("removeCrowbar", false, true);
