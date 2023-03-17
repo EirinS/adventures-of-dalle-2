@@ -1,27 +1,26 @@
 import { Sprite } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { bedroom, computer, garden } from "../state/rooms";
+import { bedroom, computer, garden, itemHub } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { Manager } from "./Manager";
 
 export class LibraryScene extends BaseScene {
   private plankHitBox: HitBox;
-  private blueprintHitBox: HitBox;
+  private floorplanHitBox: HitBox;
   constructor() {
     super(Sprite.from("library"));
 
     const plank = new HitBox(962, 906, 110, 136);
-    this.plankHitBox = plank;
     this.revealSecretRoom = this.revealSecretRoom.bind(this);
     plank.addClickAction(this.revealSecretRoom, "crowbar");
-    this.addChild(plank);
+    this.plankHitBox = this.addChild(plank);
 
-    const blueprint = new HitBox(1022, 934, 50, 45, 45);
-    this.blueprintHitBox = blueprint;
-    blueprint.zIndex = 1;
-    this.pickUpBlueprint = this.pickUpBlueprint.bind(this);
-    blueprint.addClickAction(this.pickUpBlueprint);
+    const floorplan = new HitBox(1022, 934, 50, 45, 45);
+    floorplan.zIndex = 1;
+    this.pickUpFloorplan = this.pickUpFloorplan.bind(this);
+    floorplan.addClickAction(this.pickUpFloorplan);
+    this.floorplanHitBox = floorplan;
 
     const bookCaseText = () => this.addText(["A bookcase full of old books"]);
     const bookCase = new HitBox(1130, 320, 624, 370);
@@ -68,15 +67,16 @@ export class LibraryScene extends BaseScene {
     this.addChild(computer);
   }
 
-  private pickUpBlueprint() {
-    this.addCutoutToEdge("removedBlueprint", false, false);
-    this.removeChild(this.blueprintHitBox);
+  private pickUpFloorplan() {
+    this.addCutoutToEdge("removedFloorplan", false, false);
+    this.removeChild(this.floorplanHitBox);
+    itemHub.addItem("paper");
   }
 
   private revealSecretRoom() {
     this.addCutoutToEdge("openPlank", false, false);
     this.removeChild(this.plankHitBox);
-    this.addChild(this.blueprintHitBox);
+    this.addChild(this.floorplanHitBox);
   }
 
   public loadNavigation() {

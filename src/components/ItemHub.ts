@@ -1,4 +1,6 @@
 import { Container, Sprite, Point, Texture } from "pixi.js";
+import { Manager } from "../scenes/Manager";
+import { floorplan } from "../state/rooms";
 
 export class ItemHub extends Container {
   private numberOfItems: number;
@@ -27,8 +29,13 @@ export class ItemHub extends Container {
       this.deselectItem(item);
     } else {
       this.deselectItem(this.selectedItem);
-      this.selectedItem = item;
-      this.sprites[item].texture = Texture.from(item + "Highlighted");
+      if (item === "paper") {
+        floorplan.loadNavigation(Manager.currentScene);
+        Manager.changeScene(floorplan);
+      } else {
+        this.selectedItem = item;
+        this.sprites[item].texture = Texture.from(item + "Highlighted");
+      }
     }
   }
 

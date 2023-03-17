@@ -3,6 +3,7 @@ import { itemHub } from "../state/rooms";
 import { IScene } from "./IScene";
 
 export class Manager {
+  static prevScene: IScene;
   private constructor() {}
 
   private static app: Application;
@@ -73,8 +74,10 @@ export class Manager {
     if (Manager.app.view.style) {
       Manager.app.view.style.width = `${enlargedWidth}px`;
       Manager.app.view.style.height = `${enlargedHeight}px`;
-      viewWrapper.style.marginLeft = viewWrapper.style.marginRight = `${horizontalMargin}px`;
-      viewWrapper.style.marginTop = viewWrapper.style.marginBottom = `${verticalMargin}px`;
+      viewWrapper.style.marginLeft =
+        viewWrapper.style.marginRight = `${horizontalMargin}px`;
+      viewWrapper.style.marginTop =
+        viewWrapper.style.marginBottom = `${verticalMargin}px`;
     }
   }
 
@@ -84,6 +87,7 @@ export class Manager {
     }
 
     // Add the new one
+    Manager.prevScene = Manager.currentScene;
     Manager.currentScene = newScene;
     Manager.currentScene.clearText();
     Manager.app.stage.addChild(Manager.currentScene);

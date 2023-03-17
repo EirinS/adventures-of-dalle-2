@@ -1,8 +1,7 @@
 import { Sprite } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { collectCarton, collectFlashlight } from "../state/items";
-import { garden, livingroom } from "../state/rooms";
+import { garden, itemHub, livingroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 
 export class KitchenScene extends BaseScene {
@@ -54,7 +53,8 @@ export class KitchenScene extends BaseScene {
     panRight.addClickAction(this.clickPan);
     this.addChild(panRight);
 
-    const panCupboardText = () => this.addText(["A cupboard of old cooking pans"]);
+    const panCupboardText = () =>
+      this.addText(["A cupboard of old cooking pans"]);
     const panCupboard = new HitBox(1240, 600, 200, 70, 4);
     panCupboard.addClickAction(panCupboardText);
     this.addChild(panCupboard);
@@ -94,7 +94,9 @@ export class KitchenScene extends BaseScene {
     this.addChild(windowBottom);
 
     const drawer = new HitBox(1420, 600, 250, 100, 4);
-    drawer.addClickAction(() => this.addText(["It contains some kitchen utils"]));
+    drawer.addClickAction(() =>
+      this.addText(["It contains some kitchen utils"])
+    );
     this.addChild(drawer);
 
     const cookingPans = new HitBox(1420, 660, 250, 250, 4);
@@ -102,11 +104,15 @@ export class KitchenScene extends BaseScene {
     this.addChild(cookingPans);
 
     const oblongPainting = new HitBox(596, 204, 122, 84, 2);
-    oblongPainting.addClickAction(() => this.addText(["A minimalistic painting"]));
+    oblongPainting.addClickAction(() =>
+      this.addText(["A minimalistic painting"])
+    );
     this.addChild(oblongPainting);
 
     const squarePainting = new HitBox(934, 284, 152, 128, -2);
-    squarePainting.addClickAction(() => this.addText(["A minimalistic painting"]));
+    squarePainting.addClickAction(() =>
+      this.addText(["A minimalistic painting"])
+    );
     this.addChild(squarePainting);
 
     const flowerText = () => this.addText(["A vase of fake flowers"]);

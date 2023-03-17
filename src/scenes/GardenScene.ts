@@ -1,8 +1,7 @@
 import { Sprite } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { collectCrowbar, collectKey } from "../state/items";
-import { kitchen, library } from "../state/rooms";
+import { itemHub, kitchen, library } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 
 export class GardenScene extends BaseScene {

@@ -10,6 +10,7 @@ import { PumpkinScene } from "../scenes/pumpkinScene";
 import { ComputerScene } from "../scenes/ComputerScene";
 import { ItemHub } from "../components/ItemHub";
 import { StartScene } from "../scenes/StartScene";
+import { FloorplanScene } from "../scenes/FloorplanScene";
 
 export let itemHub: ItemHub;
 
@@ -25,6 +26,7 @@ export let safe: SafeScene;
 export let book: BookScene;
 export let pumpkin: PumpkinScene;
 export let computer: ComputerScene;
+export let floorplan: FloorplanScene;
 
 export function loadRooms() {
   itemHub = new ItemHub();
@@ -40,6 +42,7 @@ export function loadRooms() {
   pumpkin = new PumpkinScene();
   computer = new ComputerScene();
   startScreen = new StartScene();
+  floorplan = new FloorplanScene();
   kitchen.loadNavigation();
   livingroom.loadNavigation();
   office.loadNavigation();

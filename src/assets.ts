@@ -38,7 +38,7 @@ export const manifest: ResolverManifest = {
       assets: {
         library: "./library/library.png",
         openPlank: "./library/open_plank.png",
-        removedBlueprint: "./library/removed_blueprint.png",
+        removedFloorplan: "./library/removed_floorplan.png",
       },
     },
     {
@@ -94,6 +94,12 @@ export const manifest: ResolverManifest = {
       },
     },
     {
+      name: "floorplan",
+      assets: {
+        floorplan: "./floorplan/floorplan.png",
+      },
+    },
+    {
       name: "items",
       assets: {
         key: "./items/key.png",
@@ -104,6 +110,7 @@ export const manifest: ResolverManifest = {
         flashlightHighlighted: "./items/flashlight-highlighted.png",
         crowbar: "./items/crowbar.png",
         crowbarHighlighted: "./items/crowbar-highlighted.png",
+        paper: "./items/floorplan.png",
       },
     },
   ],
