@@ -4,17 +4,9 @@ import { itemHub } from "../state/rooms";
 
 export class HitBox extends Container {
   private graphics: Graphics;
-  private actions: { [item: string]: () => void };
+  private actions: { [item: string]: (item: string) => void };
 
-  constructor(
-    x: number,
-    y: number,
-    width: number,
-    height?: number,
-    angle = 0,
-    zIndex = 0,
-    show: boolean = false
-  ) {
+  constructor(x: number, y: number, width: number, height?: number, angle = 0, zIndex = 0, show: boolean = false) {
     super();
     this.graphics = new Graphics();
     this.graphics.interactive = true;
@@ -51,9 +43,17 @@ export class HitBox extends Container {
     this.actions[item] = action;
   }
 
-  private doAction(noItemText: string = "") {
+  public addClickActionMultipleItems(action: (item: string) => void, items: string[], noItemText: string = "") {
+    this.on("pointertap", () => this.doAction(noItemText, itemHub.selectedItem));
+    items.forEach((actionItem) => {
+      this.actions[actionItem] = action;
+    });
+  }
+
+  private doAction(noItemText: string = "", item: string = "") {
+    console.log("action", itemHub.selectedItem);
     if (this.actions?.[itemHub.selectedItem]) {
-      this.actions[itemHub.selectedItem]();
+      this.actions[itemHub.selectedItem](item);
     } else {
       if (itemHub.selectedItem !== "") {
         Manager.currentScene.addText([`You can not use the ${itemHub.selectedItem} here.`]);

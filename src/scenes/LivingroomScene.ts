@@ -40,13 +40,11 @@ export class LivingroomScene extends BaseScene {
 
     const fireplace = new HitBox(0, 428, 430, 410);
     this.burnItems.bind(this.burnItems);
-    items.forEach((item) => {
-      fireplace.addClickAction(
-        () => this.burnItems(item),
-        item,
-        "Throwing things into the fire is like a primitive form of stress relief. It's like I'm letting go of all my troubles."
-      );
-    });
+    fireplace.addClickActionMultipleItems(
+      (item) => this.burnItems(item),
+      items,
+      "Throwing things into the fire is like a primitive form of stress relief. It's like I'm letting go of all my troubles."
+    );
 
     this.addChild(fireplace);
 
@@ -118,7 +116,7 @@ export class LivingroomScene extends BaseScene {
 
   private burnItems(item: string) {
     this.addText([
-      `You threw ${item} in the fire. Unless you are certain you don't need it, I suggest you restart the game.`,
+      `You threw the ${item} in the fire. Unless you are certain you don't need it, I suggest you restart the game.`,
     ]);
     itemHub.removeItem(item);
   }
