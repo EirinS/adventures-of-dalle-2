@@ -85,12 +85,12 @@ export class GardenScene extends BaseScene {
   private takeKey() {
     this.removeChild(this.keyHitbox);
     this.addCutout("removeKey", 250, 857);
-    collectKey();
+    itemHub.addItem("key");
   }
 
   private takeCrowbar() {
     this.removeChild(this.crowbarHitbox);
     this.addCutoutToEdge("removeCrowbar", false, true);
-    collectCrowbar();
+    itemHub.addItem("crowbar");
   }
 }

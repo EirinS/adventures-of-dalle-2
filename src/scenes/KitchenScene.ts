@@ -144,7 +144,7 @@ export class KitchenScene extends BaseScene {
 
   private removeFlashlight() {
     this.removeChild(this.flashlightHitbox);
-    collectFlashlight();
+    itemHub.addItem("flashlight");
     this.addCutout("removeFlashlight", 493, 597);
   }
 
@@ -155,7 +155,7 @@ export class KitchenScene extends BaseScene {
 
   private takeJuice() {
     this.removeChild(this.juiceHitbox);
-    collectCarton();
+    itemHub.addItem("carton");
     this.addCutout("removeJuice", 563, 391);
   }
 }
