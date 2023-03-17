@@ -1,7 +1,8 @@
 import { Sprite } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { bedroom, kitchen, safe } from "../state/rooms";
+import { items } from "../state/items";
+import { bedroom, itemHub, kitchen, safe } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { Manager } from "./Manager";
 
@@ -38,7 +39,15 @@ export class LivingroomScene extends BaseScene {
     this.addChild(noActionPainting);
 
     const fireplace = new HitBox(0, 428, 430, 410);
-    fireplace.addClickAction(() => this.addText(["fireplace"]));
+    this.burnItems.bind(this.burnItems);
+    items.forEach((item) => {
+      fireplace.addClickAction(
+        () => this.burnItems(item),
+        item,
+        "Throwing things into the fire is like a primitive form of stress relief. It's like I'm letting go of all my troubles."
+      );
+    });
+
     this.addChild(fireplace);
 
     const lantern = new HitBox(722, 540, 88, 110);
@@ -107,6 +116,11 @@ export class LivingroomScene extends BaseScene {
     ]);
   }
 
+  private burnItems(item: string) {
+    this.addText([
+      `You threw ${item} in the fire. Unless you are certain you don't need it, I suggest you restart the game.`,
+    ]);
+    itemHub.removeItem(item);
   }
 
   private removePainting() {

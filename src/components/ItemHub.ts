@@ -24,6 +24,12 @@ export class ItemHub extends Container {
     this.numberOfItems++;
   }
 
+  public removeItem(item: string) {
+    if (item && this.selectedItem === item) this.selectedItem = "";
+    this.numberOfItems--;
+    this.removeChild(this.sprites[item]);
+  }
+
   private selectItem(item: string) {
     if (this.selectedItem === item) {
       this.deselectItem(item);
