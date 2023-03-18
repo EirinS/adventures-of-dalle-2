@@ -1,4 +1,4 @@
-import { Container, Rectangle, Sprite, Text, TextStyle } from "pixi.js";
+import { Container, Sprite, Text, TextStyle } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { livingroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
@@ -76,24 +76,25 @@ export class OfficeScene extends BaseScene {
 
   public loadNavigation() {
     const navigation = new Text("START INVESTIGATING", this.defaultStyle);
-    navigation.interactive = true;
-    navigation.hitArea = new Rectangle(navigation.x, navigation.y, navigation.width, navigation.height);
-    navigation.on("pointertap", () => Manager.changeScene(livingroom));
-    navigation.x = Manager.width - navigation.width - 24;
-    navigation.y = Manager.height - navigation.height - 24;
-    navigation.on("mouseover", () => {
+    const container = new Container();
+    container.on("pointertap", () => Manager.changeScene(livingroom));
+    container.x = Manager.width - navigation.width - 24;
+    container.y = Manager.height - navigation.height - 24;
+    container.on("mouseover", () => {
       navigation.style.fontSize = 50;
       navigation.style.lineHeight = 55;
-      navigation.x = Manager.width - navigation.width - 24;
-      navigation.y = Manager.height - navigation.height - 24;
+      container.x = Manager.width - navigation.width - 24;
+      container.y = Manager.height - navigation.height - 24;
     });
-    navigation.on("mouseleave", () => {
+    container.on("mouseleave", () => {
       navigation.style.fontSize = 40;
       navigation.style.lineHeight = 45;
-      navigation.x = Manager.width - navigation.width - 24;
-      navigation.y = Manager.height - navigation.height - 24;
+      container.x = Manager.width - navigation.width - 20;
+      container.y = Manager.height - navigation.height - 20;
     });
-    this.addChild(navigation);
+    container.interactive = true;
+    this.addChild(container);
+    container.addChild(navigation);
   }
 
   private clickNotebook = () => {
