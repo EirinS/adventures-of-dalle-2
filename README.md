@@ -32,7 +32,8 @@
 - [x] remove textbox on click on screen
 - [x] remove textbox when navigating
 - [x] default text when using wrong item?
-- [ ] lilla flashlight
+- [ ] purple light in the flashlight to indicate that it is uv
+- [ ] basically every clue shows in the network tab when you load the images
 
 - [ ] ~~deselect item on click anywhere maybe?~~
 
