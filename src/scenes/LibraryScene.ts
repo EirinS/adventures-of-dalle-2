@@ -30,12 +30,24 @@ export class LibraryScene extends BaseScene {
       this.addText([
         "It's amazing to think that these books have survived all these years, carrying with them the history of the people who once walked these halls.",
       ]);
-    const bookCase = new HitBox(1130, 320, 624, 370);
+    const bookCase = new HitBox(1370, 320, 624, 370);
+    const leftBookCase = new HitBox(1130, 320, 240, 370);
     const rightBookCase = new HitBox(1754, 320, 145, 218);
     this.addChild(bookCase);
     this.addChild(rightBookCase);
+    this.addChild(leftBookCase);
     bookCase.addClickAction(bookCaseText);
     rightBookCase.addClickAction(bookCaseText);
+    leftBookCase.addClickAction(() =>
+      this.addText([
+        "There is a rainbow-colored book here. Let's see what is inside. (...)",
+        "The Science Behind the Pumpkin Prism Effect (...)",
+        "Have you ever heard about 'Spectralux'? When you combine the invisible chemical compound Spectralux with pumpkin juice, a stunning chemical reaction occurs. It causes the Spectralux to release various colored particles that mix with the (...)",
+        "pumpkin juice. This results in the pumpkin juice taking on a rainbow color as the colored particles refract light and scatter it in various directions, much like a prism. This phenomenon is known as the Pumpkin Prism effect. As the rainbow- (...)",
+        "colored juice settles, the different colors refract and bend at slightly different angles, causing them to separate and form distinct shapes within the liquid. By adding certain compounds to the Spectralux mixture, it's possible to manipulate (...)",
+        "the way the light is refracted and create specific shapes.",
+      ])
+    );
 
     const cabinetText = () =>
       this.addText([
