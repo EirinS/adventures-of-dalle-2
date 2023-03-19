@@ -169,9 +169,12 @@ export class KitchenScene extends BaseScene {
     this.removeChild(this.cupboardHitbox);
     this.addText(["This door sounds like it's auditioning for a horror movie."]);
     super.addCutout("openCupboard", 411, 565);
-    const flashlight = new HitBox(530, 625, 105, 40, 8);
-    flashlight.addClickAction(this.removeFlashlight);
-    this.flashlightHitbox = this.addChild(flashlight);
+
+    if (!itemHub.hasItem("flashlight")) {
+      const flashlight = new HitBox(530, 625, 105, 40, 8);
+      flashlight.addClickAction(this.removeFlashlight);
+      this.flashlightHitbox = this.addChild(flashlight);
+    }
   }
 
   private removeFlashlight() {
@@ -180,7 +183,7 @@ export class KitchenScene extends BaseScene {
       "This might look like an ordinary flashlight, but it is actually a UV flashlight. This could come in handy later.",
     ]);
     itemHub.addItem("flashlight");
-    this.addCutout("removeFlashlight", 493, 597);
+    this.addCutout("removeFlashlight", 493, 597, 1);
   }
 
   private revealPainting() {

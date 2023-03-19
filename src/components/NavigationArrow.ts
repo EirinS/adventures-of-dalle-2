@@ -34,7 +34,7 @@ export class NavigationArrow extends Graphics {
     outlineColor = 0xffffff
   ) {
     super();
-    this.zIndex = 1;
+    this.zIndex = 2;
     this.nextSceneBackground = nextScene.getBackground();
     this.position = new Point(x, y);
     this.color = color;

@@ -30,6 +30,10 @@ export class ItemHub extends Container {
     this.removeChild(this.sprites[item]);
   }
 
+  public hasItem(item: string) {
+    return this.sprites[item] !== undefined;
+  }
+
   private selectItem(item: string) {
     if (this.selectedItem === item) {
       this.deselectItem(item);
