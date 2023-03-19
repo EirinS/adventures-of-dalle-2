@@ -1,4 +1,5 @@
 import { Sprite } from "pixi.js";
+import { GameState } from "../components/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { bedroom, computer, garden, itemHub } from "../state/rooms";
@@ -111,5 +112,9 @@ export class LibraryScene extends BaseScene {
 
   private viewComputer() {
     Manager.changeScene(computer);
+    if (!GameState.visitedComputer) {
+      computer.addText(["I love a good puzzle challenge. Let's see if this game is up to par."]);
+      GameState.visitedComputer = true;
+    }
   }
 }

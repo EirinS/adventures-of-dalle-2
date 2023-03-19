@@ -11,7 +11,8 @@ export class LivingroomScene extends BaseScene {
   constructor() {
     super(Sprite.from("livingroom"));
 
-    const baobaoText = () => this.addText(["The living room"]);
+    const baobaoText = () =>
+      this.addText(["The attention to detail in this room is impeccable. Every piece seems to have been handpicked."]);
     const baobaoHead = new HitBox(1220, 330, 90);
     const baobaoHorizontal = new HitBox(1050, 470, 360, 260);
     const baobaoUpperBody = new HitBox(1090, 400, 280, 500);
@@ -31,11 +32,19 @@ export class LivingroomScene extends BaseScene {
     this.paintingHitbox = this.addChild(painting);
 
     const ePainting = new HitBox(68, 0, 300, 320);
-    ePainting.addClickAction(() => this.addText(["painting"]));
+    ePainting.addClickAction(() =>
+      this.addText([
+        "I'm no art critic, but I'd say this painting is definitely making waves in the nautical art world.",
+      ])
+    );
     this.addChild(ePainting);
 
     const noActionPainting = new HitBox(1286, 10, 196, 370);
-    noActionPainting.addClickAction(() => this.addText(["painting"]));
+    noActionPainting.addClickAction(() =>
+      this.addText([
+        "I wonder if the artist just ran out of paint colors and decided to call it a day with fifty shades of grey.",
+      ])
+    );
     this.addChild(noActionPainting);
 
     const fireplace = new HitBox(0, 428, 430, 410);
@@ -123,6 +132,9 @@ export class LivingroomScene extends BaseScene {
 
   private removePainting() {
     this.removeChild(this.paintingHitbox);
+    this.addText([
+      "Looks like someone's been taking lessons from Harry Houdini. The painting disappears and a safe appears, just like that!",
+    ]);
     this.addCutout("showSafe", 913, 317);
     const safe = new HitBox(930, 340, 155, 110, 0);
     this.goToSafe = this.goToSafe.bind(this);

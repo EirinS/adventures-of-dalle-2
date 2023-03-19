@@ -1,4 +1,5 @@
 import { Sprite } from "pixi.js";
+import { GameState } from "../components/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { book, library, livingroom, pumpkin } from "../state/rooms";
@@ -104,6 +105,13 @@ export class BedroomScene extends BaseScene {
 
   private lookIntoPumpkin() {
     Manager.changeScene(pumpkin);
+    if (!GameState.revealedPumkin) {
+      pumpkin.addText(["I feel like I'm looking into the soul of a pumpkin, but it's just an empty bowl."]);
+    } else {
+      pumpkin.addText([
+        "Who knew that pouring pumpkin juice into a pumpkin-shaped container could produce such a beautiful and mesmerizing display of colors? This pumpkin prism reaction is truly a sight to behold.",
+      ]);
+    }
   }
 
   private openDrawer() {

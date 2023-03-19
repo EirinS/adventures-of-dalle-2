@@ -33,7 +33,8 @@ export class OfficeScene extends BaseScene {
     fourthCabinet.addClickAction(this.clickFourthCabinet);
     this.hitBoxes.push(fourthCabinet);
 
-    const baobaoText = () => this.addText(["Welcome to my office"]);
+    const baobaoText = () =>
+      this.addText(["Time to roll up my sleeves and get down to business. The hunt for clues never stops!"]);
     const baobaoHead = new HitBox(1030, 290, 130);
     const baobaoBody = new HitBox(800, 350, 380, 200, 0);
     const baobaoLowerBody = new HitBox(634, 470, 580, 180);
