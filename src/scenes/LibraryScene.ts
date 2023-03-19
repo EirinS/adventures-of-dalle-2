@@ -90,12 +90,16 @@ export class LibraryScene extends BaseScene {
 
   private pickUpFloorplan() {
     this.addCutoutToEdge("removedFloorplan", false, false);
+    this.addText([
+      "Ah, the floorplan of the mansion. The blueprint for unraveling this mystery. (Floorplan was added to inventory)",
+    ]);
     this.removeChild(this.floorplanHitBox);
     itemHub.addItem("paper");
   }
 
   private revealSecretRoom() {
     this.addCutoutToEdge("openPlank", false, false);
+    this.addText(["We really nailed it by finding this secret room."]);
     this.removeChild(this.plankHitBox);
     this.addChild(this.floorplanHitBox);
   }

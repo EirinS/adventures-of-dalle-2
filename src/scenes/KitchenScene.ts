@@ -180,7 +180,7 @@ export class KitchenScene extends BaseScene {
   private removeFlashlight() {
     this.removeChild(this.flashlightHitbox);
     this.addText([
-      "This might look like an ordinary flashlight, but it is actually a UV flashlight. This could come in handy later.",
+      "This might look like an ordinary flashlight, but it is actually a UV flashlight. This could come in handy later. (Flashlight was added to inventory)",
     ]);
     itemHub.addItem("flashlight");
     this.addCutout("removeFlashlight", 493, 597, 1);
@@ -192,7 +192,9 @@ export class KitchenScene extends BaseScene {
   }
 
   private takeJuice() {
-    this.addText(["Not sure what to make of this pumpkin juice. Maybe it's part of some strange culinary experiment?"]);
+    this.addText([
+      "Not sure what to make of this pumpkin juice. Maybe it's part of some strange culinary experiment? (Pumkin juice was added to inventory)",
+    ]);
     this.removeChild(this.juiceHitbox);
     itemHub.addItem("carton");
     this.addCutout("removeJuice", 563, 391);

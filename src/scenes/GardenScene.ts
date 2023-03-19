@@ -114,7 +114,7 @@ export class GardenScene extends BaseScene {
   private takeKey() {
     this.removeChild(this.keyHitbox);
     this.addText([
-      "You've picked up a key. There's no telling what this key unlocks, but it could be worth holding onto.",
+      "You've picked up a key. There's no telling what this key unlocks, but it could be worth holding onto. (Key was added to inventory)",
     ]);
     this.addCutout("removeKey", 250, 857);
     itemHub.addItem("key");
@@ -122,7 +122,7 @@ export class GardenScene extends BaseScene {
 
   private takeCrowbar() {
     this.addText([
-      "The creativity of this flamingo head design is impressive. It's not every day you see a garden decoration that can also be used as a crowbar. Let's put it in the inventory.",
+      "The creativity of this flamingo head design is impressive. It's not every day you see a garden decoration that can also be used as a crowbar. (Crowbar was added to inventory)",
     ]);
     this.removeChild(this.crowbarHitbox);
     this.addCutoutToEdge("removeCrowbar", false, true);
