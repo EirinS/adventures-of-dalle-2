@@ -87,6 +87,14 @@ export class LibraryScene extends BaseScene {
     this.viewComputer = this.viewComputer.bind(this);
     computer.addClickAction(this.viewComputer);
     this.addChild(computer);
+
+    const baobao = new HitBox(260, 878, 160, undefined, 0, 0, false);
+    baobao.addClickAction(() =>
+      this.addText([
+        "I always thought the saying 'the pen is mightier than the sword' should be updated to 'the magnifying glass is mightier than the sword'.",
+      ])
+    );
+    this.addChild(baobao);
   }
 
   private pickUpFloorplan() {

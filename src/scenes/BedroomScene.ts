@@ -28,6 +28,17 @@ export class BedroomScene extends BaseScene {
     drawer.addClickAction(this.openDrawer, "key");
     this.lockedDrawerHitbox = this.addChild(drawer);
 
+    const baobaoText = () =>
+      this.addText([
+        "The way a person chooses to decorate their bedroom can be a window into their personality. It's always interesting to see how people express themselves through their living spaces.",
+      ]);
+    const baobao = new HitBox(1600, 340, 286, 620);
+    const baobaoHead = new HitBox(1750, 250, 110);
+    baobao.addClickAction(baobaoText);
+    baobaoHead.addClickAction(baobaoText);
+    this.addChild(baobaoHead);
+    this.addChild(baobao);
+
     const painting = new HitBox(460, 118, 310, 230);
     painting.addClickAction(() =>
       this.addText([
