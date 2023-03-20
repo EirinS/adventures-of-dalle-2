@@ -25,7 +25,11 @@ export class BedroomScene extends BaseScene {
 
     const drawer = new HitBox(-30, 845, 410, 90, -25);
     this.openDrawer = this.openDrawer.bind(this);
-    drawer.addClickAction(this.openDrawer, "key");
+    drawer.addClickAction(
+      this.openDrawer,
+      "key",
+      "A locked drawer always makes me curious. What could be so important that it needs to be locked away?"
+    );
     this.lockedDrawerHitbox = this.addChild(drawer);
 
     const baobaoText = () =>
