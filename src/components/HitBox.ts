@@ -51,7 +51,6 @@ export class HitBox extends Container {
   }
 
   private doAction(noItemText: string = "", item: string = "") {
-    console.log("action", itemHub.selectedItem);
     if (this.actions?.[itemHub.selectedItem]) {
       this.actions[itemHub.selectedItem](item);
     } else {
