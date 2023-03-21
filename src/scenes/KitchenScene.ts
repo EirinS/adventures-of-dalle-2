@@ -1,4 +1,5 @@
 import { Sprite } from "pixi.js";
+import { GameState } from "../components/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { garden, itemHub, livingroom } from "../state/rooms";
@@ -31,7 +32,7 @@ export class KitchenScene extends BaseScene {
     this.revealPainting = this.revealPainting.bind(this);
     painting.addClickAction(
       this.revealPainting,
-      "flashlight",
+      "UV flashlight",
       "The diamond seems to glow like a miniature moon, suspended in the endless void of the black background."
     );
     this.paintingHitbox = this.addChild(painting);
@@ -166,23 +167,28 @@ export class KitchenScene extends BaseScene {
   }
 
   private openCupboard() {
-    this.removeChild(this.cupboardHitbox);
     this.addText(["This door sounds like it's auditioning for a horror movie."]);
-    super.addCutout("openCupboard", 411, 565);
 
-    if (!itemHub.hasItem("flashlight")) {
+    if (!GameState.openedCupboard) {
+      super.addCutout("openCupboard", 411, 565);
+      this.removeChild(this.cupboardHitbox);
+    }
+
+    if (!itemHub.hasItem("UV flashlight") && !GameState.openedCupboard) {
       const flashlight = new HitBox(530, 625, 105, 40, 8);
       flashlight.addClickAction(this.removeFlashlight);
       this.flashlightHitbox = this.addChild(flashlight);
     }
+
+    GameState.openedCupboard = true;
   }
 
   private removeFlashlight() {
     this.removeChild(this.flashlightHitbox);
     this.addText([
-      "This might look like an ordinary flashlight, but it is actually a UV flashlight. This could come in handy later. (Flashlight was added to inventory)",
+      "This might look like an ordinary flashlight, but it is actually a UV flashlight. This could come in handy later. (UV flashlight was added to inventory)",
     ]);
-    itemHub.addItem("flashlight");
+    itemHub.addItem("UV flashlight");
     this.addCutout("removeFlashlight", 493, 597, 1);
   }
 
@@ -196,7 +202,7 @@ export class KitchenScene extends BaseScene {
       "Not sure what to make of this pumpkin juice. Maybe it's part of some strange culinary experiment? (Pumkin juice was added to inventory)",
     ]);
     this.removeChild(this.juiceHitbox);
-    itemHub.addItem("carton");
+    itemHub.addItem("pumpkin juice carton");
     this.addCutout("removeJuice", 563, 391);
   }
 }
