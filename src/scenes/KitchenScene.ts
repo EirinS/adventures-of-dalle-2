@@ -202,7 +202,7 @@ export class KitchenScene extends BaseScene {
       "Not sure what to make of this pumpkin juice. Maybe it's part of some strange culinary experiment? (Pumkin juice was added to inventory)",
     ]);
     this.removeChild(this.juiceHitbox);
-    itemHub.addItem("pumpkin juice carton");
+    itemHub.addItem("pumpkin juice");
     this.addCutout("removeJuice", 563, 391);
   }
 }

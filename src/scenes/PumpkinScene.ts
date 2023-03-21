@@ -12,7 +12,7 @@ export class PumpkinScene extends BaseScene {
 
     const bowl = new HitBox(955, 550, 600, 0);
     this.fillBowl = this.fillBowl.bind(this);
-    bowl.addClickAction(this.fillBowl, "pumpkin juice carton");
+    bowl.addClickAction(this.fillBowl, "pumpkin juice");
     this.bowlHitbox = this.addChild(bowl);
   }
 

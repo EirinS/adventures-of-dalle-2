@@ -103,10 +103,10 @@ export const manifest: ResolverManifest = {
       name: "items",
       assets: {
         key: "./items/key.png",
-        "pumpkin juice carton": "./items/carton.png",
+        "pumpkin juice": "./items/carton.png",
         "UV flashlight": "./items/flashlight.png",
         keyHighlighted: "./items/key-highlighted.png",
-        "pumpkin juice cartonHighlighted": "./items/carton-highlighted.png",
+        "pumpkin juiceHighlighted": "./items/carton-highlighted.png",
         "UV flashlightHighlighted": "./items/flashlight-highlighted.png",
         crowbar: "./items/crowbar.png",
         crowbarHighlighted: "./items/crowbar-highlighted.png",
