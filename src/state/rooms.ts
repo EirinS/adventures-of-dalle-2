@@ -1,12 +1,12 @@
-import { BedroomScene } from "../scenes/bedroomScene";
+import { BedroomScene } from "../scenes/BedroomScene";
 import { SafeScene } from "../scenes/SafeScene";
 import { KitchenScene } from "../scenes/KitchenScene";
 import { LibraryScene } from "../scenes/LibraryScene";
 import { LivingroomScene } from "../scenes/LivingroomScene";
 import { OfficeScene } from "../scenes/OfficeScene";
 import { GardenScene } from "../scenes/GardenScene";
-import { BookScene } from "../scenes/BookScene";
-import { PumpkinScene } from "../scenes/pumpkinScene";
+import { BookScene } from "../scenes/BsookScene";
+import { PumpkinScene } from "../scenes/PumpkinScene";
 import { ComputerScene } from "../scenes/ComputerScene";
 import { ItemHub } from "../components/ItemHub";
 import { StartScene } from "../scenes/StartScene";
