@@ -89,11 +89,13 @@ export class ComputerScene extends BaseScene {
       this.lines.push(line);
     } else if (this.lines) {
       const line = new Graphics();
-      debugger;
       line.position.set(sprite.x + 50, sprite.y + 50);
       line
         .lineStyle(20, 0xd4d4d4)
-        .lineTo(this.lines[this.lines.length - 1].x - line.x, this.lines[this.lines.length - 1].y - line.y);
+        .lineTo(
+          this.lines[this.lines.length - 1].x - line.x,
+          this.lines[this.lines.length - 1].y - line.y
+        );
       this.lines.push(line);
       this.addChild(line);
     }
