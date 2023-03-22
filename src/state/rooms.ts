@@ -5,13 +5,13 @@ import { LibraryScene } from "../scenes/LibraryScene";
 import { LivingroomScene } from "../scenes/LivingroomScene";
 import { OfficeScene } from "../scenes/OfficeScene";
 import { GardenScene } from "../scenes/GardenScene";
-import { BookScene } from "../scenes/BsookScene";
+import { BookScene } from "../scenes/BookScene";
 import { PumpkinScene } from "../scenes/PumpkinScene";
 import { ComputerScene } from "../scenes/ComputerScene";
 import { ItemHub } from "../components/ItemHub";
 import { StartScene } from "../scenes/StartScene";
 import { FloorplanScene } from "../scenes/FloorplanScene";
-import { CrystallballScene } from "../scenes/crystalballScene";
+import { CrystallballScene } from "../scenes/CrystalballScene";
 
 export let itemHub: ItemHub;
 
