@@ -26,6 +26,16 @@ export const manifest: ResolverManifest = {
       },
     },
     {
+      name: "crystalball",
+      assets: {
+        crystalEmpty: "./crystalball/empty.png",
+        crystalEiffel: "./crystalball/eiffel.png",
+        crystalBook: "./crystalball/book.png",
+        crystalPumpkin: "./crystalball/pumpkin.png",
+        crystalFlamingo: "./crystalball/flamingo.png",
+      },
+    },
+    {
       name: "garden",
       assets: {
         garden: "./garden/garden.png",

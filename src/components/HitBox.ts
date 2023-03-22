@@ -6,7 +6,15 @@ export class HitBox extends Container {
   private graphics: Graphics;
   private actions: { [item: string]: (item: string) => void };
 
-  constructor(x: number, y: number, width: number, height?: number, angle = 0, zIndex = 0, show: boolean = false) {
+  constructor(
+    x: number,
+    y: number,
+    width: number,
+    height?: number,
+    angle = 0,
+    zIndex = 0,
+    show: boolean = false
+  ) {
     super();
     this.graphics = new Graphics();
     this.graphics.interactive = true;
@@ -38,13 +46,23 @@ export class HitBox extends Container {
   // add action function to be called on click.
   // specify which item is needed to trigger the action (defaults to no item selected needed)
   // possible to add different actions for different items
-  public addClickAction(action: () => void, item: string = "", noItemText: string = "") {
+  public addClickAction(
+    action: () => void,
+    item: string = "",
+    noItemText: string = ""
+  ) {
     this.on("pointertap", () => this.doAction(noItemText));
     this.actions[item] = action;
   }
 
-  public addClickActionMultipleItems(action: (item: string) => void, items: string[], noItemText: string = "") {
-    this.on("pointertap", () => this.doAction(noItemText, itemHub.selectedItem));
+  public addClickActionMultipleItems(
+    action: (item: string) => void,
+    items: string[],
+    noItemText: string = ""
+  ) {
+    this.on("pointertap", () =>
+      this.doAction(noItemText, itemHub.selectedItem)
+    );
     items.forEach((actionItem) => {
       this.actions[actionItem] = action;
     });
@@ -55,7 +73,9 @@ export class HitBox extends Container {
       this.actions[itemHub.selectedItem](item);
     } else {
       if (itemHub.selectedItem !== "") {
-        Manager.currentScene.addText([`You can not use the ${itemHub.selectedItem} here.`]);
+        Manager.currentScene.addText([
+          `You can not use the ${itemHub.selectedItem} here.`,
+        ]);
       } else if (noItemText !== "" && itemHub.selectedItem === "") {
         Manager.currentScene.addText([noItemText]);
       }

@@ -52,12 +52,16 @@ export class KitchenScene extends BaseScene {
     cupboardRight.addClickAction(this.openCupboard);
     this.addChild(cupboardRight);
 
-    const leftPanText = () => this.addText(["This pan is as empty as my stomach after a long day of sleuthing."]);
+    const leftPanText = () =>
+      this.addText([
+        "This pan is as empty as my stomach after a long day of sleuthing.",
+      ]);
     const panLeft = new HitBox(1300, 480, 80, 60);
     panLeft.addClickAction(leftPanText);
     this.addChild(panLeft);
 
-    const rightPanText = () => this.addText(["No need to stir the pot here. This pan is bone dry."]);
+    const rightPanText = () =>
+      this.addText(["No need to stir the pot here. This pan is bone dry."]);
     const panRight = new HitBox(1400, 486, 80, 60);
     panRight.addClickAction(rightPanText);
     this.addChild(panRight);
@@ -76,12 +80,16 @@ export class KitchenScene extends BaseScene {
 
     const oven = new HitBox(1240, 540, 220, 60, 4);
     oven.addClickAction(() =>
-      this.addText(["With this stove as my ally, the investigation is sure to boil over with clues."])
+      this.addText([
+        "With this stove as my ally, the investigation is sure to boil over with clues.",
+      ])
     );
     this.addChild(oven);
 
     const lampText = () =>
-      this.addText(["The light from these lamps makes it feel like an old-timey detective movie in here."]);
+      this.addText([
+        "The light from these lamps makes it feel like an old-timey detective movie in here.",
+      ]);
     const frontLamp = new HitBox(726, 208, 102, 80);
     frontLamp.addClickAction(lampText);
     this.addChild(frontLamp);
@@ -99,7 +107,9 @@ export class KitchenScene extends BaseScene {
     this.addChild(backLamp);
 
     const windowText = () =>
-      this.addText(["I'm seeing right through this window, but I'm not sure what I'm looking for."]);
+      this.addText([
+        "I'm seeing right through this window, but I'm not sure what I'm looking for.",
+      ]);
     const window = new HitBox(372, 100, 200, 240);
     window.addClickAction(windowText);
     this.addChild(window);
@@ -118,7 +128,9 @@ export class KitchenScene extends BaseScene {
 
     const cookingPans = new HitBox(1420, 660, 250, 250, 4);
     cookingPans.addClickAction(() =>
-      this.addText(["Looks like someone has a real passion for cooking. Or hoarding pans."])
+      this.addText([
+        "Looks like someone has a real passion for cooking. Or hoarding pans.",
+      ])
     );
     this.addChild(cookingPans);
 
@@ -167,7 +179,9 @@ export class KitchenScene extends BaseScene {
   }
 
   private openCupboard() {
-    this.addText(["This door sounds like it's auditioning for a horror movie."]);
+    this.addText([
+      "This door sounds like it's auditioning for a horror movie.",
+    ]);
 
     if (!GameState.openedCupboard) {
       super.addCutout("openCupboard", 411, 565);
@@ -195,6 +209,7 @@ export class KitchenScene extends BaseScene {
   private revealPainting() {
     this.removeChild(this.paintingHitbox);
     this.addCutout("revealPainting", 1171, 0);
+    GameState.BFound = true;
   }
 
   private takeJuice() {

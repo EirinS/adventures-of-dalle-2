@@ -1,4 +1,5 @@
 import { Sprite } from "pixi.js";
+import { GameState } from "../components/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { bedroom } from "../state/rooms";
@@ -21,6 +22,7 @@ export class BookScene extends BaseScene {
 
   private revealRiddle() {
     this.removeChild(this.pageHitbox);
+    GameState.bookRevealed = true;
     this.addCutout("riddle", 320, 380);
   }
 }

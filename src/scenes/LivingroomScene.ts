@@ -1,8 +1,9 @@
 import { Sprite } from "pixi.js";
+import { GameState } from "../components/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { items } from "../state/items";
-import { bedroom, itemHub, kitchen, safe } from "../state/rooms";
+import { bedroom, crystalBall, itemHub, kitchen, safe } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { Manager } from "./Manager";
 
@@ -11,8 +12,15 @@ export class LivingroomScene extends BaseScene {
   constructor() {
     super(Sprite.from("livingroom"));
 
+    this.addText([
+      "As Baobao arrived at the mansion, he couldn't help but admire the grandeur of the exterior. The large, ornate gates and the imposing façade of the mansion were a testament to the wealth of the previous owner. He took a moment to soak in (...)",
+      "the opulence of the estate before preparing to enter and begin his search for the hidden Faberge egg.",
+    ]);
+
     const baobaoText = () =>
-      this.addText(["The attention to detail in this room is impeccable. Every piece seems to have been handpicked."]);
+      this.addText([
+        "The attention to detail in this room is impeccable. Every piece seems to have been handpicked.",
+      ]);
     const baobaoHead = new HitBox(1220, 330, 90);
     const baobaoHorizontal = new HitBox(1050, 470, 360, 260);
     const baobaoUpperBody = new HitBox(1090, 400, 280, 500);
@@ -59,7 +67,9 @@ export class LivingroomScene extends BaseScene {
 
     const lantern = new HitBox(722, 540, 88, 110);
     lantern.addClickAction(() =>
-      this.addText(["This lantern lamp looks like it belongs in a museum, a testament to a bygone era of lighting."])
+      this.addText([
+        "This lantern lamp looks like it belongs in a museum, a testament to a bygone era of lighting.",
+      ])
     );
     this.addChild(lantern);
 
@@ -110,11 +120,21 @@ export class LivingroomScene extends BaseScene {
   }
 
   private clickCrystalBall() {
-    // get hint
+    if (!GameState.hintWarningGotten) {
+      this.addText([
+        "Are you sure you want to gaze into the crystal ball? It may reveal a hint to help you on your quest. If you prefer to solve challenges on your own without any assistance, it's best to avoid using the crystal ball.",
+      ]);
+      GameState.hintWarningGotten = true;
+    } else {
+      crystalBall.loadNewHint();
+      Manager.changeScene(crystalBall);
+    }
   }
 
   private clickChandelier() {
-    this.addText(["Wonder how many gems had to be mined and polished to make this chandelier shine so brightly."]);
+    this.addText([
+      "Wonder how many gems had to be mined and polished to make this chandelier shine so brightly.",
+    ]);
   }
 
   private clickLamp() {
@@ -136,6 +156,7 @@ export class LivingroomScene extends BaseScene {
       "Looks like someone's been taking lessons from Harry Houdini. The painting disappears and a safe appears, just like that!",
     ]);
     this.addCutout("showSafe", 913, 317);
+    GameState.safeFound = true;
     const safe = new HitBox(930, 340, 155, 110, 0);
     this.goToSafe = this.goToSafe.bind(this);
     safe.addClickAction(this.goToSafe);

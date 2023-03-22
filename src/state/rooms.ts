@@ -11,6 +11,7 @@ import { ComputerScene } from "../scenes/ComputerScene";
 import { ItemHub } from "../components/ItemHub";
 import { StartScene } from "../scenes/StartScene";
 import { FloorplanScene } from "../scenes/FloorplanScene";
+import { CrystallballScene } from "../scenes/crystalballScene";
 
 export let itemHub: ItemHub;
 
@@ -27,6 +28,7 @@ export let book: BookScene;
 export let pumpkin: PumpkinScene;
 export let computer: ComputerScene;
 export let floorplan: FloorplanScene;
+export let crystalBall: CrystallballScene;
 
 export function loadRooms() {
   itemHub = new ItemHub();
@@ -43,6 +45,7 @@ export function loadRooms() {
   computer = new ComputerScene();
   startScreen = new StartScene();
   floorplan = new FloorplanScene();
+  crystalBall = new CrystallballScene();
   kitchen.loadNavigation();
   livingroom.loadNavigation();
   office.loadNavigation();
@@ -53,4 +56,5 @@ export function loadRooms() {
   book.loadNavigation();
   pumpkin.loadNavigation();
   computer.loadNavigation();
+  crystalBall.loadNavigation();
 }
