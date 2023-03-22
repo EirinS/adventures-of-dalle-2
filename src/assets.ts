@@ -33,6 +33,7 @@ export const manifest: ResolverManifest = {
         crystalBook: "./crystalball/book.png",
         crystalPumpkin: "./crystalball/pumpkin.png",
         crystalFlamingo: "./crystalball/flamingo.png",
+        crystalDiamond: "./crystalball/diamond.png",
       },
     },
     {
