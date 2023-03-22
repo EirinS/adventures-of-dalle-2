@@ -14,20 +14,29 @@ export class BaseScene extends Container implements IScene {
     // Allow z-index
     this.sortableChildren = true;
 
-    // Set scene background
+    this.backgroundScale = 1;
     this.background = background;
-    this.backgroundScale = Math.min(
-      Manager.width / this.background.texture.width,
-      1
-    );
-    this.background.scale.set(this.backgroundScale);
-    this.background.anchor.set(0, 0);
-    this.background.position = new Point(0, 0);
-    this.addChild(this.background);
+    this.setBackground.bind(this);
+    this.setBackground(this.background);
 
     // Set textBox
     this.textBox = new TextBox([""]);
     this.addChild(this.textBox);
+  }
+
+  protected setBackground(background: Sprite) {
+    // Set scene background
+    this.background = background;
+
+    this.backgroundScale = Math.min(
+      Manager.width / this.background.texture.width,
+      1
+    );
+
+    this.background.scale.set(this.backgroundScale);
+    this.background.anchor.set(0, 0);
+    this.background.position = new Point(0, 0);
+    this.addChild(this.background);
   }
 
   public addText = (text: string[]) => {
@@ -42,7 +51,12 @@ export class BaseScene extends Container implements IScene {
     return Sprite.from(this.background.texture);
   }
 
-  protected addCutout(spriteName: string, x: number, y: number, zIndex = 0): void {
+  protected addCutout(
+    spriteName: string,
+    x: number,
+    y: number,
+    zIndex = 0
+  ): void {
     const cutout = Sprite.from(spriteName);
     cutout.scale.set(this.backgroundScale);
     cutout.position = new Point(x, y);
@@ -50,7 +64,11 @@ export class BaseScene extends Container implements IScene {
     this.addChild(cutout);
   }
 
-  protected addCutoutToEdge(spriteName: string, left: boolean = true, top: boolean = true): void {
+  protected addCutoutToEdge(
+    spriteName: string,
+    left: boolean = true,
+    top: boolean = true
+  ): void {
     const cutout = Sprite.from(spriteName);
     cutout.scale.set(this.backgroundScale);
     const x = left ? 0 : Manager.width - cutout.width;

@@ -1,4 +1,4 @@
-import { Sprite, Text, TextStyle } from "pixi.js";
+import { DisplayObject, Graphics, Sprite, Text, TextStyle } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { livingroom } from "../state/rooms";
@@ -6,6 +6,7 @@ import { BaseScene } from "./BaseScene";
 
 export class SafeScene extends BaseScene {
   private currentCode: Text;
+  private navigationArrow: DisplayObject = new Graphics();
 
   private defaultStyle: TextStyle = new TextStyle({
     fontFamily: "Seven Segment",
@@ -69,7 +70,9 @@ export class SafeScene extends BaseScene {
     this.addChild(this.currentCode);
   }
   public loadNavigation() {
-    this.addChild(new NavigationArrow(925, 950, livingroom, Direction.Down));
+    this.navigationArrow = this.addChild(
+      new NavigationArrow(925, 950, livingroom, Direction.Down)
+    );
   }
 
   private pressButton(letter: string) {
@@ -79,6 +82,13 @@ export class SafeScene extends BaseScene {
     if (this.currentCode.text.length === 5) {
       if (this.currentCode.text === "REBUS") {
         this.defaultStyle.fill = "#48d508";
+        setTimeout(() => {
+          this.setBackground(Sprite.from("open"));
+          this.addText([
+            "The rumors were true, this egg is a masterpiece. The details are so fine and precise, it's hard to believe it was made by human hands. It's a true treasure.",
+          ]);
+          this.removeChild(this.navigationArrow);
+        }, 1000);
       } else {
         this.defaultStyle.fill = "#f60824";
       }

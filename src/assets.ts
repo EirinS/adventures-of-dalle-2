@@ -84,6 +84,7 @@ export const manifest: ResolverManifest = {
       name: "safe",
       assets: {
         safe: "./safe/safe.png",
+        open: "./safe/opensafe.png",
       },
     },
     {
