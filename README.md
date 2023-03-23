@@ -13,18 +13,20 @@
 - [x] Connect the dots game
 - [x] Inventory
 - [x] Use items from inventory
-- [ ] Configure all hit-boxes
-- [ ] Create all text in textboxes
+- [x] Configure all hit-boxes
+- [x] Create all text in textboxes
 - [x] Safe combination
-- [ ] Allow to throw items in the fireplace
-- [ ] Create blueprint
-- [ ] Create crowbar
-- [ ] Connect crowbar logic to library
+- [x] Allow to throw items in the fireplace
+- [x] Create blueprint
+- [x] Create crowbar
+- [x] Connect crowbar logic to library
+- [ ] Add music to the game
+- [ ] Add specific use item error text
 
 ## Backlog
 
-- [ ] Something inside the safe
-- [ ] Crystal ball (hints)
+- [x] Something inside the safe
+- [x] Crystal ball (hints)
 - [x] Generate flashlight in a room
 
 ## Bugs/misc
@@ -33,8 +35,8 @@
 - [x] remove textbox when navigating
 - [x] default text when using wrong item?
 - [ ] purple light in the flashlight to indicate that it is uv
-- [ ] basically every clue shows in the network tab when you load the images
 
+- [ ] ~~basically every clue shows in the network tab when you load the images~~
 - [ ] ~~deselect item on click anywhere maybe?~~
 
 ## Riddles
@@ -47,6 +49,5 @@
 - (SAFE) -> REBUS
 
 ## Future ideas
-
 - Have papers/documents inside the safe that reveals the location of the treasure that the original owner of the mansion (a sea captain/pirate) buried.
 - AI sound
