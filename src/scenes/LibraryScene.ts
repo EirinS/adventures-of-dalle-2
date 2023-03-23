@@ -88,6 +88,7 @@ export class LibraryScene extends BaseScene {
 
     this.removeChild(this.floorplanHitBox);
     itemHub.addItem("paper");
+    floorplan.loadNavigation(Manager.currentScene);
     Manager.changeScene(floorplan);
     floorplan.addText([
       "Ah, the floorplan of the mansion. The blueprint for unraveling this mystery. (Floorplan was added to inventory)",

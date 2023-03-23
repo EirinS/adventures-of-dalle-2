@@ -48,10 +48,10 @@ export class ItemHub extends Container {
   }
 
   private selectFloorPlan() {
-    floorplan.loadNavigation(Manager.currentScene);
     if (Manager.currentScene === floorplan) {
       Manager.changeScene(Manager.prevScene);
     } else {
+      floorplan.loadNavigation(Manager.currentScene);
       Manager.changeScene(floorplan);
     }
   }
