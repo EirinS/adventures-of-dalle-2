@@ -17,16 +17,12 @@ export class Manager {
     return Manager._height;
   }
 
-  public static initialize(
-    width: number,
-    height: number,
-    background: number
-  ): void {
+  public static initialize(width: number, height: number, background: number): void {
     Manager._width = width;
     Manager._height = height;
 
     Manager.app = new Application({
-      view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
+      view: document.querySelector<HTMLCanvasElement>("canvas") ?? undefined,
       resolution: window.devicePixelRatio || 1,
       autoDensity: true,
       backgroundColor: background,
@@ -43,22 +39,13 @@ export class Manager {
 
   public static resize(): void {
     // current screen size
-    const screenWidth = Math.max(
-      document.documentElement.clientWidth,
-      window.innerWidth || 0
-    );
-    const screenHeight = Math.max(
-      document.documentElement.clientHeight,
-      window.innerHeight || 0
-    );
+    const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
     // uniform scale for our game
-    const scale = Math.min(
-      screenWidth / Manager.width,
-      screenHeight / Manager.height
-    );
+    const scale = Math.min(screenWidth / Manager.width, screenHeight / Manager.height);
 
-    // the "uniformly englarged" size for our game
+    // the "uniformly enlarged" size for our game
     const enlargedWidth = Math.floor(scale * Manager.width);
     const enlargedHeight = Math.floor(scale * Manager.height);
 
@@ -67,15 +54,12 @@ export class Manager {
     const verticalMargin = (screenHeight - enlargedHeight) / 2;
 
     // now we use css trickery to set the sizes and margins
-    const viewWrapper = document.getElementById("pixi-content") as HTMLElement;
-
-    if (Manager.app.view.style) {
-      Manager.app.view.style.width = `${enlargedWidth}px`;
-      Manager.app.view.style.height = `${enlargedHeight}px`;
-      viewWrapper.style.marginLeft =
-        viewWrapper.style.marginRight = `${horizontalMargin}px`;
-      viewWrapper.style.marginTop =
-        viewWrapper.style.marginBottom = `${verticalMargin}px`;
+    const appView = Manager.app.view as HTMLCanvasElement;
+    if (appView.style) {
+      appView.style.width = `${enlargedWidth}px`;
+      appView.style.height = `${enlargedHeight}px`;
+      appView.style.marginLeft = appView.style.marginRight = `${horizontalMargin}px`;
+      appView.style.marginTop = appView.style.marginBottom = `${verticalMargin}px`;
     }
   }
 
