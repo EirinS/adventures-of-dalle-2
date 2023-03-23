@@ -40,12 +40,20 @@ export class ItemHub extends Container {
     } else {
       this.deselectItem(this.selectedItem);
       if (item === "paper") {
-        floorplan.loadNavigation(Manager.currentScene);
-        Manager.changeScene(floorplan);
+        this.selectFloorPlan();
       } else {
         this.selectedItem = item;
         this.sprites[item].texture = Texture.from(item + "Highlighted");
       }
+    }
+  }
+
+  private selectFloorPlan() {
+    floorplan.loadNavigation(Manager.currentScene);
+    if (Manager.currentScene === floorplan) {
+      Manager.changeScene(Manager.prevScene);
+    } else {
+      Manager.changeScene(floorplan);
     }
   }
 
