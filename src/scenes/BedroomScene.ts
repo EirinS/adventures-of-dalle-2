@@ -25,7 +25,11 @@ export class BedroomScene extends BaseScene {
       "",
       "I wasn't expecting that to open. It's like a pumpkin but with secret compartments!"
     );
-    pumpkin.addClickText("I think we are getting closer", "pumpkin juice");
+
+    pumpkin.addClickText(
+      "Interesting, I can feel like I'm getting closer to the solution. It seems like the answer might be right under my nose, or in this case, in this bowl.",
+      "pumpkin juice"
+    );
     this.unOpenedPumpkinHitbox = this.addChild(pumpkin);
 
     const drawer = new HitBox(-30, 845, 410, 90, -25);
@@ -38,6 +42,7 @@ export class BedroomScene extends BaseScene {
     drawer.addClickText(
       "A locked drawer always makes me curious. What could be so important that it needs to be locked away?"
     );
+    drawer.addClickText("Looks like the crowbar isn't as versatile as I thought. Drawer: 1, Crowbar: 0.", "crowbar");
     this.lockedDrawerHitbox = this.addChild(drawer);
 
     const baobaoText =
@@ -110,6 +115,10 @@ export class BedroomScene extends BaseScene {
     const pumpkin = new HitBox(65, 550, 150, 120, 0);
     this.lookIntoPumpkin = this.lookIntoPumpkin.bind(this);
     pumpkin.addClickAction(this.lookIntoPumpkin);
+    pumpkin.addClickText(
+      "Interesting, I can feel like I'm getting closer to the solution. It seems like the answer might be right under my nose, or in this case, in this bowl.",
+      "pumpkin juice"
+    );
     this.addChild(pumpkin);
   }
 

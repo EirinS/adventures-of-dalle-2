@@ -4,6 +4,7 @@ import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { garden, itemHub, livingroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
+import { lampText as flashlightLampText } from "../state/items";
 
 export class KitchenScene extends BaseScene {
   private paintingHitbox: any;
@@ -79,17 +80,21 @@ export class KitchenScene extends BaseScene {
     const lampText = "The light from these lamps makes it feel like an old-timey detective movie in here.";
     const frontLamp = new HitBox(726, 208, 102, 80);
     frontLamp.addClickText(lampText);
+    frontLamp.addClickText(flashlightLampText, "UV flashlight");
     this.addChild(frontLamp);
 
     const lampStringFront = new HitBox(774, 0, 12, 220);
     lampStringFront.addClickText(lampText);
+    lampStringFront.addClickText(flashlightLampText, "UV flashlight");
     this.addChild(lampStringFront);
 
     const lampStringBack = new HitBox(926, 0, 12, 220);
+    lampStringBack.addClickText(flashlightLampText, "UV flashlight");
     lampStringBack.addClickText(lampText);
     this.addChild(lampStringBack);
 
     const backLamp = new HitBox(880, 208, 102, 80);
+    backLamp.addClickText(flashlightLampText, "UV flashlight");
     backLamp.addClickText(lampText);
     this.addChild(backLamp);
 

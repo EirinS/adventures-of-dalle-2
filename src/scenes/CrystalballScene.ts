@@ -15,7 +15,7 @@ export class CrystallballScene extends BaseScene {
   ];
 
   private hintText: string =
-    "I gaze into the crystal ball and a vision emerges. It appears to be some sort of hint, though I can't quite make out what it means. I'll need to look around the mansion to understand what it means.";
+    "I gaze into the crystal ball and a vision emerges. It appears to be some sort of hint, though I can't quite make out what it means. I'll need to look around to understand what it means.";
 
   private hintIndex = this.hints.length - 1;
 

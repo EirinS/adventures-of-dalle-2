@@ -75,6 +75,16 @@ export class LibraryScene extends BaseScene {
     const computer = new HitBox(1325, 645, 75, 75, 10, 1);
     this.viewComputer = this.viewComputer.bind(this);
     computer.addClickAction(this.viewComputer);
+    computer.addClickText(
+      "I don't think the computer will appreciate being turned into a pumpkin spice latte.",
+      "pumpkin juice"
+    );
+    computer.addClickText("I don't think brute force is the answer here, Mr. Crowbar.", "crowbar");
+    computer.addClickText("Using a key on a computer is like trying to unlock a door with a USB stick.", "key");
+    computer.addClickText(
+      "I appreciate your creative problem-solving skills, but I don't think shining a flashlight on the computer will get us anywhere.",
+      "UV flashlight"
+    );
     this.addChild(computer);
 
     const baobao = new HitBox(260, 878, 160, undefined, 0, 0, false);

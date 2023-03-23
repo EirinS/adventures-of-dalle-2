@@ -2,7 +2,7 @@ import { Sprite } from "pixi.js";
 import { GameState } from "../components/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { items } from "../state/items";
+import { items, lampText as flashlightLampText } from "../state/items";
 import { bedroom, crystalBall, itemHub, kitchen, safe } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { Manager } from "./Manager";
@@ -82,10 +82,12 @@ export class LivingroomScene extends BaseScene {
       "I'm pretty sure this lamp could double as a genie's lamp - it's definitely got that kind of magic to it.";
     const lampScreen = new HitBox(536, 318, 136, 110);
     lampScreen.addClickText(lampText);
+    lampScreen.addClickText(flashlightLampText, "UV flashlight");
     this.addChild(lampScreen);
 
     const lamp = new HitBox(588, 428, 34, 220);
     lamp.addClickText(lampText);
+    lamp.addClickText(flashlightLampText, "UV flashlight");
     this.addChild(lamp);
 
     const chairText =
@@ -102,8 +104,11 @@ export class LivingroomScene extends BaseScene {
     const chandelierTop = new HitBox(1060, 0, 120, 100);
     const chandelierMiddle = new HitBox(1000, 40, 238, 120);
     const chandelierBottom = new HitBox(1040, 140, 166, 60);
+    chandelierTop.addClickText(flashlightLampText, "UV flashlight");
     chandelierTop.addClickText(chandelierText);
+    chandelierMiddle.addClickText(flashlightLampText, "UV flashlight");
     chandelierMiddle.addClickText(chandelierText);
+    chandelierBottom.addClickText(flashlightLampText, "UV flashlight");
     chandelierBottom.addClickText(chandelierText);
     this.addChild(chandelierTop);
     this.addChild(chandelierMiddle);
@@ -118,7 +123,8 @@ export class LivingroomScene extends BaseScene {
   private clickCrystalBall() {
     if (!GameState.hintWarningGotten) {
       this.addText([
-        "Are you sure you want to gaze into the crystal ball? It may reveal a hint to help you on your quest. If you prefer to solve challenges on your own without any assistance, it's best to avoid using the crystal ball.",
+        "Are you sure you want to gaze into the crystal ball? It may reveal a hint to help you on your quest. If you prefer to solve challenges on your own without any assistance, it's best to (...)",
+        "avoid using the crystal ball.",
       ]);
       GameState.hintWarningGotten = true;
     } else {
