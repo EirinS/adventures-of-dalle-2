@@ -55,9 +55,10 @@ export class LoaderScene extends Container implements IScene {
 
   public clearText(): void {}
 
+  public addChildContainer(_: Container): void {}
+
   private gameLoaded(): void {
     loadRooms();
     Manager.changeScene(startScreen);
-    Manager.showItemhub();
   }
 }

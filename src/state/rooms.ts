@@ -22,7 +22,6 @@ export let garden: GardenScene;
 export let bedroom: BedroomScene;
 export let library: LibraryScene;
 export let startScreen: StartScene;
-
 export let safe: SafeScene;
 export let book: BookScene;
 export let pumpkin: PumpkinScene;
@@ -30,9 +29,23 @@ export let computer: ComputerScene;
 export let floorplan: FloorplanScene;
 export let crystalBall: CrystallballScene;
 
+export const getAllRooms = () => [
+  kitchen,
+  livingroom,
+  office,
+  garden,
+  bedroom,
+  library,
+  safe,
+  book,
+  pumpkin,
+  computer,
+  floorplan,
+  crystalBall,
+];
+
 export function loadRooms() {
   itemHub = new ItemHub();
-  itemHub.interactive = true;
   kitchen = new KitchenScene();
   livingroom = new LivingroomScene();
   office = new OfficeScene();

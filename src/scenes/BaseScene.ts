@@ -24,6 +24,10 @@ export class BaseScene extends Container implements IScene {
     this.addChild(this.textBox);
   }
 
+  public addChildContainer(item : Container): void {
+    this.addChild(item);
+  }
+
   protected setBackground(background: Sprite) {
     // Set scene background
     this.background = background;

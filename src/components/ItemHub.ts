@@ -8,7 +8,7 @@ export class ItemHub extends Container {
   private sprites: { [item: string]: Sprite };
   constructor() {
     super();
-    this.zIndex = 1000;
+    this.zIndex = 2;
     this.numberOfItems = 0;
     this.selectedItem = "";
     this.sprites = {};

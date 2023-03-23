@@ -3,10 +3,8 @@ import { itemHub } from "../state/rooms";
 import { IScene } from "./IScene";
 
 export class Manager {
-  static prevScene: IScene;
-  private constructor() {}
-
   private static app: Application;
+  static prevScene: IScene;
   public static currentScene: IScene;
 
   private static _width: number;
@@ -91,10 +89,6 @@ export class Manager {
     Manager.currentScene = newScene;
     Manager.currentScene.clearText();
     Manager.app.stage.addChild(Manager.currentScene);
-  }
-
-  public static showItemhub() {
-    Manager.app.stage.sortableChildren = true;
-    Manager.app.stage.addChild(itemHub);
+    Manager.currentScene.addChildContainer(itemHub);
   }
 }

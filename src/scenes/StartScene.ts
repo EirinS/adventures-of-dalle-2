@@ -1,5 +1,5 @@
 import { Graphics, Sprite, Text, TextStyle } from "pixi.js";
-import { office } from "../state/rooms";
+import { itemHub, office } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { Manager } from "./Manager";
 
@@ -63,5 +63,7 @@ export class StartScene extends BaseScene {
     this.addChild(button);
     button.addChild(startGame);
     this.addChild(title);
+
+    this.addChild(itemHub);
   }
 }
