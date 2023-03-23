@@ -2,7 +2,7 @@ import { Sprite } from "pixi.js";
 import { GameState } from "../components/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { bedroom, computer, garden, itemHub } from "../state/rooms";
+import { bedroom, computer, floorplan, garden, itemHub } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { Manager } from "./Manager";
 
@@ -99,11 +99,13 @@ export class LibraryScene extends BaseScene {
 
   private pickUpFloorplan() {
     this.addCutoutToEdge("removedFloorplan", false, false);
-    this.addText([
-      "Ah, the floorplan of the mansion. The blueprint for unraveling this mystery. (Floorplan was added to inventory)",
-    ]);
+
     this.removeChild(this.floorplanHitBox);
     itemHub.addItem("paper");
+    Manager.changeScene(floorplan);
+    floorplan.addText([
+      "Ah, the floorplan of the mansion. The blueprint for unraveling this mystery. (Floorplan was added to inventory)",
+    ]);
   }
 
   private revealSecretRoom() {
