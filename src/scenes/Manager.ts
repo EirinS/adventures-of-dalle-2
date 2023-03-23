@@ -23,7 +23,7 @@ export class Manager {
 
     Manager.app = new Application({
       view: document.querySelector<HTMLCanvasElement>("canvas") ?? undefined,
-      resolution: window.devicePixelRatio || 1,
+      resolution: 1,
       autoDensity: true,
       backgroundColor: background,
       width: width,
