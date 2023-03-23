@@ -4,17 +4,9 @@ import { itemHub } from "../state/rooms";
 
 export class HitBox extends Container {
   private graphics: Graphics;
-  private actions: { [item: string]: (item: string) => void };
+  private actions: { [item: string]: () => void };
 
-  constructor(
-    x: number,
-    y: number,
-    width: number,
-    height?: number,
-    angle = 0,
-    zIndex = 0,
-    show: boolean = false
-  ) {
+  constructor(x: number, y: number, width: number, height?: number, angle = 0, zIndex = 0, show: boolean = false) {
     super();
     this.graphics = new Graphics();
     this.graphics.interactive = true;
@@ -41,45 +33,60 @@ export class HitBox extends Container {
 
     this.graphics.endFill();
     this.addChild(this.graphics);
+
+    this.on("pointertap", () => this.doActionUpdated());
   }
 
-  // add action function to be called on click.
-  // specify which item is needed to trigger the action (defaults to no item selected needed)
-  // possible to add different actions for different items
-  public addClickAction(
-    action: () => void,
-    item: string = "",
-    noItemText: string = ""
-  ) {
-    this.on("pointertap", () => this.doAction(noItemText));
-    this.actions[item] = action;
+  private getText(text: string | string[]): string[] {
+    if (typeof text === "string") return [text];
+    return text;
   }
 
-  public addClickActionMultipleItems(
-    action: (item: string) => void,
-    items: string[],
-    noItemText: string = ""
-  ) {
-    this.on("pointertap", () =>
-      this.doAction(noItemText, itemHub.selectedItem)
-    );
-    items.forEach((actionItem) => {
-      this.actions[actionItem] = action;
-    });
-  }
-
-  private doAction(noItemText: string = "", item: string = "") {
-    if (this.actions?.[itemHub.selectedItem]) {
-      this.actions[itemHub.selectedItem](item);
+  /**
+   * @param action The action to be performed
+   * @param item The item that triggers the action
+   * @param text Optional text to be displayed with the action
+   */
+  public addClickAction(action: () => void, item: string = "", text: string | string[] | undefined = undefined) {
+    if (text) {
+      const textAction = () => {
+        action();
+        Manager.currentScene.addText(this.getText(text));
+      };
+      this.actions[item] = textAction;
     } else {
+      this.actions[item] = action;
+    }
+  }
+
+  /**
+   * Simplified way to add text to a hitbox hit.
+   * @param text The text to be shown
+   * @param item The item that triggers the text
+   */
+  public addClickText(text: string[] | string, item: string = "") {
+    // If it is used together with clickAction, don't override action but add text to action
+    if (this.actions[item])
+      this.actions[item] = () => {
+        this.actions[item];
+        Manager.currentScene.addText(this.getText(text));
+      };
+    else {
+      this.actions[item] = () => Manager.currentScene.addText(this.getText(text));
+    }
+  }
+
+  private doActionUpdated() {
+    if (this.actions?.[itemHub.selectedItem]) {
+      this.actions[itemHub.selectedItem]();
+    } else {
+      // Default text if none is set
       if (itemHub.selectedItem !== "") {
-        Manager.currentScene.addText([
-          `You can not use the ${itemHub.selectedItem} here.`,
-        ]);
-      } else if (noItemText !== "" && itemHub.selectedItem === "") {
-        Manager.currentScene.addText([noItemText]);
+        Manager.currentScene.addText([`You can not use the ${itemHub.selectedItem} here.`]);
       }
     }
+
+    // deselect an item after trying to use it
     itemHub.deselectItem(itemHub.selectedItem);
   }
 }
