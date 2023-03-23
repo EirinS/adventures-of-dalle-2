@@ -9,10 +9,7 @@ export class CrystallballScene extends BaseScene {
   private hints: [string, () => boolean][] = [
     ["Eiffel", () => !GameState.safeFound],
     ["Flamingo", () => !itemHub.hasItem("crowbar")],
-    [
-      "Pumpkin",
-      () => itemHub.hasItem("pumpkin juice") && !GameState.revealedPumkin,
-    ],
+    ["Pumpkin", () => itemHub.hasItem("pumpkin juice") && !GameState.revealedPumkin],
     ["Book", () => itemHub.hasItem("UV flashlight") && !GameState.bookRevealed],
     ["Diamond", () => GameState.bookRevealed && !GameState.BFound],
   ];
@@ -27,8 +24,7 @@ export class CrystallballScene extends BaseScene {
 
     const ball = new HitBox(980, 400, 385);
     ball.zIndex = 1;
-    this.clickBall = this.clickBall.bind(this);
-    ball.addClickAction(this.clickBall);
+    ball.addClickText(this.hintText);
     this.addChild(ball);
   }
 
@@ -59,9 +55,5 @@ export class CrystallballScene extends BaseScene {
 
   public loadNavigation() {
     this.addChild(new NavigationArrow(925, 950, livingroom, Direction.Down));
-  }
-
-  private clickBall() {
-    this.addText([this.hintText]);
   }
 }

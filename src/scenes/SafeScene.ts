@@ -70,9 +70,7 @@ export class SafeScene extends BaseScene {
     this.addChild(this.currentCode);
   }
   public loadNavigation() {
-    this.navigationArrow = this.addChild(
-      new NavigationArrow(925, 950, livingroom, Direction.Down)
-    );
+    this.navigationArrow = this.addChild(new NavigationArrow(925, 950, livingroom, Direction.Down));
   }
 
   private pressButton(letter: string) {

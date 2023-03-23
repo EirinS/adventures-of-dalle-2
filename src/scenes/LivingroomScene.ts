@@ -18,9 +18,7 @@ export class LivingroomScene extends BaseScene {
     ]);
 
     const baobaoText = () =>
-      this.addText([
-        "The attention to detail in this room is impeccable. Every piece seems to have been handpicked.",
-      ]);
+      this.addText(["The attention to detail in this room is impeccable. Every piece seems to have been handpicked."]);
     const baobaoHead = new HitBox(1220, 330, 90);
     const baobaoHorizontal = new HitBox(1050, 470, 360, 260);
     const baobaoUpperBody = new HitBox(1090, 400, 280, 500);
@@ -36,40 +34,38 @@ export class LivingroomScene extends BaseScene {
 
     const painting = new HitBox(930, 340, 155, 110, 0);
     this.removePainting = this.removePainting.bind(this);
-    painting.addClickAction(this.removePainting);
+    painting.addClickAction(
+      this.removePainting,
+      "",
+      "Looks like someone's been taking lessons from Harry Houdini. The painting disappears and a safe appears, just like that!"
+    );
     this.paintingHitbox = this.addChild(painting);
 
     const ePainting = new HitBox(68, 0, 300, 320);
-    ePainting.addClickAction(() =>
-      this.addText([
-        "I'm no art critic, but I'd say this painting is definitely making waves in the nautical art world.",
-      ])
+    ePainting.addClickText(
+      "I'm no art critic, but I'd say this painting is definitely making waves in the nautical art world."
     );
     this.addChild(ePainting);
 
     const noActionPainting = new HitBox(1286, 10, 196, 370);
-    noActionPainting.addClickAction(() =>
-      this.addText([
-        "I wonder if the artist just ran out of paint colors and decided to call it a day with fifty shades of grey.",
-      ])
+    noActionPainting.addClickText(
+      "I wonder if the artist just ran out of paint colors and decided to call it a day with fifty shades of grey."
     );
     this.addChild(noActionPainting);
 
     const fireplace = new HitBox(0, 428, 430, 410);
     this.burnItems.bind(this.burnItems);
-    fireplace.addClickActionMultipleItems(
-      (item) => this.burnItems(item),
-      items,
+    items.forEach((item) => {
+      fireplace.addClickAction(() => this.burnItems(item), item);
+    });
+    fireplace.addClickText(
       "Throwing things into the fire is like a primitive form of stress relief. It's like I'm letting go of all my troubles."
     );
-
     this.addChild(fireplace);
 
     const lantern = new HitBox(722, 540, 88, 110);
-    lantern.addClickAction(() =>
-      this.addText([
-        "This lantern lamp looks like it belongs in a museum, a testament to a bygone era of lighting.",
-      ])
+    lantern.addClickText(
+      "This lantern lamp looks like it belongs in a museum, a testament to a bygone era of lighting."
     );
     this.addChild(lantern);
 
@@ -82,33 +78,33 @@ export class LivingroomScene extends BaseScene {
     crystallBallBase.addClickAction(this.clickCrystalBall);
     this.addChild(crystallBallBase);
 
-    this.clickLamp = this.clickLamp.bind(this);
+    const lampText =
+      "I'm pretty sure this lamp could double as a genie's lamp - it's definitely got that kind of magic to it.";
     const lampScreen = new HitBox(536, 318, 136, 110);
-    lampScreen.addClickAction(this.clickLamp);
+    lampScreen.addClickText(lampText);
     this.addChild(lampScreen);
 
     const lamp = new HitBox(588, 428, 34, 220);
-    lamp.addClickAction(this.clickLamp);
+    lamp.addClickText(lampText);
     this.addChild(lamp);
 
-    const chairText = () =>
-      this.addText([
-        "Well, that's a bit of a letdown. I was hoping for a clue hidden under the pillow, but it looks like this chair is just a place to rest your tush.",
-      ]);
+    const chairText =
+      "Well, that's a bit of a letdown. I was hoping for a clue hidden under the pillow, but it looks like this chair is just a place to rest your tush.";
     const chair = new HitBox(1600, 670, 320, 230);
     const upperChair = new HitBox(1780, 556, 140, 140);
-    chair.addClickAction(chairText);
-    upperChair.addClickAction(chairText);
+    chair.addClickText(chairText);
+    upperChair.addClickText(chairText);
     this.addChild(upperChair);
     this.addChild(chair);
 
-    this.clickChandelier = this.clickChandelier.bind(this);
+    const chandelierText =
+      "Wonder how many gems had to be mined and polished to make this chandelier shine so brightly.";
     const chandelierTop = new HitBox(1060, 0, 120, 100);
     const chandelierMiddle = new HitBox(1000, 40, 238, 120);
     const chandelierBottom = new HitBox(1040, 140, 166, 60);
-    chandelierTop.addClickAction(this.clickChandelier);
-    chandelierMiddle.addClickAction(this.clickChandelier);
-    chandelierBottom.addClickAction(this.clickChandelier);
+    chandelierTop.addClickText(chandelierText);
+    chandelierMiddle.addClickText(chandelierText);
+    chandelierBottom.addClickText(chandelierText);
     this.addChild(chandelierTop);
     this.addChild(chandelierMiddle);
     this.addChild(chandelierBottom);
@@ -131,18 +127,6 @@ export class LivingroomScene extends BaseScene {
     }
   }
 
-  private clickChandelier() {
-    this.addText([
-      "Wonder how many gems had to be mined and polished to make this chandelier shine so brightly.",
-    ]);
-  }
-
-  private clickLamp() {
-    this.addText([
-      "I'm pretty sure this lamp could double as a genie's lamp - it's definitely got that kind of magic to it.",
-    ]);
-  }
-
   private burnItems(item: string) {
     this.addText([
       `You threw the ${item} in the fire. Unless you are certain you don't need it, I suggest you restart the game.`,
@@ -152,9 +136,6 @@ export class LivingroomScene extends BaseScene {
 
   private removePainting() {
     this.removeChild(this.paintingHitbox);
-    this.addText([
-      "Looks like someone's been taking lessons from Harry Houdini. The painting disappears and a safe appears, just like that!",
-    ]);
     this.addCutout("showSafe", 913, 317);
     GameState.safeFound = true;
     const safe = new HitBox(930, 340, 155, 110, 0);
