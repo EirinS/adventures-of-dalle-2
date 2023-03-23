@@ -13,8 +13,8 @@ export class LivingroomScene extends BaseScene {
     super(Sprite.from("livingroom"));
 
     this.addText([
-      "As Baobao arrived at the mansion, he couldn't help but admire the grandeur of the exterior. The large, ornate gates and the imposing façade of the mansion were a testament to the wealth of the previous owner. He took a moment to soak in (...)",
-      "the opulence of the estate before preparing to enter and begin his search for the hidden Faberge egg.",
+      "As Baobao arrived at the mansion, he couldn't help but admire the grandeur of the exterior. The large, ornate gates and the imposing façade of the mansion were a testament to the wealth (...)",
+      "of the previous owner. He took a moment to soak in the opulence of the estate before preparing to enter and begin his search for the hidden Faberge egg.",
     ]);
 
     const baobaoText = () =>

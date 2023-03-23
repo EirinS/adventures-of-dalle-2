@@ -29,8 +29,9 @@ export class GardenScene extends BaseScene {
     this.crowbarHitbox = this.addChild(crowbar);
 
     const snakeStatue = new HitBox(1100, 440, 84, 160);
-    snakeStatue.addClickText;
-    ("The fact that the statue is still intact and in relatively good condition after all these years speaks to its value and importance to the people who once possessed it.");
+    snakeStatue.addClickText(
+      "The fact that the statue is still intact and in relatively good condition after all these years speaks to its value and importance to the people who once possessed it."
+    );
     this.addChild(snakeStatue);
 
     const flamingoBody = new HitBox(1310, 698, 118, 50);

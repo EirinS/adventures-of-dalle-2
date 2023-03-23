@@ -15,7 +15,7 @@ export class PumpkinScene extends BaseScene {
     bowl.addClickAction(
       this.fillBowl,
       "pumpkin juice",
-      "Who knew that pouring pumpkin juice into a pumpkin-shaped container could produce such a beautiful and mesmerizing display of colors? This pumpkin prism reaction is truly a sight to behold."
+      "Who knew that pouring pumpkin juice into a pumpkin-shaped container could produce such a beautiful display of colors? This pumpkin prism reaction is truly a sight to behold."
     );
     this.bowlHitbox = this.addChild(bowl);
   }

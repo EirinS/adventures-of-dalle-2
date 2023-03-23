@@ -14,16 +14,17 @@ export class TextBox extends Container {
 
   // Text position
   private border: number = 10;
-  private margin: number = 26;
+  private margin: number = 30;
+  private minBoxHeight: number = 150;
   private boxHeight: number = 150;
   private boxWidth: number = Manager.width;
 
   private defaultStyle: TextStyle = new TextStyle({
     fontFamily: "Arial",
-    fontSize: 34,
+    fontSize: 44,
     fill: 0x000000,
     align: "left",
-    lineHeight: 50,
+    lineHeight: 58,
     wordWrap: true,
   });
 
@@ -31,17 +32,21 @@ export class TextBox extends Container {
     super();
 
     this.zIndex = 3;
+
+    this.defaultStyle.wordWrapWidth = this.boxWidth - this.margin * 2;
+    this.text = new Text(text[0], this.defaultStyle);
+    this.boxHeight = Math.max(this.minBoxHeight, this.text.height * 2 + this.margin * 2);
+
+    this.text.x = this.margin;
+    this.text.y = Manager.height - this.boxHeight + this.margin;
+
     this.background = new Graphics();
     this.background.beginFill(0xfbe07f);
     this.background.lineStyle(this.border, 0xebc961, 1, 0);
     this.background.drawRoundedRect(0, Manager.height - this.boxHeight, this.boxWidth, this.boxHeight, 20);
     this.background.endFill();
-    this.addChild(this.background);
 
-    this.defaultStyle.wordWrapWidth = this.boxWidth - this.margin * 2;
-    this.text = new Text(text[0], this.defaultStyle);
-    this.text.x = this.margin;
-    this.text.y = Manager.height - this.boxHeight + this.margin;
+    this.addChild(this.background);
     this.addChild(this.text);
 
     this.textArray = text;
