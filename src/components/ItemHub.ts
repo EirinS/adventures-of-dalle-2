@@ -5,6 +5,7 @@ import { floorplan } from "../state/rooms";
 export class ItemHub extends Container {
   private numberOfItems: number;
   public selectedItem: string;
+  public spriteScale = new Point(1.5, 1.5);
   private sprites: { [item: string]: Sprite };
   constructor() {
     super();
@@ -16,8 +17,13 @@ export class ItemHub extends Container {
 
   public addItem(item: string) {
     const sprite = Sprite.from(item);
+    sprite.scale = this.spriteScale;
+    const margin = sprite.width / 4;
     sprite.interactive = true;
-    sprite.position = new Point(1800 - this.numberOfItems * 100, 50);
+    sprite.position = new Point(
+      Manager.width - sprite.width - margin - this.numberOfItems * (sprite.width + margin),
+      50
+    );
     this.addChild(sprite);
     sprite.on("pointertap", () => this.selectItem(item));
     this.sprites[item] = sprite;
