@@ -18,7 +18,9 @@ export class LivingroomScene extends BaseScene {
     ]);
 
     const baobaoText = () =>
-      this.addText(["The attention to detail in this room is impeccable. Every piece seems to have been handpicked."]);
+      this.addText([
+        "The attention to detail in this room is impeccable. Every piece seems to have been handpicked.",
+      ]);
     const baobaoHead = new HitBox(1220, 330, 90);
     const baobaoHorizontal = new HitBox(1050, 470, 360, 260);
     const baobaoUpperBody = new HitBox(1090, 400, 280, 500);
@@ -138,6 +140,7 @@ export class LivingroomScene extends BaseScene {
       `You threw the ${item} in the fire. Unless you are certain you don't need it, I suggest you restart the game.`,
     ]);
     itemHub.removeItem(item);
+    itemHub.arrangeItems();
   }
 
   private removePainting() {

@@ -10,12 +10,20 @@ export enum Direction {
 }
 
 export class NavigationArrow extends Graphics {
-  private rightArrowCoords = [0, 30, 64, 30, 64, 0, 110, 50, 64, 100, 64, 70, 0, 70];
-  private downArrowCoords = [70, 0, 70, 64, 100, 64, 50, 110, 0, 64, 30, 64, 30, 0];
+  private rightArrowCoords = [
+    0, 30, 64, 30, 64, 0, 110, 50, 64, 100, 64, 70, 0, 70,
+  ];
+  private downArrowCoords = [
+    70, 0, 70, 64, 100, 64, 50, 110, 0, 64, 30, 64, 30, 0,
+  ];
 
-  private leftArrowCoords = [120, 30, 120, 70, 54, 70, 54, 100, 10, 50, 54, 0, 54, 30, 120, 30];
+  private leftArrowCoords = [
+    120, 30, 120, 70, 54, 70, 54, 100, 10, 50, 54, 0, 54, 30, 120, 30,
+  ];
 
-  private upArrowCoords = [30, 120, 30, 54, 0, 54, 50, 10, 100, 54, 70, 54, 70, 120, 30, 120];
+  private upArrowCoords = [
+    30, 120, 30, 54, 0, 54, 50, 10, 100, 54, 70, 54, 70, 120, 30, 120,
+  ];
 
   public nextScene: IScene;
   private color: number;

@@ -17,7 +17,11 @@ export class Manager {
     return Manager._height;
   }
 
-  public static initialize(width: number, height: number, background: number): void {
+  public static initialize(
+    width: number,
+    height: number,
+    background: number
+  ): void {
     Manager._width = width;
     Manager._height = height;
 
@@ -39,11 +43,20 @@ export class Manager {
 
   public static resize(): void {
     // current screen size
-    const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    const screenWidth = Math.max(
+      document.documentElement.clientWidth,
+      window.innerWidth || 0
+    );
+    const screenHeight = Math.max(
+      document.documentElement.clientHeight,
+      window.innerHeight || 0
+    );
 
     // uniform scale for our game
-    const scale = Math.min(screenWidth / Manager.width, screenHeight / Manager.height);
+    const scale = Math.min(
+      screenWidth / Manager.width,
+      screenHeight / Manager.height
+    );
 
     // the "uniformly enlarged" size for our game
     const enlargedWidth = Math.floor(scale * Manager.width);
@@ -58,8 +71,10 @@ export class Manager {
     if (appView.style) {
       appView.style.width = `${enlargedWidth}px`;
       appView.style.height = `${enlargedHeight}px`;
-      appView.style.marginLeft = appView.style.marginRight = `${horizontalMargin}px`;
-      appView.style.marginTop = appView.style.marginBottom = `${verticalMargin}px`;
+      appView.style.marginLeft =
+        appView.style.marginRight = `${horizontalMargin}px`;
+      appView.style.marginTop =
+        appView.style.marginBottom = `${verticalMargin}px`;
     }
   }
 
@@ -74,5 +89,6 @@ export class Manager {
     Manager.currentScene.clearText();
     Manager.app.stage.addChild(Manager.currentScene);
     Manager.currentScene.addChildContainer(itemHub);
+    itemHub.arrangeItems();
   }
 }
