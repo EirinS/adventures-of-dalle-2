@@ -27,6 +27,6 @@ export class PumpkinScene extends BaseScene {
   private fillBowl() {
     this.removeChild(this.bowlHitbox);
     this.addCutout("filled", 487, 158);
-    GameState.revealedPumkin = true;
+    GameState.revealedPumpkin = true;
   }
 }

@@ -9,7 +9,10 @@ export class CrystallballScene extends BaseScene {
   private hints: [string, () => boolean][] = [
     ["Eiffel", () => !GameState.safeFound],
     ["Flamingo", () => !itemHub.hasItem("crowbar")],
-    ["Pumpkin", () => itemHub.hasItem("pumpkin juice") && !GameState.revealedPumkin],
+    [
+      "Pumpkin",
+      () => itemHub.hasItem("pumpkin juice") && !GameState.revealedPumpkin,
+    ],
     ["Book", () => itemHub.hasItem("UV flashlight") && !GameState.bookRevealed],
     ["Diamond", () => GameState.bookRevealed && !GameState.BFound],
   ];

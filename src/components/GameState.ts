@@ -1,5 +1,5 @@
 export class GameState {
-  public static revealedPumkin = false;
+  public static revealedPumpkin = false;
   public static visitedComputer = false;
   public static openedCupboard = false;
   public static bookRevealed = false;

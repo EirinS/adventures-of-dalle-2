@@ -41,7 +41,7 @@
 
 ## Riddles
 
-- (Bedroom) Pumkin bowl -> open lid -> pumpkin juice -> pour into bowl -> U
+- (Bedroom) Pumpkin bowl -> open lid -> pumpkin juice -> pour into bowl -> U
 - (Library) Key -> drawer -> color codes -> computer game -> R
 - (Living room) Painting -> E
 - (Garden) Statue -> S
@@ -49,5 +49,6 @@
 - (SAFE) -> REBUS
 
 ## Future ideas
+
 - Have papers/documents inside the safe that reveals the location of the treasure that the original owner of the mansion (a sea captain/pirate) buried.
 - AI sound
