@@ -1,3 +1,4 @@
+import { sound } from "@pixi/sound";
 import { Container, Sprite, Text, TextStyle } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { livingroom } from "../state/rooms";
@@ -52,7 +53,9 @@ export class OfficeScene extends BaseScene {
     this.addChild(fourthCabinet);
 
     const baobaoText = () =>
-      this.addText(["Time to roll up my sleeves and get down to business. The hunt for clues never stops!"]);
+      this.addText([
+        "Time to roll up my sleeves and get down to business. The hunt for clues never stops!",
+      ]);
     const baobaoHead = new HitBox(1030, 290, 130);
     const baobaoBody = new HitBox(800, 350, 380, 200, 0);
     const baobaoLowerBody = new HitBox(634, 470, 580, 180);
@@ -94,7 +97,7 @@ export class OfficeScene extends BaseScene {
   public loadNavigation() {
     const navigation = new Text("START INVESTIGATING", this.defaultStyle);
     const container = new Container();
-    container.on("pointertap", () => Manager.changeScene(livingroom));
+    container.on("pointertap", this.startInvestigating);
     container.x = Manager.width - navigation.width - 48;
     container.y = Manager.height - navigation.height - 48;
     container.on("mouseover", () => {
@@ -116,6 +119,15 @@ export class OfficeScene extends BaseScene {
 
   private showTime = () => {
     const date = new Date();
-    this.addText([`The time is ${date.toTimeString().split(" ")[0].slice(0, -3)}`]);
+    this.addText([
+      `The time is ${date.toTimeString().split(" ")[0].slice(0, -3)}`,
+    ]);
   };
+
+  private startInvestigating() {
+    sound.add("mansion", "music/mansion.mp3");
+    sound.stop("start");
+    sound.play("mansion", { loop: true, volume: 0.5 });
+    Manager.changeScene(livingroom);
+  }
 }

@@ -1,3 +1,4 @@
+import { sound } from "@pixi/sound";
 import { Container, Graphics, Assets, Sprite } from "pixi.js";
 import { manifest } from "../assets";
 import { loadRooms, startScreen } from "../state/rooms";
@@ -58,6 +59,8 @@ export class LoaderScene extends Container implements IScene {
   public addChildContainer(_: Container): void {}
 
   private gameLoaded(): void {
+    sound.add("start", "music/start.mp3");
+    sound.play("start", { volume: 0.3, loop: true });
     loadRooms();
     Manager.changeScene(startScreen);
   }

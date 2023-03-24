@@ -29,7 +29,6 @@ const startStyle: TextStyle = new TextStyle({
 export class StartScene extends BaseScene {
   constructor() {
     super(Sprite.from("startScreen"));
-
     const title = new Text("THE ADVENTURES OF DETECTIVE BAOBAO", titleStyle);
     title.position.x = (Manager.width - title.width) / 2;
     title.position.y = 24;
@@ -40,7 +39,13 @@ export class StartScene extends BaseScene {
     button.x = Manager.width - startGame.width - 100;
     button.y = Manager.height - startGame.height - 100;
     button.beginFill(0xfbe07f);
-    button.drawRoundedRect(-24, -6, startGame.width + 48, startGame.height + 12, 20);
+    button.drawRoundedRect(
+      -24,
+      -6,
+      startGame.width + 48,
+      startGame.height + 12,
+      20
+    );
     button.endFill();
 
     button.interactive = true;
