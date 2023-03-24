@@ -5,7 +5,7 @@ import { floorplan } from "../state/rooms";
 export class ItemHub extends Container {
   private numberOfItems: number;
   public selectedItem: string;
-  public spriteScale = new Point(1.5, 1.5);
+  public spriteScale = new Point(1, 1);
   private sprites: { [item: string]: Sprite };
   constructor() {
     super();
@@ -21,7 +21,10 @@ export class ItemHub extends Container {
     const margin = sprite.width / 4;
     sprite.interactive = true;
     sprite.position = new Point(
-      Manager.width - sprite.width - margin - this.numberOfItems * (sprite.width + margin),
+      Manager.width -
+        sprite.width -
+        margin -
+        this.numberOfItems * (sprite.width + margin),
       50
     );
     this.addChild(sprite);
