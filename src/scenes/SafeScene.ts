@@ -1,8 +1,16 @@
-import { DisplayObject, Graphics, Sprite, Text, TextStyle } from "pixi.js";
+import {
+  DisplayObject,
+  Graphics,
+  Sprite,
+  Text,
+  TextStyle,
+  Point,
+} from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { livingroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
+import { Manager } from "./Manager";
 
 export class SafeScene extends BaseScene {
   private currentCode: Text;
@@ -70,7 +78,9 @@ export class SafeScene extends BaseScene {
     this.addChild(this.currentCode);
   }
   public loadNavigation() {
-    this.navigationArrow = this.addChild(new NavigationArrow(925, 950, livingroom, Direction.Down));
+    this.navigationArrow = this.addChild(
+      new NavigationArrow(925, 950, livingroom, Direction.Down)
+    );
   }
 
   private pressButton(letter: string) {
@@ -86,6 +96,11 @@ export class SafeScene extends BaseScene {
             "The rumors were true, this egg is a masterpiece. The details are so fine and precise, it's hard to believe it was made by human hands. It's a true treasure.",
           ]);
           this.removeChild(this.navigationArrow);
+          const theend = Sprite.from("theend");
+          theend.scale = new Point(0.8, 0.8);
+          theend.x = (Manager.width - theend.width) / 2;
+          this.addChild(theend);
+          this.fadeIn(theend);
         }, 1000);
       } else {
         this.defaultStyle.fill = "#f60824";
@@ -94,6 +109,16 @@ export class SafeScene extends BaseScene {
         this.defaultStyle.fill = "#fbeb1e";
         this.currentCode.text = "";
       }, 1000);
+    }
+  }
+
+  private async fadeIn(sprite: Sprite) {
+    const timer = (ms: number) => new Promise((res) => setTimeout(res, ms));
+    sprite.alpha = 0;
+    // We need to wrap the loop into an async function for this to work
+    while (sprite.alpha < 1) {
+      sprite.alpha += 0.003;
+      await timer(10); // then the created Promise can be awaited
     }
   }
 }

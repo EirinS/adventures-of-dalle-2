@@ -96,6 +96,7 @@ export const manifest: ResolverManifest = {
       assets: {
         safe: "./safe/safe.png",
         open: "./safe/opensafe.png",
+        theend: "./safe/THEEND.png",
       },
     },
     {
