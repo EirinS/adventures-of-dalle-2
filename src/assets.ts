@@ -1,129 +1,134 @@
 import type { ResolverManifest } from "pixi.js";
 
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://adventures-of-dalle-2.vercel.app"
+    : ".";
+
 export const manifest: ResolverManifest = {
   bundles: [
     {
       name: "start",
       assets: {
-        startScreen: "./start_screen.png",
+        startScreen: `${BASE_URL}/start_screen.png`,
       },
     },
     {
       name: "kitchen",
       assets: {
-        kitchen: "./kitchen/kitchen_base.png",
-        openCupboard: "./kitchen/open_cupboard.png",
-        revealPainting: "./kitchen/revealed_painting.png",
-        removeJuice: "./kitchen/removed_juice.png",
-        removeFlashlight: "./kitchen/removed_flashlight.png",
+        kitchen: `${BASE_URL}/kitchen/kitchen_base.png`,
+        openCupboard: `${BASE_URL}/kitchen/open_cupboard.png`,
+        revealPainting: `${BASE_URL}/kitchen/revealed_painting.png`,
+        removeJuice: `${BASE_URL}/kitchen/removed_juice.png`,
+        removeFlashlight: `${BASE_URL}/kitchen/removed_flashlight.png`,
       },
     },
     {
       name: "livingroom",
       assets: {
-        livingroom: "./livingroom/livingroom.png",
-        showSafe: "./livingroom/safe.png",
+        livingroom: `${BASE_URL}/livingroom/livingroom.png`,
+        showSafe: `${BASE_URL}/livingroom/safe.png`,
       },
     },
     {
       name: "crystalball",
       assets: {
-        crystalEmpty: "./crystalball/empty.png",
-        crystalEiffel: "./crystalball/eiffel.png",
-        crystalBook: "./crystalball/book.png",
-        crystalPumpkin: "./crystalball/pumpkin.png",
-        crystalFlamingo: "./crystalball/flamingo.png",
-        crystalDiamond: "./crystalball/diamond.png",
+        crystalEmpty: `${BASE_URL}/crystalball/empty.png`,
+        crystalEiffel: `${BASE_URL}/crystalball/eiffel.png`,
+        crystalBook: `${BASE_URL}/crystalball/book.png`,
+        crystalPumpkin: `${BASE_URL}/crystalball/pumpkin.png`,
+        crystalFlamingo: `${BASE_URL}/crystalball/flamingo.png`,
+        crystalDiamond: `${BASE_URL}/crystalball/diamond.png`,
       },
     },
     {
       name: "garden",
       assets: {
-        garden: "./garden/garden.png",
-        removeKey: "./garden/no_key.png",
-        removeCrowbar: "./garden/headless-flamingo.png",
+        garden: `${BASE_URL}./garden/garden.png`,
+        removeKey: `${BASE_URL}./garden/no_key.png`,
+        removeCrowbar: `${BASE_URL}./garden/headless-flamingo.png`,
       },
     },
     {
       name: "library",
       assets: {
-        library: "./library/library.png",
-        openPlank: "./library/open_plank.png",
-        removedFloorplan: "./library/removed_floorplan.png",
+        library: `${BASE_URL}./library/library.png`,
+        openPlank: `${BASE_URL}./library/open_plank.png`,
+        removedFloorplan: `${BASE_URL}./library/removed_floorplan.png`,
       },
     },
     {
       name: "bedroom",
       assets: {
-        bedroom: "./bedroom/bedroom.png",
-        openDrawer: "./bedroom/open_drawer.png",
-        openPumpkin: "./bedroom/open_pumpkin.png",
+        bedroom: `${BASE_URL}./bedroom/bedroom.png`,
+        openDrawer: `${BASE_URL}./bedroom/open_drawer.png`,
+        openPumpkin: `${BASE_URL}./bedroom/open_pumpkin.png`,
       },
     },
     {
       name: "office",
       assets: {
-        office: "./office/office.png",
+        office: `${BASE_URL}./office/office.png`,
       },
     },
     {
       name: "computer",
       assets: {
-        computer: "./computer/computer.png",
-        red: "./computer/red.png",
-        redPressed: "./computer/red-dark.png",
-        yellow: "./computer/yellow.png",
-        yellowPressed: "./computer/yellow-dark.png",
-        blue: "./computer/blue.png",
-        bluePressed: "./computer/blue-dark.png",
-        green: "./computer/green.png",
-        greenPressed: "./computer/green-dark.png",
-        orange: "./computer/orange.png",
-        orangePressed: "./computer/orange-dark.png",
-        purple: "./computer/purple.png",
-        purplePressed: "./computer/purple-dark.png",
+        computer: `${BASE_URL}./computer/computer.png`,
+        red: `${BASE_URL}./computer/red.png`,
+        redPressed: `${BASE_URL}./computer/red-dark.png`,
+        yellow: `${BASE_URL}./computer/yellow.png`,
+        yellowPressed: `${BASE_URL}./computer/yellow-dark.png`,
+        blue: `${BASE_URL}./computer/blue.png`,
+        bluePressed: `${BASE_URL}./computer/blue-dark.png`,
+        green: `${BASE_URL}./computer/green.png`,
+        greenPressed: `${BASE_URL}./computer/green-dark.png`,
+        orange: `${BASE_URL}./computer/orange.png`,
+        orangePressed: `${BASE_URL}./computer/orange-dark.png`,
+        purple: `${BASE_URL}./computer/purple.png`,
+        purplePressed: `${BASE_URL}./computer/purple-dark.png`,
       },
     },
     {
       name: "pumpkin",
       assets: {
-        pumpkin: "./pumpkin/empty.png",
-        filled: "./pumpkin/filled.png",
+        pumpkin: `${BASE_URL}./pumpkin/empty.png`,
+        filled: `${BASE_URL}./pumpkin/filled.png`,
       },
     },
     {
       name: "safe",
       assets: {
-        safe: "./safe/safe.png",
-        open: "./safe/opensafe.png",
-        theend: "./safe/THEEND.png",
+        safe: `${BASE_URL}./safe/safe.png`,
+        open: `${BASE_URL}./safe/opensafe.png`,
+        theend: `${BASE_URL}./safe/THEEND.png`,
       },
     },
     {
       name: "book",
       assets: {
-        book: "./book/book.png",
-        riddle: "./book/riddle.png",
+        book: `${BASE_URL}./book/book.png`,
+        riddle: `${BASE_URL}./book/riddle.png`,
       },
     },
     {
       name: "floorplan",
       assets: {
-        floorplan: "./floorplan/floorplan.png",
+        floorplan: `${BASE_URL}./floorplan/floorplan.png`,
       },
     },
     {
       name: "items",
       assets: {
-        key: "./items/key.png",
-        "pumpkin juice": "./items/carton.png",
-        "UV flashlight": "./items/flashlight.png",
-        keyHighlighted: "./items/key-highlighted.png",
-        "pumpkin juiceHighlighted": "./items/carton-highlighted.png",
-        "UV flashlightHighlighted": "./items/flashlight-highlighted.png",
-        crowbar: "./items/crowbar.png",
-        crowbarHighlighted: "./items/crowbar-highlighted.png",
-        paper: "./items/floorplan.png",
+        key: `${BASE_URL}./items/key.png`,
+        "pumpkin juice": `${BASE_URL}./items/carton.png`,
+        "UV flashlight": `${BASE_URL}./items/flashlight.png`,
+        keyHighlighted: `${BASE_URL}./items/key-highlighted.png`,
+        "pumpkin juiceHighlighted": `${BASE_URL}./items/carton-highlighted.png`,
+        "UV flashlightHighlighted": `${BASE_URL}./items/flashlight-highlighted.png`,
+        crowbar: `${BASE_URL}./items/crowbar.png`,
+        crowbarHighlighted: `${BASE_URL}./items/crowbar-highlighted.png`,
+        paper: `${BASE_URL}./items/floorplan.png`,
       },
     },
   ],
