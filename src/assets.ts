@@ -92,51 +92,51 @@ export const manifest: ResolverManifest = {
     {
       name: "pumpkin",
       assets: {
-        pumpkin: `${BASE_URL}./pumpkin/empty.png`,
-        filled: `${BASE_URL}./pumpkin/filled.png`,
+        pumpkin: `${BASE_URL}/pumpkin/empty.png`,
+        filled: `${BASE_URL}/pumpkin/filled.png`,
       },
     },
     {
       name: "safe",
       assets: {
-        safe: `${BASE_URL}./safe/safe.png`,
-        open: `${BASE_URL}./safe/opensafe.png`,
-        theend: `${BASE_URL}./safe/THEEND.png`,
+        safe: `${BASE_URL}/safe/safe.png`,
+        open: `${BASE_URL}/safe/opensafe.png`,
+        theend: `${BASE_URL}/safe/THEEND.png`,
       },
     },
     {
       name: "book",
       assets: {
-        book: `${BASE_URL}./book/book.png`,
-        riddle: `${BASE_URL}./book/riddle.png`,
+        book: `${BASE_URL}/book/book.png`,
+        riddle: `${BASE_URL}/book/riddle.png`,
       },
     },
     {
       name: "floorplan",
       assets: {
-        floorplan: `${BASE_URL}./floorplan/floorplan.png`,
+        floorplan: `${BASE_URL}/floorplan/floorplan.png`,
       },
     },
     {
       name: "music",
       assets: {
-        musicOn: `${BASE_URL}./musicicons/on.png`,
-        musicOff: `${BASE_URL}./musicicons/off.png`,
+        musicOn: `${BASE_URL}/musicicons/on.png`,
+        musicOff: `${BASE_URL}/musicicons/off.png`,
       },
     },
 
     {
       name: "items",
       assets: {
-        key: `${BASE_URL}./items/key.png`,
-        "pumpkin juice": `${BASE_URL}./items/carton.png`,
-        "UV flashlight": `${BASE_URL}./items/flashlight.png`,
-        keyHighlighted: `${BASE_URL}./items/key-highlighted.png`,
-        "pumpkin juiceHighlighted": `${BASE_URL}./items/carton-highlighted.png`,
-        "UV flashlightHighlighted": `${BASE_URL}./items/flashlight-highlighted.png`,
-        crowbar: `${BASE_URL}./items/crowbar.png`,
-        crowbarHighlighted: `${BASE_URL}./items/crowbar-highlighted.png`,
-        paper: `${BASE_URL}./items/floorplan.png`,
+        key: `${BASE_URL}/items/key.png`,
+        "pumpkin juice": `${BASE_URL}/items/carton.png`,
+        "UV flashlight": `${BASE_URL}/items/flashlight.png`,
+        keyHighlighted: `${BASE_URL}/items/key-highlighted.png`,
+        "pumpkin juiceHighlighted": `${BASE_URL}/items/carton-highlighted.png`,
+        "UV flashlightHighlighted": `${BASE_URL}/items/flashlight-highlighted.png`,
+        crowbar: `${BASE_URL}/items/crowbar.png`,
+        crowbarHighlighted: `${BASE_URL}/items/crowbar-highlighted.png`,
+        paper: `${BASE_URL}/items/floorplan.png`,
       },
     },
   ],
