@@ -1,3 +1,4 @@
+import { sound } from "@pixi/sound";
 import {
   DisplayObject,
   Graphics,
@@ -91,6 +92,7 @@ export class SafeScene extends BaseScene {
       if (this.currentCode.text === "REBUS") {
         this.defaultStyle.fill = "#48d508";
         setTimeout(() => {
+          sound.stop("mansion");
           this.setBackground(Sprite.from("open"));
           this.addText([
             "The rumors were true, this egg is a masterpiece. The details are so fine and precise, it's hard to believe it was made by human hands. It's a true treasure.",
