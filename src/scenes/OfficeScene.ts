@@ -126,7 +126,6 @@ export class OfficeScene extends BaseScene {
 
   private startInvestigating() {
     sound.add("mansion", "music/mansion.mp3");
-    sound.stop("start");
     sound.play("mansion", { loop: true, volume: 0.5 });
     Manager.changeScene(livingroom);
   }
