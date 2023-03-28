@@ -118,6 +118,14 @@ export const manifest: ResolverManifest = {
       },
     },
     {
+      name: "music",
+      assets: {
+        musicOn: `${BASE_URL}./musicicons/on.png`,
+        musicOff: `${BASE_URL}./musicicons/off.png`,
+      },
+    },
+
+    {
       name: "items",
       assets: {
         key: `${BASE_URL}./items/key.png`,

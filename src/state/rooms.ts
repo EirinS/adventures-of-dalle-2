@@ -12,8 +12,11 @@ import { ItemHub } from "../components/ItemHub";
 import { StartScene } from "../scenes/StartScene";
 import { FloorplanScene } from "../scenes/FloorplanScene";
 import { CrystallballScene } from "../scenes/CrystalballScene";
+import { MusicHub } from "../components/MusicHub";
 
 export let itemHub: ItemHub;
+
+export let musicHub: MusicHub;
 
 export let kitchen: KitchenScene;
 export let livingroom: LivingroomScene;
@@ -46,6 +49,7 @@ export const getAllRooms = () => [
 
 export function loadRooms() {
   itemHub = new ItemHub();
+  musicHub = new MusicHub();
   kitchen = new KitchenScene();
   livingroom = new LivingroomScene();
   office = new OfficeScene();

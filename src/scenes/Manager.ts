@@ -1,5 +1,5 @@
 import { Application } from "pixi.js";
-import { itemHub } from "../state/rooms";
+import { itemHub, musicHub, office, startScreen } from "../state/rooms";
 import { IScene } from "./IScene";
 
 export class Manager {
@@ -89,6 +89,9 @@ export class Manager {
     Manager.currentScene.clearText();
     Manager.app.stage.addChild(Manager.currentScene);
     Manager.currentScene.addChildContainer(itemHub);
+    if (Manager.currentScene !== startScreen && Manager.currentScene !== office)
+      Manager.currentScene.addChildContainer(musicHub);
+
     itemHub.arrangeItems();
   }
 }
