@@ -1,6 +1,6 @@
 import type { ResolverManifest } from "pixi.js";
 
-const BASE_URL =
+export const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://adventures-of-dalle-2.vercel.app"
     : ".";

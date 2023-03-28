@@ -1,5 +1,6 @@
 import { sound } from "@pixi/sound";
 import { Container, Sprite, Text, TextStyle } from "pixi.js";
+import { BASE_URL } from "../assets";
 import { HitBox } from "../components/HitBox";
 import { livingroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
@@ -125,7 +126,7 @@ export class OfficeScene extends BaseScene {
   };
 
   private startInvestigating() {
-    sound.add("mansion", "music/mansion.mp3");
+    sound.add("mansion", BASE_URL + "/music/mansion.mp3");
     sound.play("mansion", { loop: true, volume: 0.5 });
     Manager.changeScene(livingroom);
   }
