@@ -95,8 +95,8 @@ export class GardenScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(1750, 950, library, Direction.Right));
-    this.addChild(new NavigationArrow(50, 950, kitchen, Direction.Left));
+    this.addChild(new NavigationArrow(library, Direction.Right));
+    this.addChild(new NavigationArrow(kitchen, Direction.Left));
   }
 
   private takeKey() {

@@ -57,6 +57,6 @@ export class CrystallballScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(925, 950, livingroom, Direction.Down));
+    this.addChild(new NavigationArrow(livingroom, Direction.Down));
   }
 }

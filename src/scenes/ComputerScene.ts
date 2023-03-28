@@ -76,7 +76,7 @@ export class ComputerScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(925, 950, library, Direction.Down));
+    this.addChild(new NavigationArrow(library, Direction.Down));
   }
 
   private pressButton(sprite: Sprite) {

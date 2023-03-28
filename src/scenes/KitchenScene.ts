@@ -164,8 +164,8 @@ export class KitchenScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(1750, 950, garden, Direction.Right));
-    this.addChild(new NavigationArrow(50, 950, livingroom, Direction.Left));
+    this.addChild(new NavigationArrow(garden, Direction.Right));
+    this.addChild(new NavigationArrow(livingroom, Direction.Left));
   }
 
   private openCupboard() {

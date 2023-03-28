@@ -17,7 +17,7 @@ export class BookScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(925, 920, bedroom, Direction.Down));
+    this.addChild(new NavigationArrow(bedroom, Direction.Down));
   }
 
   private revealRiddle() {

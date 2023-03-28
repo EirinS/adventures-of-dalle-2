@@ -1,7 +1,7 @@
 import { Sprite } from "pixi.js";
 import { GameState } from "../components/GameState";
 import { HitBox } from "../components/HitBox";
-import { Direction, NavigationArrow } from "../components/NavigationArrow";
+import { Direction, NavigationArrow, Position } from "../components/NavigationArrow";
 import { bedroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 
@@ -21,7 +21,7 @@ export class PumpkinScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(50, 950, bedroom, Direction.Down));
+    this.addChild(new NavigationArrow(bedroom, Direction.Down, Position.BottomLeft));
   }
 
   private fillBowl() {

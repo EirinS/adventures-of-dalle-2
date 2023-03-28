@@ -11,8 +11,6 @@ export class FloorplanScene extends BaseScene {
 
   public loadNavigation(scene: IScene) {
     this.removeChild(this.navigationArrow);
-    this.navigationArrow = this.addChild(
-      new NavigationArrow(925, 920, scene, Direction.Down)
-    );
+    this.navigationArrow = this.addChild(new NavigationArrow(scene, Direction.Down));
   }
 }

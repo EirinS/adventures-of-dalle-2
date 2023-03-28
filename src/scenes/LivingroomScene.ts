@@ -118,8 +118,8 @@ export class LivingroomScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(1750, 950, kitchen, Direction.Right));
-    this.addChild(new NavigationArrow(50, 950, bedroom, Direction.Left));
+    this.addChild(new NavigationArrow(kitchen, Direction.Right));
+    this.addChild(new NavigationArrow(bedroom, Direction.Left));
   }
 
   private clickCrystalBall() {

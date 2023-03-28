@@ -112,8 +112,8 @@ export class BedroomScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(1750, 950, livingroom, Direction.Right));
-    this.addChild(new NavigationArrow(50, 950, library, Direction.Left));
+    this.addChild(new NavigationArrow(livingroom, Direction.Right));
+    this.addChild(new NavigationArrow(library, Direction.Left));
   }
 
   private openPumpkin() {

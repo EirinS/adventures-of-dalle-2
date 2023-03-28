@@ -113,8 +113,8 @@ export class LibraryScene extends BaseScene {
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(1750, 950, bedroom, Direction.Right));
-    this.addChild(new NavigationArrow(50, 950, garden, Direction.Left));
+    this.addChild(new NavigationArrow(bedroom, Direction.Right));
+    this.addChild(new NavigationArrow(garden, Direction.Left));
   }
 
   private viewComputer() {

@@ -10,6 +10,8 @@ export class Manager {
   private static _width: number;
   private static _height: number;
 
+  private static scale = 1;
+
   public static get width(): number {
     return Manager._width;
   }
@@ -17,11 +19,11 @@ export class Manager {
     return Manager._height;
   }
 
-  public static initialize(
-    width: number,
-    height: number,
-    background: number
-  ): void {
+  public static isSmallScreen(): boolean {
+    return this.scale < 0.5;
+  }
+
+  public static initialize(width: number, height: number, background: number): void {
     Manager._width = width;
     Manager._height = height;
 
@@ -43,24 +45,15 @@ export class Manager {
 
   public static resize(): void {
     // current screen size
-    const screenWidth = Math.max(
-      document.documentElement.clientWidth,
-      window.innerWidth || 0
-    );
-    const screenHeight = Math.max(
-      document.documentElement.clientHeight,
-      window.innerHeight || 0
-    );
+    const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
     // uniform scale for our game
-    const scale = Math.min(
-      screenWidth / Manager.width,
-      screenHeight / Manager.height
-    );
+    this.scale = Math.min(screenWidth / Manager.width, screenHeight / Manager.height);
 
     // the "uniformly enlarged" size for our game
-    const enlargedWidth = Math.floor(scale * Manager.width);
-    const enlargedHeight = Math.floor(scale * Manager.height);
+    const enlargedWidth = Math.floor(this.scale * Manager.width);
+    const enlargedHeight = Math.floor(this.scale * Manager.height);
 
     // margins for centering our game
     const horizontalMargin = (screenWidth - enlargedWidth) / 2;
