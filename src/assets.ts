@@ -1,9 +1,6 @@
 import type { ResolverManifest } from "pixi.js";
 
-export const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://adventures-of-dalle-2.vercel.app"
-    : ".";
+export const BASE_URL = process.env.NODE_ENV === "production" ? "https://adventures-of-dalle-2.vercel.app" : ".";
 
 export const manifest: ResolverManifest = {
   bundles: [

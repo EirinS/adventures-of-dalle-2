@@ -39,13 +39,7 @@ export class StartScene extends BaseScene {
     button.x = Manager.width - startGame.width - 100;
     button.y = Manager.height - startGame.height - 100;
     button.beginFill(0xfbe07f);
-    button.drawRoundedRect(
-      -24,
-      -6,
-      startGame.width + 48,
-      startGame.height + 12,
-      20
-    );
+    button.drawRoundedRect(-24, -6, startGame.width + 48, startGame.height + 12, 20);
     button.endFill();
 
     button.interactive = true;
