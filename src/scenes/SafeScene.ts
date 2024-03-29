@@ -1,21 +1,13 @@
-import { sound } from "@pixi/sound";
-import {
-  DisplayObject,
-  Graphics,
-  Sprite,
-  Text,
-  TextStyle,
-  Point,
-} from "pixi.js";
+import { DisplayObject, Graphics, Sprite, Text, TextStyle } from "pixi.js";
 import { HitBox } from "../components/HitBox";
-import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { livingroom } from "../state/rooms";
+import { Direction, NavigationArrow, Position } from "../components/NavigationArrow";
+import { library, livingroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
-import { Manager } from "./Manager";
+import { GameState } from "../state/GameState";
 
 export class SafeScene extends BaseScene {
   private currentCode: Text;
-  private navigationArrow: DisplayObject = new Graphics();
+  public navigationArrow: DisplayObject = new Graphics();
 
   private defaultStyle: TextStyle = new TextStyle({
     fontFamily: "Seven Segment",
@@ -82,6 +74,24 @@ export class SafeScene extends BaseScene {
     this.navigationArrow = this.addChild(new NavigationArrow(livingroom, Direction.Down));
   }
 
+  private openSafe() {
+    this.setBackground(Sprite.from("open"));
+    this.removeChild(this.navigationArrow);
+    this.navigationArrow = this.addChild(new NavigationArrow(livingroom, Direction.Left, Position.MiddleLeft));
+
+    const buttonHit = new HitBox(910, 835, 160, 50, 0, 100, false, true);
+    buttonHit.addClickAction(
+      () => {
+        this.addCutout("clicked", 700, 749, 0);
+        GameState.buttonClicked = true;
+      },
+      undefined,
+      "The button triggered some terrible creaking in the library. Let's go there and check it out.",
+      1000
+    );
+    this.addChild(buttonHit);
+  }
+
   private pressButton(letter: string) {
     if (this.currentCode.text.length < 5) {
       this.currentCode.text += letter;
@@ -90,17 +100,7 @@ export class SafeScene extends BaseScene {
       if (this.currentCode.text === "REBUS") {
         this.defaultStyle.fill = "#48d508";
         setTimeout(() => {
-          sound.stop("mansion");
-          this.setBackground(Sprite.from("open"));
-          this.addText([
-            "The rumors were true, this egg is a masterpiece. The details are so fine and precise, it's hard to believe it was made by human hands. It's a true treasure.",
-          ]);
-          this.removeChild(this.navigationArrow);
-          const theend = Sprite.from("theend");
-          theend.scale = new Point(0.8, 0.8);
-          theend.x = (Manager.width - theend.width) / 2;
-          this.addChild(theend);
-          this.fadeIn(theend);
+          this.openSafe();
         }, 1000);
       } else {
         this.defaultStyle.fill = "#f60824";
@@ -109,16 +109,6 @@ export class SafeScene extends BaseScene {
         this.defaultStyle.fill = "#fbeb1e";
         this.currentCode.text = "";
       }, 1000);
-    }
-  }
-
-  private async fadeIn(sprite: Sprite) {
-    const timer = (ms: number) => new Promise((res) => setTimeout(res, ms));
-    sprite.alpha = 0;
-    // We need to wrap the loop into an async function for this to work
-    while (sprite.alpha < 1) {
-      sprite.alpha += 0.003;
-      await timer(10); // then the created Promise can be awaited
     }
   }
 }

@@ -100,8 +100,8 @@ export const manifest: ResolverManifest = {
       name: "safe",
       assets: {
         safe: `${BASE_URL}/safe/safe.png`,
-        open: `${BASE_URL}/safe/opensafe.png`,
-        theend: `${BASE_URL}/safe/THEEND.png`,
+        open: `${BASE_URL}/safe/button_unclicked.png`,
+        clicked: `${BASE_URL}/safe/button_clicked_crop.png`,
       },
     },
     {
