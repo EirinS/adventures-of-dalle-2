@@ -13,6 +13,7 @@ export enum Position {
   BottomLeft,
   BottomRight,
   BottomMiddle,
+  MiddleLeft,
   Automatic,
 }
 
@@ -128,7 +129,7 @@ export class NavigationArrow extends Graphics {
   private setPosition(position: Position) {
     switch (position) {
       case Position.BottomLeft:
-        this.position = new Point(0 + this.margin, Manager.height - this.height - this.margin);
+        this.position = new Point(this.margin, Manager.height - this.height - this.margin);
         break;
       case Position.BottomMiddle:
         this.position = new Point(Manager.width / 2 - this.width / 2, Manager.height - this.height - this.margin);
@@ -136,6 +137,8 @@ export class NavigationArrow extends Graphics {
       case Position.BottomRight:
         this.position = new Point(Manager.width - this.width - this.margin, Manager.height - this.height - this.margin);
         break;
+      case Position.MiddleLeft:
+        this.position = new Point(this.margin, Manager.height / 2 - this.height / 2);
     }
   }
 }
