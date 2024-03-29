@@ -1,5 +1,5 @@
 import { Sprite } from "pixi.js";
-import { GameState } from "../components/GameState";
+import { GameState } from "../state/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { itemHub, livingroom } from "../state/rooms";
@@ -9,10 +9,7 @@ export class CrystallballScene extends BaseScene {
   private hints: [string, () => boolean][] = [
     ["Eiffel", () => !GameState.safeFound],
     ["Flamingo", () => !itemHub.hasItem("crowbar")],
-    [
-      "Pumpkin",
-      () => itemHub.hasItem("pumpkin juice") && !GameState.revealedPumpkin,
-    ],
+    ["Pumpkin", () => itemHub.hasItem("pumpkin juice") && !GameState.revealedPumpkin],
     ["Book", () => itemHub.hasItem("UV flashlight") && !GameState.bookRevealed],
     ["Diamond", () => GameState.bookRevealed && !GameState.BFound],
   ];

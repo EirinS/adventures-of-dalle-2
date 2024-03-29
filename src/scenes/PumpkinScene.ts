@@ -1,5 +1,5 @@
 import { Sprite } from "pixi.js";
-import { GameState } from "../components/GameState";
+import { GameState } from "../state/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow, Position } from "../components/NavigationArrow";
 import { bedroom } from "../state/rooms";

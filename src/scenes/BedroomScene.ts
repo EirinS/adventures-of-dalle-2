@@ -1,5 +1,5 @@
 import { Sprite } from "pixi.js";
-import { GameState } from "../components/GameState";
+import { GameState } from "../state/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { book, library, livingroom, pumpkin } from "../state/rooms";
@@ -42,10 +42,7 @@ export class BedroomScene extends BaseScene {
     drawer.addClickText(
       "A locked drawer always makes me curious. What could be so important that it needs to be locked away?"
     );
-    drawer.addClickText(
-      "Looks like the crowbar isn't as versatile as I thought. Drawer: 1, Crowbar: 0.",
-      "crowbar"
-    );
+    drawer.addClickText("Looks like the crowbar isn't as versatile as I thought. Drawer: 1, Crowbar: 0.", "crowbar");
     this.lockedDrawerHitbox = this.addChild(drawer);
 
     const baobaoText =
@@ -64,9 +61,7 @@ export class BedroomScene extends BaseScene {
     this.addChild(painting);
 
     const pillows = new HitBox(854, 400, 340, 150);
-    pillows.addClickText(
-      "If pillows had personalities, these ones would be very supportive."
-    );
+    pillows.addClickText("If pillows had personalities, these ones would be very supportive.");
     this.addChild(pillows);
 
     const leftCupboard = new HitBox(410, 446, 370, 300);
@@ -94,9 +89,7 @@ export class BedroomScene extends BaseScene {
     bedRight.addClickText(bedText);
 
     const lamp = new HitBox(1236, 330, 100, 190);
-    lamp.addClickText(
-      "What a bright idea to have a lamp like this by your bed."
-    );
+    lamp.addClickText("What a bright idea to have a lamp like this by your bed.");
     this.addChild(lamp);
 
     const mountainPainting = new HitBox(1338, 134, 200, 204);
@@ -132,9 +125,7 @@ export class BedroomScene extends BaseScene {
   private lookIntoPumpkin() {
     Manager.changeScene(pumpkin);
     if (!GameState.revealedPumpkin) {
-      pumpkin.addText([
-        "I feel like I'm looking into the soul of a pumpkin, but it's just an empty bowl.",
-      ]);
+      pumpkin.addText(["I feel like I'm looking into the soul of a pumpkin, but it's just an empty bowl."]);
     } else {
       pumpkin.addText([
         "Who knew that pouring pumpkin juice into a pumpkin-shaped container could produce such a beautiful and mesmerizing display of colors? This pumpkin prism reaction is truly a sight to behold.",

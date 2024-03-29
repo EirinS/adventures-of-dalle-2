@@ -1,5 +1,5 @@
 import { Sprite } from "pixi.js";
-import { GameState } from "../components/GameState";
+import { GameState } from "../state/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { garden, itemHub, livingroom } from "../state/rooms";
@@ -47,29 +47,20 @@ export class KitchenScene extends BaseScene {
     const cupboard = new HitBox(495, 580, 170, 330, 4);
     this.openCupboard = this.openCupboard.bind(this);
     this.removeFlashlight = this.removeFlashlight.bind(this);
-    cupboard.addClickAction(
-      this.openCupboard,
-      "",
-      "This door sounds like it's auditioning for a horror movie."
-    );
+    cupboard.addClickAction(this.openCupboard, "", "This door sounds like it's auditioning for a horror movie.");
     this.cupboardHitbox = this.addChild(cupboard);
 
     const cupboardRight = new HitBox(660, 590, 170, 360, 4);
     cupboardRight.addClickAction(this.openCupboard);
     this.addChild(cupboardRight);
 
-    const leftPanText = () =>
-      this.addText([
-        "This pan is as empty as my stomach after a long day of sleuthing.",
-      ]);
+    const leftPanText = () => this.addText(["This pan is as empty as my stomach after a long day of sleuthing."]);
     const panLeft = new HitBox(1300, 480, 80, 60);
     panLeft.addClickAction(leftPanText);
     this.addChild(panLeft);
 
     const panRight = new HitBox(1400, 486, 80, 60);
-    panRight.addClickText(
-      "No need to stir the pot here. This pan is bone dry."
-    );
+    panRight.addClickText("No need to stir the pot here. This pan is bone dry.");
     this.addChild(panRight);
 
     const panCupboardText =
@@ -83,13 +74,10 @@ export class KitchenScene extends BaseScene {
     this.addChild(panCupboardBottom);
 
     const oven = new HitBox(1240, 540, 220, 60, 4);
-    oven.addClickText(
-      "With this stove as my ally, the investigation is sure to boil over with clues."
-    );
+    oven.addClickText("With this stove as my ally, the investigation is sure to boil over with clues.");
     this.addChild(oven);
 
-    const lampText =
-      "The light from these lamps makes it feel like an old-timey detective movie in here.";
+    const lampText = "The light from these lamps makes it feel like an old-timey detective movie in here.";
     const frontLamp = new HitBox(726, 208, 102, 80);
     frontLamp.addClickText(lampText);
     frontLamp.addClickText(flashlightLampText, "UV flashlight");
@@ -110,8 +98,7 @@ export class KitchenScene extends BaseScene {
     backLamp.addClickText(lampText);
     this.addChild(backLamp);
 
-    const windowText =
-      "I'm seeing right through this window, but I'm not sure what I'm looking for.";
+    const windowText = "I'm seeing right through this window, but I'm not sure what I'm looking for.";
     const window = new HitBox(372, 100, 200, 240);
     window.addClickText(windowText);
     this.addChild(window);
@@ -127,9 +114,7 @@ export class KitchenScene extends BaseScene {
     this.addChild(drawer);
 
     const cookingPans = new HitBox(1420, 660, 250, 250, 4);
-    cookingPans.addClickText(
-      "Looks like someone has a real passion for cooking. Or hoarding pans."
-    );
+    cookingPans.addClickText("Looks like someone has a real passion for cooking. Or hoarding pans.");
     this.addChild(cookingPans);
 
     const oblongPainting = new HitBox(596, 204, 122, 84, 2);
