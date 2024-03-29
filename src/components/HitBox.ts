@@ -1,4 +1,4 @@
-import { Graphics, Container, Circle, Rectangle, Point } from "pixi.js";
+import { Graphics, Container, Rectangle, Point, Ellipse } from "pixi.js";
 import { Manager } from "../scenes/Manager";
 import { itemHub } from "../state/rooms";
 
@@ -6,7 +6,16 @@ export class HitBox extends Container {
   private graphics: Graphics;
   private actions: { [item: string]: () => void };
 
-  constructor(x: number, y: number, width: number, height?: number, angle = 0, zIndex = 0, show: boolean = false) {
+  constructor(
+    x: number,
+    y: number,
+    width: number,
+    height?: number,
+    angle = 0,
+    zIndex = 0,
+    show: boolean = false,
+    ellipse = false
+  ) {
     super();
     this.graphics = new Graphics();
     this.graphics.interactive = true;
@@ -16,12 +25,11 @@ export class HitBox extends Container {
     this.actions = {};
     this.zIndex = zIndex;
 
-    // This is a circle
-    if (!height) {
-      this.graphics.hitArea = new Circle(0, 0, width);
-
+    // height=undefined means it's a circle
+    if (!height || ellipse) {
+      this.graphics.hitArea = new Ellipse(0, 0, width, height ?? width);
       if (show) {
-        this.graphics.drawCircle(0, 0, width);
+        this.graphics.drawEllipse(0, 0, width, height ?? width);
       }
     } else {
       this.graphics.hitArea = new Rectangle(0, 0, width, height);
@@ -47,11 +55,22 @@ export class HitBox extends Container {
    * @param item The item that triggers the action
    * @param text Optional text to be displayed with the action
    */
-  public addClickAction(action: () => void, item: string = "", text: string | string[] | undefined = undefined) {
+  public addClickAction(
+    action: () => void,
+    item: string = "",
+    text: string | string[] | undefined = undefined,
+    textDelay = 0
+  ) {
     if (text) {
       const textAction = () => {
         action();
-        Manager.currentScene.addText(this.getText(text));
+        if (textDelay) {
+          setTimeout(() => {
+            Manager.currentScene.addText(this.getText(text));
+          }, textDelay);
+        } else {
+          Manager.currentScene.addText(this.getText(text));
+        }
       };
       this.actions[item] = textAction;
     } else {
