@@ -84,6 +84,7 @@ export class SafeScene extends BaseScene {
       () => {
         this.addCutout("clicked", 700, 749, 0);
         GameState.buttonClicked = true;
+        library.revealSecretPassage();
       },
       undefined,
       "The button triggered some terrible creaking in the library. Let's go there and check it out.",

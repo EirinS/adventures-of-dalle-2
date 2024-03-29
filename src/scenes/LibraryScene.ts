@@ -112,6 +112,13 @@ export class LibraryScene extends BaseScene {
     this.addChild(this.floorplanHitBox);
   }
 
+  public revealSecretPassage() {
+    this.addCutout("openPassage", 1585, 298, 0);
+    const passageClick = new HitBox(1598, 325, 120, 460, 0, 100);
+    passageClick.addClickAction(() => {}, "", "Enter the passage");
+    this.addChild(passageClick);
+  }
+
   public loadNavigation() {
     this.addChild(new NavigationArrow(bedroom, Direction.Right));
     this.addChild(new NavigationArrow(garden, Direction.Left));

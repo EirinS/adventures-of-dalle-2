@@ -54,6 +54,7 @@ export const manifest: ResolverManifest = {
       assets: {
         library: `${BASE_URL}/library/library.png`,
         openPlank: `${BASE_URL}/library/open_plank.png`,
+        openPassage: `${BASE_URL}/library/library_opening.png`,
         removedFloorplan: `${BASE_URL}/library/removed_floorplan.png`,
       },
     },
