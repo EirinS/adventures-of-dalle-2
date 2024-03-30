@@ -1,5 +1,6 @@
 import { Graphics } from "pixi.js";
 import { GameState } from "../state/GameState";
+import { dungeon } from "../state/rooms";
 
 export class Hightlight extends Graphics {
   private cornerRadius: number;
@@ -41,11 +42,10 @@ export class Hightlight extends Graphics {
     this.on("pointertap", () => {
       this.toggleVisibility();
       const idx = this.brickNumber - 1;
-      console.log(idx);
       GameState.brickState[idx] = !GameState.brickState[idx];
       var isSolved = GameState.brickState.every((value, index) => value === this.puzzleSolution[index]);
       if (isSolved) {
-        console.log("solved puzzle");
+        dungeon.addText(["Congrats, you solved it!"]);
       }
     });
   }
