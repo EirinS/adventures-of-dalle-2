@@ -55,24 +55,19 @@ export class BaseScene extends Container implements IScene {
     return Sprite.from(this.background.texture);
   }
 
-  protected addCutout(
-    spriteName: string,
-    x: number,
-    y: number,
-    zIndex = 0
-  ): void {
-    const cutout = Sprite.from(spriteName);
+  protected addCutoutSprite(cutout: Sprite, x: number, y: number, zIndex = 0): void {
     cutout.scale.set(this.backgroundScale);
     cutout.position = new Point(x, y);
     cutout.zIndex = zIndex;
     this.addChild(cutout);
   }
 
-  protected addCutoutToEdge(
-    spriteName: string,
-    left: boolean = true,
-    top: boolean = true
-  ): void {
+  protected addCutout(spriteName: string, x: number, y: number, zIndex = 0): void {
+    const cutout = Sprite.from(spriteName);
+    this.addCutoutSprite(cutout, x, y, zIndex);
+  }
+
+  protected addCutoutToEdge(spriteName: string, left: boolean = true, top: boolean = true): void {
     const cutout = Sprite.from(spriteName);
     cutout.scale.set(this.backgroundScale);
     const x = left ? 0 : Manager.width - cutout.width;

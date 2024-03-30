@@ -8,7 +8,7 @@ export class Hightlight extends Graphics {
   private alphavalue: number;
   private brickNumber: number;
 
-  private brickSolution = [3, 5, 20, 37, 43, 52];
+  private brickSolution = [3, 5, 20, 37, 43, 51];
   private puzzleSolution = Array.from({ length: 66 }, (_, i) => this.brickSolution.includes(i));
   constructor(brickNumber: number, x = 100, y = 100, width = 200, height = 100, cornerRadius = 5, alphavalue = 0.3) {
     super();

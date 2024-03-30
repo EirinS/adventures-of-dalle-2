@@ -9,6 +9,15 @@ export class DungeonScene extends BaseScene {
   constructor() {
     super(Sprite.from("dungeon"));
 
+    this.loadHitBoxes();
+    this.loadPuzzleHitBoxes();
+  }
+
+  public loadNavigation() {
+    this.addChild(new NavigationArrow(library, Direction.Right));
+  }
+
+  private loadHitBoxes() {
     const baobao = new HitBox(185, 320, 250, 620, 0, 0);
     const baobaoHead = new HitBox(330, 220, 110, undefined, 0, 0);
     const text =
@@ -17,7 +26,9 @@ export class DungeonScene extends BaseScene {
     baobaoHead.addClickText(text);
     this.addChild(baobao);
     this.addChild(baobaoHead);
+  }
 
+  private loadPuzzleHitBoxes() {
     // x = 1, y = 1, nedre venstre hjørne
     // ROW 1
     this.addChild(new Hightlight(1, 464, 390, 87, 55));
@@ -105,9 +116,5 @@ export class DungeonScene extends BaseScene {
     this.addChild(new Hightlight(63, 613, 100, 114, 42));
     this.addChild(new Hightlight(64, 672, 100, 139, 42));
     this.addChild(new Hightlight(65, 744, 100, 114, 42));
-  }
-
-  public loadNavigation() {
-    this.addChild(new NavigationArrow(library, Direction.Right));
   }
 }

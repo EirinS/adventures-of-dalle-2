@@ -9,9 +9,39 @@ import { Manager } from "./Manager";
 export class BedroomScene extends BaseScene {
   private unOpenedPumpkinHitbox: any;
   private lockedDrawerHitbox: any;
+  private shownCutout = 0;
+  private clockCutouts = [
+    Sprite.from("clock_0102"),
+    Sprite.from("clock_0507"),
+    Sprite.from("clock_0401"),
+    Sprite.from("clock_0105"),
+    Sprite.from("clock_0408"),
+    Sprite.from("clock_0509"),
+  ];
+
   constructor() {
     super(Sprite.from("bedroom"));
+    this.loadHitboxes();
+    this.startClockLoop();
+  }
 
+  private rotateImage() {
+    this.removeChild(this.clockCutouts[this.shownCutout]);
+    this.shownCutout = (this.shownCutout + 1) % this.clockCutouts.length;
+    this.addCutoutSprite(this.clockCutouts[this.shownCutout], 371, 264);
+  }
+
+  private startClockLoop() {
+    this.addCutoutSprite(this.clockCutouts[this.shownCutout], 371, 264);
+    setInterval(() => this.rotateImage(), 1500);
+  }
+
+  public loadNavigation() {
+    this.addChild(new NavigationArrow(livingroom, Direction.Right));
+    this.addChild(new NavigationArrow(library, Direction.Left));
+  }
+
+  private loadHitboxes() {
     const pumpkinMug = new HitBox(94, 322, 130, 256);
     pumpkinMug.addClickText(
       "This mug may be shaped like a pumpkin, but I'm not going to let it squash my detective skills."
@@ -102,11 +132,6 @@ export class BedroomScene extends BaseScene {
     this.openBook = this.openBook.bind(this);
     book.addClickAction(this.openBook);
     this.addChild(book);
-  }
-
-  public loadNavigation() {
-    this.addChild(new NavigationArrow(livingroom, Direction.Right));
-    this.addChild(new NavigationArrow(library, Direction.Left));
   }
 
   private openPumpkin() {

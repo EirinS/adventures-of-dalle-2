@@ -61,6 +61,12 @@ export const manifest: ResolverManifest = {
         bedroom: `${BASE_URL}/bedroom/bedroom.png`,
         openDrawer: `${BASE_URL}/bedroom/open_drawer.png`,
         openPumpkin: `${BASE_URL}/bedroom/open_pumpkin.png`,
+        clock_0102: `${BASE_URL}/bedroom/0102.png`,
+        clock_0105: `${BASE_URL}/bedroom/0105.png`,
+        clock_0401: `${BASE_URL}/bedroom/0401.png`,
+        clock_0408: `${BASE_URL}/bedroom/0408.png`,
+        clock_0507: `${BASE_URL}/bedroom/0507.png`,
+        clock_0509: `${BASE_URL}/bedroom/0509.png`,
       },
     },
     {
