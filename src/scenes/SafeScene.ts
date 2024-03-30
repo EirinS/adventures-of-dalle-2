@@ -3,7 +3,6 @@ import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow, Position } from "../components/NavigationArrow";
 import { library, livingroom } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
-import { GameState } from "../state/GameState";
 
 export class SafeScene extends BaseScene {
   private currentCode: Text;
@@ -83,11 +82,10 @@ export class SafeScene extends BaseScene {
     buttonHit.addClickAction(
       () => {
         this.addCutout("clicked", 700, 749, 0);
-        GameState.buttonClicked = true;
         library.revealSecretPassage();
       },
       undefined,
-      "The button triggered some terrible creaking in the library. Let's go there and check it out.",
+      "A rumble from the library? Something's afoot there; let's not keep the mystery waiting.",
       1000
     );
     this.addChild(buttonHit);
