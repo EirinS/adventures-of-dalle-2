@@ -110,6 +110,12 @@ export const manifest: ResolverManifest = {
       },
     },
     {
+      name: "dungeon",
+      assets: {
+        dungeon: `${BASE_URL}/dungeon/dungeon.png`,
+      },
+    },
+    {
       name: "floorplan",
       assets: {
         floorplan: `${BASE_URL}/floorplan/floorplan.png`,
