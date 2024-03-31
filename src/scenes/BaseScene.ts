@@ -62,7 +62,7 @@ export class BaseScene extends Container implements IScene {
     this.addChild(cutout);
   }
 
-  protected addCutout(spriteName: string, x: number, y: number, zIndex = 0): void {
+  public addCutout(spriteName: string, x: number, y: number, zIndex = 0): void {
     const cutout = Sprite.from(spriteName);
     this.addCutoutSprite(cutout, x, y, zIndex);
   }

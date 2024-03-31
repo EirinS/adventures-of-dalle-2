@@ -44,8 +44,12 @@ export class Hightlight extends Graphics {
       const idx = this.brickNumber - 1;
       GameState.brickState[idx] = !GameState.brickState[idx];
       var isSolved = GameState.brickState.every((value, index) => value === this.puzzleSolution[index]);
-      if (isSolved) {
-        dungeon.addText(["Congrats, you solved it!"]);
+      if (isSolved && !GameState.solvedDungeon) {
+        GameState.solvedDungeon = true;
+        dungeon.addCutout("pidestal", 1093, 643);
+        setTimeout(() => {
+          dungeon.addText(["Congrats, you solved it!"]);
+        }, 1000);
       }
     });
   }
