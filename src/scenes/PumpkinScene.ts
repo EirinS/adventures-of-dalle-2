@@ -10,7 +10,7 @@ export class PumpkinScene extends BaseScene {
   constructor() {
     super(Sprite.from("pumpkin"));
 
-    const bowl = new HitBox(955, 550, 600, 0);
+    const bowl = new HitBox(955, 550, 600);
     this.fillBowl = this.fillBowl.bind(this);
     bowl.addClickAction(
       this.fillBowl,

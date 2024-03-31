@@ -87,7 +87,7 @@ export class LibraryScene extends BaseScene {
     );
     this.addChild(computer);
 
-    const baobao = new HitBox(260, 878, 160, undefined, 0, 0, false);
+    const baobao = new HitBox(260, 878, 160);
     baobao.addClickText(
       "I always thought the saying 'the pen is mightier than the sword' should be updated to 'the magnifying glass is mightier than the sword'."
     );
