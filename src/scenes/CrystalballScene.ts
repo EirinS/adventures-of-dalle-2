@@ -12,6 +12,7 @@ export class CrystallballScene extends BaseScene {
     ["Pumpkin", () => itemHub.hasItem("pumpkin juice") && !GameState.revealedPumpkin],
     ["Book", () => itemHub.hasItem("UV flashlight") && !GameState.bookRevealed],
     ["Diamond", () => GameState.bookRevealed && !GameState.BFound],
+    ["Brick", () => GameState.visitedDungeon],
   ];
 
   private hintText: string =

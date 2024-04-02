@@ -36,6 +36,7 @@ export const manifest: ResolverManifest = {
         crystalPumpkin: `${BASE_URL}/crystalball/pumpkin.png`,
         crystalFlamingo: `${BASE_URL}/crystalball/flamingo.png`,
         crystalDiamond: `${BASE_URL}/crystalball/diamond.png`,
+        crystalBrick: `${BASE_URL}/crystalball/brickwall.png`,
       },
     },
     {
