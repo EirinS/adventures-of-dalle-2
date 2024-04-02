@@ -9,6 +9,7 @@ export class DungeonScene extends BaseScene {
   constructor() {
     super(Sprite.from("dungeon"));
 
+    this.addCutout("brick", 1500, 590);
     this.loadHitBoxes();
     this.loadPuzzleHitBoxes();
   }
