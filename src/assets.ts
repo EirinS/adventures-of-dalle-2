@@ -119,8 +119,8 @@ export const manifest: ResolverManifest = {
     {
       name: "dungeon",
       assets: {
+        memoryStick: `${BASE_URL}/dungeon/memory-stick.png`,
         dungeon: `${BASE_URL}/dungeon/dungeon.png`,
-        brick: `${BASE_URL}/dungeon/brick.png`,
         pidestal: `${BASE_URL}/dungeon/pidestal.png`,
       },
     },
@@ -150,6 +150,8 @@ export const manifest: ResolverManifest = {
         crowbar: `${BASE_URL}/items/crowbar.png`,
         crowbarHighlighted: `${BASE_URL}/items/crowbar-highlighted.png`,
         paper: `${BASE_URL}/items/floorplan.png`,
+        "memory stick": `${BASE_URL}/items/memory-stick.png`,
+        "memory stickHighlighted": `${BASE_URL}/items/memory-stick-highlighted.png`,
       },
     },
   ],

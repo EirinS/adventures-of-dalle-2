@@ -55,7 +55,7 @@ export class BaseScene extends Container implements IScene {
     return Sprite.from(this.background.texture);
   }
 
-  protected addCutoutSprite(cutout: Sprite, x: number, y: number, zIndex = 0): void {
+  public addCutoutSprite(cutout: Sprite, x: number, y: number, zIndex = 0): void {
     cutout.scale.set(this.backgroundScale);
     cutout.position = new Point(x, y);
     cutout.zIndex = zIndex;

@@ -1,21 +1,51 @@
 import { Sprite } from "pixi.js";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
 import { BaseScene } from "./BaseScene";
-import { library } from "../state/rooms";
+import { itemHub, library } from "../state/rooms";
 import { HitBox } from "../components/HitBox";
 import { Hightlight } from "../components/Highlight";
+import { GameState } from "../state/GameState";
 
 export class DungeonScene extends BaseScene {
+  private memoryStickCutout: Sprite;
+  private brickSolution = [3, 5, 20, 37, 43, 51];
+  private puzzleSolution = Array.from({ length: 66 }, (_, i) => this.brickSolution.includes(i));
+
   constructor() {
     super(Sprite.from("dungeon"));
+    this.memoryStickCutout = Sprite.from("memoryStick");
 
-    this.addCutout("brick", 1500, 590);
     this.loadHitBoxes();
     this.loadPuzzleHitBoxes();
   }
 
   public loadNavigation() {
     this.addChild(new NavigationArrow(library, Direction.Right));
+  }
+
+  public checkDungeonPuzzle(idx: number) {
+    GameState.brickState[idx] = !GameState.brickState[idx];
+    var isSolved = GameState.brickState.every((value, index) => value === this.puzzleSolution[index]);
+    if (isSolved && !GameState.solvedDungeon) {
+      this.finishDungeonPuzzle();
+    }
+  }
+
+  private finishDungeonPuzzle() {
+    GameState.solvedDungeon = true;
+    this.addCutout("pidestal", 1093, 643);
+    this.addCutoutSprite(this.memoryStickCutout, 1235, 620);
+
+    const memoryStick = new HitBox(1235, 624, 90, 30, 0, 0, false);
+    this.takeMemoryStick = this.takeMemoryStick.bind(this);
+    memoryStick.addClickAction(() => this.takeMemoryStick(memoryStick), "", "(Memory stick was added to inventory)");
+    this.addChild(memoryStick);
+  }
+
+  private takeMemoryStick(memoryStick: HitBox) {
+    this.removeChild(memoryStick);
+    this.removeChild(this.memoryStickCutout);
+    itemHub.addItem("memory stick");
   }
 
   private loadHitBoxes() {
