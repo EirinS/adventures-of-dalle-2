@@ -14,6 +14,7 @@ import { FloorplanScene } from "../scenes/FloorplanScene";
 import { CrystallballScene } from "../scenes/CrystalballScene";
 import { MusicHub } from "../components/MusicHub";
 import { DungeonScene } from "../scenes/DungeonScene";
+import { StairwayScene } from "../scenes/StairwayScene";
 
 export let itemHub: ItemHub;
 
@@ -33,6 +34,7 @@ export let computer: ComputerScene;
 export let floorplan: FloorplanScene;
 export let crystalBall: CrystallballScene;
 export let dungeon: DungeonScene;
+export let stairway: StairwayScene;
 
 export const getAllRooms = () => [
   kitchen,
@@ -48,6 +50,7 @@ export const getAllRooms = () => [
   floorplan,
   crystalBall,
   dungeon,
+  stairway,
 ];
 
 export function loadRooms() {
@@ -67,6 +70,7 @@ export function loadRooms() {
   floorplan = new FloorplanScene();
   crystalBall = new CrystallballScene();
   dungeon = new DungeonScene();
+  stairway = new StairwayScene();
   kitchen.loadNavigation();
   livingroom.loadNavigation();
   office.loadNavigation();
@@ -79,4 +83,5 @@ export function loadRooms() {
   computer.loadNavigation();
   crystalBall.loadNavigation();
   dungeon.loadNavigation();
+  stairway.loadNavigation();
 }

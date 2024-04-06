@@ -117,6 +117,12 @@ export const manifest: ResolverManifest = {
       },
     },
     {
+      name: "stairway",
+      assets: {
+        stairway: `${BASE_URL}/stairway/stairway.jpeg`,
+      },
+    },
+    {
       name: "dungeon",
       assets: {
         memoryStick: `${BASE_URL}/dungeon/memory-stick.png`,

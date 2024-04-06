@@ -14,6 +14,7 @@ export enum Position {
   BottomRight,
   BottomMiddle,
   MiddleLeft,
+  TopMiddle,
   Automatic,
 }
 
@@ -84,7 +85,11 @@ export class NavigationArrow extends Graphics {
 
     switch (direction) {
       case Direction.Up:
-        this.nextSceneBackground.position = new Point(-width / 4, -130);
+        if (this.arrowPosition === Position.TopMiddle) {
+          this.nextSceneBackground.position = new Point(-width / 4, height + 40);
+        } else {
+          this.nextSceneBackground.position = new Point(-width / 4, -130);
+        }
         break;
       case Direction.Right:
         this.nextSceneBackground.position = new Point(-50, -height - 24);
@@ -139,6 +144,10 @@ export class NavigationArrow extends Graphics {
         break;
       case Position.MiddleLeft:
         this.position = new Point(this.margin, Manager.height / 2 - this.height / 2);
+        break;
+      case Position.TopMiddle:
+        this.position = new Point(Manager.width / 2 - this.width / 2, this.margin);
+        break;
     }
   }
 }

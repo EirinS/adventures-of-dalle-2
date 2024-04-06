@@ -1,7 +1,7 @@
 import { Sprite } from "pixi.js";
-import { Direction, NavigationArrow } from "../components/NavigationArrow";
+import { Direction, NavigationArrow, Position } from "../components/NavigationArrow";
 import { BaseScene } from "./BaseScene";
-import { itemHub, library } from "../state/rooms";
+import { itemHub, stairway } from "../state/rooms";
 import { HitBox } from "../components/HitBox";
 import { Hightlight } from "../components/Highlight";
 import { GameState } from "../state/GameState";
@@ -15,12 +15,19 @@ export class DungeonScene extends BaseScene {
     super(Sprite.from("dungeon"));
     this.memoryStickCutout = Sprite.from("memoryStick");
 
+    if (!GameState.visitedDungeon) {
+      this.addText([
+        "Welcome to the heart of our mystery. These walls, those chains... it's all a bit much, isn't it? Time to uncover what went down.",
+      ]);
+      GameState.visitedDungeon = true;
+    }
+
     this.loadHitBoxes();
     this.loadPuzzleHitBoxes();
   }
 
   public loadNavigation() {
-    this.addChild(new NavigationArrow(library, Direction.Right));
+    this.addChild(new NavigationArrow(stairway, Direction.Left, Position.BottomLeft));
   }
 
   public checkDungeonPuzzle(idx: number) {

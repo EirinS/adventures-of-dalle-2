@@ -2,7 +2,7 @@ import { Sprite } from "pixi.js";
 import { GameState } from "../state/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { bedroom, computer, dungeon, floorplan, garden, itemHub } from "../state/rooms";
+import { bedroom, computer, floorplan, garden, itemHub, stairway } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { Manager } from "./Manager";
 
@@ -116,13 +116,7 @@ export class LibraryScene extends BaseScene {
     this.addCutout("openPassage", 1585, 298, 0);
     const passageClick = new HitBox(1598, 325, 120, 460, 0, 100);
     passageClick.addClickAction(() => {
-      Manager.changeScene(dungeon);
-      if (!GameState.visitedDungeon) {
-        dungeon.addText([
-          "Welcome to the heart of our mystery. These walls, those chains... it's all a bit much, isn't it? Time to uncover what went down.",
-        ]);
-        GameState.visitedDungeon = true;
-      }
+      Manager.changeScene(stairway);
     });
     this.addChild(passageClick);
   }
