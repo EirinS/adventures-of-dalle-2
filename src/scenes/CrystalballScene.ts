@@ -7,12 +7,12 @@ import { BaseScene } from "./BaseScene";
 
 export class CrystallballScene extends BaseScene {
   private hints: [string, () => boolean][] = [
+    ["Brick", () => GameState.visitedDungeon],
     ["Eiffel", () => !GameState.safeFound],
     ["Flamingo", () => !itemHub.hasItem("crowbar")],
     ["Pumpkin", () => itemHub.hasItem("pumpkin juice") && !GameState.revealedPumpkin],
     ["Book", () => itemHub.hasItem("UV flashlight") && !GameState.bookRevealed],
     ["Diamond", () => GameState.bookRevealed && !GameState.BFound],
-    ["Brick", () => GameState.visitedDungeon],
   ];
 
   private hintText: string =
