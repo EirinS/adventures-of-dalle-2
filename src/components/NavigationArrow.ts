@@ -25,34 +25,31 @@ export class NavigationArrow extends Graphics {
   private upArrowCoords = [30, 120, 30, 54, 0, 54, 50, 10, 100, 54, 70, 54, 70, 120, 30, 120];
 
   public nextScene: IScene;
-  private color: number;
-  private hoverColor: number;
-  private outlineColor: number;
+  private color: number = 0xffffff;
+  private hoverColor: number = 0x26415f;
+  private outlineColor: number = 0xffffff;
   private nextSceneBackground: Sprite;
   private direction: Direction;
   private arrowPosition: Position;
   private margin: number;
+  private callback: (() => void) | undefined;
 
   constructor(
     nextScene: IScene,
     direction: Direction,
     position: Position = Position.Automatic,
-    color: number = 0xffffff,
-    hoverColor: number = 0x26415f,
-    outlineColor = 0xffffff
+    callback: (() => void) | undefined = undefined
   ) {
     super();
     this.zIndex = 2;
     this.nextSceneBackground = nextScene.getBackground();
-    this.color = color;
-    this.hoverColor = hoverColor;
-    this.outlineColor = outlineColor;
     this.nextScene = nextScene;
     this.interactive = true;
     this.onpointertap = this.goToNextScene;
     this.direction = direction;
     this.arrowPosition = position;
     this.margin = 24;
+    this.callback = callback;
 
     this.onmouseover = () => {
       this.clear();
@@ -75,6 +72,7 @@ export class NavigationArrow extends Graphics {
     this.removeChild(this.nextSceneBackground);
     this.drawArrow(this.color, this.direction);
     Manager.changeScene(this.nextScene);
+    if (this.callback) this.callback();
   }
 
   private drawMiniature(direction: Direction) {
@@ -92,13 +90,13 @@ export class NavigationArrow extends Graphics {
         }
         break;
       case Direction.Right:
-        this.nextSceneBackground.position = new Point(-50, -height - 24);
+        this.nextSceneBackground.position = new Point(-50, -height - this.margin);
         break;
       case Direction.Down:
         this.nextSceneBackground.position = new Point(-width / 4, -130);
         break;
       case Direction.Left:
-        this.nextSceneBackground.position = new Point(-30, -height - 24);
+        this.nextSceneBackground.position = new Point(-30, -height - this.margin);
         break;
     }
 

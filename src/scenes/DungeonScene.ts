@@ -14,13 +14,9 @@ export class DungeonScene extends BaseScene {
   constructor() {
     super(Sprite.from("dungeon"));
     this.memoryStickCutout = Sprite.from("memoryStick");
-
-    if (!GameState.visitedDungeon) {
-      this.addText([
-        "Welcome to the heart of our mystery. These walls, those chains... it's all a bit much, isn't it? Time to uncover what went down.",
-      ]);
-      GameState.visitedDungeon = true;
-    }
+    this.addText([
+      "Welcome to the heart of our mystery. These walls, those chains... it's all a bit much, isn't it? Time to uncover what went down.",
+    ]);
 
     this.loadHitBoxes();
     this.loadPuzzleHitBoxes();
