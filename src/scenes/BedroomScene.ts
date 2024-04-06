@@ -12,10 +12,10 @@ export class BedroomScene extends BaseScene {
   private shownCutout = 0;
   private clockCutouts = [
     Sprite.from("clock_0102"),
-    Sprite.from("clock_0507"),
-    Sprite.from("clock_0401"),
     Sprite.from("clock_0105"),
+    Sprite.from("clock_0401"),
     Sprite.from("clock_0408"),
+    Sprite.from("clock_0507"),
     Sprite.from("clock_0509"),
   ];
 
@@ -33,7 +33,7 @@ export class BedroomScene extends BaseScene {
 
   private startClockLoop() {
     this.addCutoutSprite(this.clockCutouts[this.shownCutout], 371, 264);
-    setInterval(() => this.rotateImage(), 1500);
+    setInterval(() => this.rotateImage(), 1000);
   }
 
   public loadNavigation() {
