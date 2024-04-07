@@ -2,7 +2,7 @@ import { Sprite } from "pixi.js";
 import { GameState } from "../state/GameState";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { bedroom, computer, floorplan, garden, itemHub, stairway } from "../state/rooms";
+import { bedroom, computer, floorplan, garden, itemHub, memoryStick, stairway } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { Manager } from "./Manager";
 
@@ -85,6 +85,11 @@ export class LibraryScene extends BaseScene {
       "I appreciate your creative problem-solving skills, but I don't think shining a flashlight on the computer will get us anywhere.",
       "UV flashlight"
     );
+
+    computer.addClickAction(() => {
+      Manager.changeScene(memoryStick);
+      itemHub.hide();
+    }, "memory stick");
     this.addChild(computer);
 
     const baobao = new HitBox(260, 878, 160);

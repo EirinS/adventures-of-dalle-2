@@ -21,10 +21,13 @@ export class HitBox extends Container {
     this.graphics.interactive = true;
     this.graphics.angle = angle;
     this.graphics.position = new Point(x, y);
-    this.graphics.beginFill(0xff000);
+
     this.actions = {};
     this.zIndex = zIndex;
+    this.width = width;
+    this.height = height ?? width;
 
+    this.graphics.beginFill(0xff000);
     // height=undefined means it's a circle
     if (!height || ellipse) {
       this.graphics.hitArea = new Ellipse(0, 0, width, height ?? width);
@@ -48,6 +51,20 @@ export class HitBox extends Container {
   private getText(text: string | string[]): string[] {
     if (typeof text === "string") return [text];
     return text;
+  }
+
+  public setHover() {
+    this.graphics.cursor = "pointer";
+    this.graphics.beginFill(0xfffffff);
+    this.graphics.drawRoundedRect(0, 0, this.width, this.height, 10);
+    this.graphics.endFill();
+    this.graphics.alpha = 0;
+    this.onpointerover = () => {
+      this.graphics.alpha = 0.4;
+    };
+    this.onpointerout = () => {
+      this.graphics.alpha = 0;
+    };
   }
 
   /**

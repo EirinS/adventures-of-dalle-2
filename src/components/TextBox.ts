@@ -18,6 +18,7 @@ export class TextBox extends Container {
   private minBoxHeight: number = 150;
   private boxHeight: number = 150;
   private boxWidth: number = Manager.width;
+  private callBack: (() => void) | undefined;
 
   private defaultStyle: TextStyle = new TextStyle({
     fontFamily: "Arial",
@@ -60,17 +61,19 @@ export class TextBox extends Container {
   public showNextText(): void {
     if (this.showingTextIndex + 1 >= this.textArray.length) {
       this.visible = false;
+      if (this.callBack) this.callBack();
       return;
     }
     this.showingTextIndex += 1;
     this.text.text = this.textArray[this.showingTextIndex];
   }
 
-  public setText(text: string[]) {
+  public setText(text: string[], callBack?: () => void) {
     this.text.text = text[0];
     this.textArray = text;
     this.showingTextIndex = 0;
     this.visible = true;
     this.interactive = true;
+    this.callBack = callBack;
   }
 }

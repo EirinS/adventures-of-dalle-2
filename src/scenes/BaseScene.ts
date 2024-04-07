@@ -43,8 +43,8 @@ export class BaseScene extends Container implements IScene {
     this.addChild(this.background);
   }
 
-  public addText = (text: string[]) => {
-    this.textBox.setText(text);
+  public addText = (text: string[], callBack?: () => void) => {
+    this.textBox.setText(text, callBack);
   };
 
   public clearText(): void {

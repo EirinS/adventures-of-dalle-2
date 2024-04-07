@@ -1,8 +1,9 @@
 import { Graphics, Point, Sprite, Texture } from "pixi.js";
 import { HitBox } from "../components/HitBox";
 import { Direction, NavigationArrow } from "../components/NavigationArrow";
-import { library } from "../state/rooms";
+import { library, memoryStick } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
+import { Manager } from "./Manager";
 
 export class ComputerScene extends BaseScene {
   private red: Sprite;
@@ -15,6 +16,10 @@ export class ComputerScene extends BaseScene {
 
   constructor() {
     super(Sprite.from("computer"));
+    const memoryStickHitBox = new HitBox(1450, 110, 372, 450);
+    memoryStickHitBox.addClickAction(() => Manager.changeScene(memoryStick), "memory stick");
+    this.addChild(memoryStickHitBox);
+
     this.red = Sprite.from("red");
     this.red.name = "red";
     this.red.scale.set(this.backgroundScale);
@@ -92,10 +97,7 @@ export class ComputerScene extends BaseScene {
       line.position.set(sprite.x + 50, sprite.y + 50);
       line
         .lineStyle(20, 0xd4d4d4)
-        .lineTo(
-          this.lines[this.lines.length - 1].x - line.x,
-          this.lines[this.lines.length - 1].y - line.y
-        );
+        .lineTo(this.lines[this.lines.length - 1].x - line.x, this.lines[this.lines.length - 1].y - line.y);
       this.lines.push(line);
       this.addChild(line);
     }

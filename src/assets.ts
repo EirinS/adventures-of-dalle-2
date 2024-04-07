@@ -95,6 +95,17 @@ export const manifest: ResolverManifest = {
       },
     },
     {
+      name: "memorystick",
+      assets: {
+        baby: `${BASE_URL}/memorystick/baby.png`,
+        file: `${BASE_URL}/memorystick/file.png`,
+        kid: `${BASE_URL}/memorystick/kid.png`,
+        goodbye: `${BASE_URL}/memorystick/goodbye.png`,
+        background: `${BASE_URL}/memorystick/background.png`,
+        close: `${BASE_URL}/memorystick/close.png`,
+      },
+    },
+    {
       name: "pumpkin",
       assets: {
         pumpkin: `${BASE_URL}/pumpkin/empty.png`,
@@ -125,7 +136,7 @@ export const manifest: ResolverManifest = {
     {
       name: "dungeon",
       assets: {
-        memoryStick: `${BASE_URL}/dungeon/memory-stick.png`,
+        memoryStickItem: `${BASE_URL}/dungeon/memory-stick.png`,
         dungeon: `${BASE_URL}/dungeon/dungeon.png`,
         pidestal: `${BASE_URL}/dungeon/pidestal.png`,
       },

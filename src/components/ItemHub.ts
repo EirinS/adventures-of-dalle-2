@@ -1,6 +1,6 @@
 import { Container, Sprite, Point, Texture } from "pixi.js";
 import { Manager } from "../scenes/Manager";
-import { floorplan, kitchen, livingroom } from "../state/rooms";
+import { floorplan, kitchen, livingroom, stairway } from "../state/rooms";
 
 export class ItemHub extends Container {
   public selectedItem: string;
@@ -11,6 +11,12 @@ export class ItemHub extends Container {
     this.zIndex = 2;
     this.selectedItem = "";
     this.sprites = {};
+  }
+
+  public hide() {
+    Object.keys(this.sprites).forEach((key: string) => {
+      this.removeChild(this.sprites[key]);
+    });
   }
 
   public addItem(item: string) {
@@ -70,18 +76,13 @@ export class ItemHub extends Container {
       if (
         Manager.currentScene !== kitchen &&
         Manager.currentScene !== livingroom &&
-        Manager.currentScene !== floorplan
+        Manager.currentScene !== floorplan &&
+        Manager.currentScene !== stairway
       ) {
-        sprite.position = new Point(
-          Manager.width - sprite.width - margin - i * (sprite.width + margin),
-          margin
-        );
+        sprite.position = new Point(Manager.width - sprite.width - margin - i * (sprite.width + margin), margin);
       } else {
         sprite.position = new Point(
-          Manager.width -
-            sprite.width -
-            margin -
-            (i % 3) * (sprite.width + margin),
+          Manager.width - sprite.width - margin - (i % 3) * (sprite.width + margin),
           margin + (sprite.width + margin) * Math.floor(i / 3)
         );
       }

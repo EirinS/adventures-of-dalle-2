@@ -13,7 +13,7 @@ export class DungeonScene extends BaseScene {
 
   constructor() {
     super(Sprite.from("dungeon"));
-    this.memoryStickCutout = Sprite.from("memoryStick");
+    this.memoryStickCutout = Sprite.from("memoryStickItem");
     this.addText([
       "Welcome to the heart of our mystery. These walls, those chains... it's all a bit much, isn't it? Time to uncover what went down.",
     ]);
