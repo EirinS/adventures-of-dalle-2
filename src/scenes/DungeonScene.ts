@@ -10,6 +10,7 @@ export class DungeonScene extends BaseScene {
   private memoryStickCutout: Sprite;
   private brickSolution = [3, 5, 20, 37, 43, 51];
   private puzzleSolution = Array.from({ length: 66 }, (_, i) => this.brickSolution.includes(i));
+  private clickCounter: number = 0;
 
   constructor() {
     super(Sprite.from("dungeon"));
@@ -26,11 +27,42 @@ export class DungeonScene extends BaseScene {
     this.addChild(new NavigationArrow(stairway, Direction.Left, Position.BottomLeft));
   }
 
-  public checkDungeonPuzzle(idx: number) {
+  public checkDungeonPuzzle(idx: number, highlight: Hightlight) {
+    this.clickCounter += 1;
+    if (GameState.brickState.filter((value) => value).length >= 10 && !highlight.isVisible()) {
+      this.addText([
+        "Clicking every brick, really? Look, I admire the dedication, really, but there is a puzzle to solve, not just a game of 'press all the things and see what happens'. Let's look for clues instead.",
+      ]);
+      return;
+    }
+    highlight.toggleVisibility();
     GameState.brickState[idx] = !GameState.brickState[idx];
     var isSolved = GameState.brickState.every((value, index) => value === this.puzzleSolution[index]);
     if (isSolved && !GameState.solvedDungeon) {
       this.finishDungeonPuzzle();
+      return;
+    }
+
+    if (this.clickCounter === 40) {
+      this.addText([
+        "I saw something interesting in the bedroom that could be the clue we need. Let's not ignore it; might be smarter to check that out than tapping on bricks like we're trying to summon a genie.",
+      ]);
+    }
+    if (this.clickCounter === 80) {
+      this.addText([
+        "Notice that clock in the bedroom? Could be more than just a timepiece; might be the clue we've been after. And hey, if all else fails, there's always the crystal ball for a hint.",
+      ]);
+    }
+    if (this.clickCounter === 150) {
+      this.addText([
+        "Six numbers on the alarm clock, that would mean six bricks on the wall. Looks like each number might just be the key to which brick to press.",
+      ]);
+    }
+    if (this.clickCounter >= 300 && this.clickCounter % 10 === 0) {
+      this.addText([
+        "I think I've got it! Each number on the clock corresponds to a brick. The first number is how far to count in the horizontal direction, the second number is how far to count in the vertical (...)",
+        "direction. For example, 01:02 equals the brick that is the 1st on the left side, and on the 2nd row of bricks. Start counting from the bottom left.",
+      ]);
     }
   }
 
@@ -41,7 +73,11 @@ export class DungeonScene extends BaseScene {
 
     const memoryStick = new HitBox(1235, 624, 90, 30, 0, 0, false);
     this.takeMemoryStick = this.takeMemoryStick.bind(this);
-    memoryStick.addClickAction(() => this.takeMemoryStick(memoryStick), "", "(Memory stick was added to inventory)");
+    memoryStick.addClickAction(
+      () => this.takeMemoryStick(memoryStick),
+      "",
+      "This could be the final piece of the puzzle. Time to find out what it contains. (Memory stick was added to inventory)"
+    );
     this.addChild(memoryStick);
   }
 

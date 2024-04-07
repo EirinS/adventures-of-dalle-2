@@ -24,6 +24,10 @@ export class Hightlight extends Graphics {
     this.setupClickEvent();
   }
 
+  public isVisible(): boolean {
+    return this.alpha > 0;
+  }
+
   drawOverlay() {
     this.beginFill(0xfffffff);
     this.drawRoundedRect(this.x, this.y, this.drawWidth, this.drawHeight, this.cornerRadius);
@@ -36,10 +40,9 @@ export class Hightlight extends Graphics {
 
   setupClickEvent() {
     this.on("pointertap", () => {
-      this.toggleVisibility();
       const idx = this.brickNumber - 1;
       // To make this more generic, this function should be (optionally) passed to the highlight
-      dungeon.checkDungeonPuzzle(idx);
+      dungeon.checkDungeonPuzzle(idx, this);
     });
   }
 }
