@@ -16,7 +16,7 @@ export class MemoryStickScene extends BaseScene {
     this.addText(
       [
         "You did it! After all that hard work, you've cracked the case wide open with the secret folder on the memory stick. This isn't just any folder; it's the proof that Delara's stories of royalty are (...)",
-        "rooted in truth. Let us comb through the contents and send this straight to the government.",
+        "rooted in truth. Let us comb through the contents and send this straight to the Royal Council.",
       ],
       () => {
         setTimeout(() => {

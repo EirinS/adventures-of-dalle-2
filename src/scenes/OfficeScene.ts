@@ -11,10 +11,11 @@ export class OfficeScene extends BaseScene {
     super(Sprite.from("office"));
 
     this.addText([
-      "As Detective Baobao was sitting in his office, staring out the window, he received a call from a wealthy collector. The collector had just purchased a mansion from a deceased (...)",
-      "well-known russian businessman, and he had heard rumors that the mansion contained a valuable and unknown Fabergé egg. The collector wanted Baobao to investigate the (...)",
-      "mansion and find the egg. Baobao, being a skilled detective, was immediately intrigued by the opportunity to solve this mystery and uncover the truth about the Fabergé egg. He (...)",
-      "accepted the case and set out to investigate the mansion.",
+      "As Detective BaoBao was sitting in his office, staring out the window, he received a call from the Royal Council. The Kingdom of Eldoria is in a real mess right now, after the death of (...)",
+      "King Aldric IV and his son, Prince Julian. Everyone is speculating about who will take over. Right in the middle of all this confusion, a young woman named Elara pops up, claiming (...)",
+      "she is the king’s daughter nobody knew about. She says she was hidden away at Rosewood Mansion for her own safety. The Royal Council are not buying it without some solid proof. (...)",
+      "They think it is a big deal if she is telling the truth, so they call up BaoBao, a detective known for cracking tough cases. Seing the depth of the mystery BaoBao calls in you for assistance (...)",
+      '"Time to get moving," BaoBao declares, breaking the silence. "Gear up; our investigation begins now. Rosewood Mansion awaits us!"',
     ]);
 
     const clock = new HitBox(1614, 85, 55);
@@ -54,9 +55,7 @@ export class OfficeScene extends BaseScene {
     this.addChild(fourthCabinet);
 
     const baobaoText = () =>
-      this.addText([
-        "Time to roll up my sleeves and get down to business. The hunt for clues never stops!",
-      ]);
+      this.addText(["Time to roll up my sleeves and get down to business. The hunt for clues never stops!"]);
     const baobaoHead = new HitBox(1030, 290, 130);
     const baobaoBody = new HitBox(800, 350, 380, 200, 0);
     const baobaoLowerBody = new HitBox(634, 470, 580, 180);
@@ -120,9 +119,7 @@ export class OfficeScene extends BaseScene {
 
   private showTime = () => {
     const date = new Date();
-    this.addText([
-      `The time is ${date.toTimeString().split(" ")[0].slice(0, -3)}`,
-    ]);
+    this.addText([`The time is ${date.toTimeString().split(" ")[0].slice(0, -3)}`]);
   };
 
   private startInvestigating() {
