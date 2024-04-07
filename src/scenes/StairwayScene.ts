@@ -14,7 +14,10 @@ export class StairwayScene extends BaseScene {
     ]);
 
     const doorOpening = new HitBox(1080, 500, 150, 300);
-    doorOpening.addClickAction(() => Manager.changeScene(dungeon));
+    doorOpening.addClickAction(() => {
+      GameState.visitedDungeon = true;
+      Manager.changeScene(dungeon);
+    });
     this.addChild(doorOpening);
   }
 
@@ -22,9 +25,7 @@ export class StairwayScene extends BaseScene {
     this.addChild(new NavigationArrow(library, Direction.Up, Position.TopMiddle));
     this.addChild(
       new NavigationArrow(dungeon, Direction.Down, Position.BottomMiddle, () => {
-        if (!GameState.visitedDungeon) {
-          GameState.visitedDungeon = true;
-        }
+        GameState.visitedDungeon = true;
       })
     );
   }
