@@ -3,10 +3,19 @@ import { Direction, NavigationArrow, Position } from "../components/NavigationAr
 import { dungeon, library } from "../state/rooms";
 import { BaseScene } from "./BaseScene";
 import { GameState } from "../state/GameState";
+import { HitBox } from "../components/HitBox";
+import { Manager } from "./Manager";
 
 export class StairwayScene extends BaseScene {
   constructor() {
     super(Sprite.from("stairway"));
+    this.addText([
+      "Looks like there is nothing here, just shadows and silence. Let's keep moving. We need to find out what's down here.",
+    ]);
+
+    const doorOpening = new HitBox(1080, 500, 150, 300);
+    doorOpening.addClickAction(() => Manager.changeScene(dungeon));
+    this.addChild(doorOpening);
   }
 
   public loadNavigation() {
